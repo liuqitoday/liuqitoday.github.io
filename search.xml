@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[设置HTTP(HTTPS)代理]]></title>
+    <url>%2F2018%2F03%2F15%2Fhttp-poxy%2F</url>
+    <content type="text"><![CDATA[背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（设置系统属性方式）发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt);]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F03%2F12%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
