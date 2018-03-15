@@ -11,4 +11,15 @@
         <tag>代理</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[Windows + Ubuntu双系统删除Ubuntu]]></title>
+    <url>%2F2016%2F03%2F15%2Fdelete-ubuntu%2F</url>
+    <content type="text"><![CDATA[确定启动方式(UEFI、Legacy)按 WIN+R 快捷键打开“运行”，输入 msinfo32 确定打开“系统信息”，在系统摘要中即可看到BIOS模式。 UEFI 方式的操作借助EasyUEFI来实现，下载安装运行软件，点击“管理EFI”启动项，删除Ubuntu项即可。 删除分区管理计算机-磁盘管理找到Ubuntu对应的分区，删除卷即可。]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>双系统</tag>
+      </tags>
+  </entry>
 </search>
