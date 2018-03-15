@@ -104,20 +104,21 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="代理," />
 
 
-<meta name="description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（设置系统属性方式）发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(&amp;quot;">
+<meta name="description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。">
+<meta name="keywords" content="代理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设置HTTP(HTTPS)代理">
 <meta property="og:url" content="http://yoursite.com/2018/03/15/http-poxy/index.html">
 <meta property="og:site_name" content="liuqi&#39;blog">
-<meta property="og:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（设置系统属性方式）发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(&amp;quot;">
+<meta property="og:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-15T06:53:01.153Z">
+<meta property="og:updated_time" content="2018-03-15T07:07:59.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设置HTTP(HTTPS)代理">
-<meta name="twitter:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（设置系统属性方式）发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(&amp;quot;">
+<meta name="twitter:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。">
 
 
 
@@ -237,6 +238,12 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
         </li>
       
         
@@ -362,6 +369,24 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -420,6 +445,7 @@
 
       
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。</p>
+<a id="more"></a>
 <h2 id="设置代理IP（设置系统属性方式）"><a href="#设置代理IP（设置系统属性方式）" class="headerlink" title="设置代理IP（设置系统属性方式）"></a>设置代理IP（设置系统属性方式）</h2><p>发送HTTP请求前通过设置JVM中的系统属性来实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// HTTP/HTTPS Proxy</span><br><span class="line">System.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);</span><br><span class="line">System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt);</span><br></pre></td></tr></table></figure></p>
 
       
@@ -438,6 +464,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代理/" rel="tag"># 代理</a>
+          
+        </div>
       
 
       
@@ -551,7 +583,33 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
               
             </nav>
           
