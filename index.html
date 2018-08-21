@@ -326,6 +326,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.liuqitech.com/2018/06/10/snowflake/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuqi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuqitech">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/10/snowflake/" itemprop="url">Twitter的SnowFlake算法demo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-10T10:10:20+08:00">2018-06-10</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/10/snowflake/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/10/snowflake/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/06/10/snowflake/" class="leancloud_visitors" data-flag-title="Twitter的SnowFlake算法demo">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://i.loli.net/2018/07/23/5b559f07882b1.jpg" alt="image"></p>
+<blockquote>
+<p>41-bit的时间可以表示（1L&lt;&lt;41）/(1000L<em>3600</em>24*365)=69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w/s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。</p>
+</blockquote>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public class SnowFlakeService &#123;</span><br><span class="line"></span><br><span class="line">    private static final long TIMESTAMP_BIT_NUM = 41L;</span><br><span class="line">    private static final long SEQUENCE_BIT_NUM = 12L;</span><br><span class="line">    private static final long MACHINE_BIT_NUM = 5L;</span><br><span class="line"></span><br><span class="line">    private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM);</span><br><span class="line"></span><br><span class="line">    private long BEGIN_TIMESTAMP = 1262275200000L;</span><br><span class="line"></span><br><span class="line">    private long lastTimeStamp = -1L;</span><br><span class="line">    private long sequence = 0L;</span><br><span class="line"></span><br><span class="line">    public Long getSnowFlake(Long machineId) &#123;</span><br><span class="line">        long currentTimeStamp = System.currentTimeMillis();</span><br><span class="line">        if (currentTimeStamp &lt; lastTimeStamp) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;服务器时间异常！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (currentTimeStamp == lastTimeStamp) &#123;</span><br><span class="line">            sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE;</span><br><span class="line">            if (sequence == 0) &#123;</span><br><span class="line">                currentTimeStamp = getNextTimeMillis();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            lastTimeStamp = currentTimeStamp;</span><br><span class="line">            sequence = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM)</span><br><span class="line">                | machineId &lt;&lt; SEQUENCE_BIT_NUM</span><br><span class="line">                | sequence;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private long getNextTimeMillis() &#123;</span><br><span class="line">        long currentTimeMillis = 0L;</span><br><span class="line">        do &#123;</span><br><span class="line">            currentTimeMillis = System.currentTimeMillis();</span><br><span class="line">        &#125; while (currentTimeMillis &lt;= lastTimeStamp);</span><br><span class="line">        return currentTimeMillis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        long beginTime = System.currentTimeMillis();</span><br><span class="line">        SnowFlakeService snowFlakeService = new SnowFlakeService();</span><br><span class="line">        int count = 0;</span><br><span class="line">        while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123;</span><br><span class="line">            Long snowFlake = snowFlakeService.getSnowFlake(1L);</span><br><span class="line">            System.out.println(snowFlake);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;产生个数&quot; + count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.liuqitech.com/2018/04/15/clear_wechat_web_cache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1034,7 +1201,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1078,7 +1245,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
