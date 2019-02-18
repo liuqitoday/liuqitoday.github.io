@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[jmeter-plugins-dubbo简单试用]]></title>
+    <url>%2F2019%2F02%2F18%2Fjmeter-plugins-dubbo%2F</url>
+    <content type="text"><![CDATA[jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext 使用 add -&gt; Sampler -&gt; dubbo sample 选择注册中心类型（以zookeeper注册中心为例） Protocol -&gt; zookeeper 填写注册中心地址 Address 填写Interface与Method 填写接口相关参数 官方文档https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97 https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ]]></content>
+      <categories>
+        <category>JMeter</category>
+        <category>Dubbo</category>
+      </categories>
+      <tags>
+        <tag>JMeter</tag>
+        <tag>Dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Twitter的SnowFlake算法demo]]></title>
     <url>%2F2018%2F06%2F10%2Fsnowflake%2F</url>
     <content type="text"><![CDATA[概述 41-bit的时间可以表示（1L&lt;&lt;41）/(1000L360024*365)=69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w/s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。 算法实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152public class SnowFlakeService &#123; private static final long TIMESTAMP_BIT_NUM = 41L; private static final long SEQUENCE_BIT_NUM = 12L; private static final long MACHINE_BIT_NUM = 5L; private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM); private long BEGIN_TIMESTAMP = 1262275200000L; private long lastTimeStamp = -1L; private long sequence = 0L; public Long getSnowFlake(Long machineId) &#123; long currentTimeStamp = System.currentTimeMillis(); if (currentTimeStamp &lt; lastTimeStamp) &#123; throw new RuntimeException(&quot;服务器时间异常！&quot;); &#125; if (currentTimeStamp == lastTimeStamp) &#123; sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE; if (sequence == 0) &#123; currentTimeStamp = getNextTimeMillis(); &#125; &#125; else &#123; lastTimeStamp = currentTimeStamp; sequence = 0; &#125; return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM) | machineId &lt;&lt; SEQUENCE_BIT_NUM | sequence; &#125; private long getNextTimeMillis() &#123; long currentTimeMillis = 0L; do &#123; currentTimeMillis = System.currentTimeMillis(); &#125; while (currentTimeMillis &lt;= lastTimeStamp); return currentTimeMillis; &#125; public static void main(String[] args) &#123; long beginTime = System.currentTimeMillis(); SnowFlakeService snowFlakeService = new SnowFlakeService(); int count = 0; while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123; Long snowFlake = snowFlakeService.getSnowFlake(1L); System.out.println(snowFlake); count++; &#125; System.out.println(&quot;产生个数&quot; + count); &#125;&#125;]]></content>
