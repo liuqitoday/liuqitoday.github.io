@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[PushBear试用 - 喝水提醒小助手]]></title>
     <url>%2F2019%2F06%2F14%2Fpushbear-demo%2F</url>
-    <content type="text"><![CDATA[PushBear试用 - 喝水提醒小助手PushBear简介基于微信模板的一对多消息送达服务 接入说明详见官网 http://pushbear.ftqq.com DEMO废话不多说，直接贴代码 1234567891011121314151617181920212223import requestsimport datetimefrom apscheduler.schedulers.blocking import BlockingSchedulerglobal timestimes = 1def remind(): global times sendkey = '此处换成自己的' text = '提醒喝水小助手' desp = '这是今天第' + str(times) + '提醒你喝水啦' payload = &#123;'sendkey': sendkey, 'text': text, 'desp': desp&#125; requests.post("https://pushbear.ftqq.com/sub", data=payload) times = times + 1 now_hour = datetime.datetime.now().hour if now_hour &gt;= 21: times = 1if __name__ == "__main__": sched = BlockingScheduler() sched.add_job(remind, 'cron', hour='10,11,14,15,16,17,18,21', minute=6) sched.start()]]></content>
+    <content type="text"><![CDATA[PushBear试用 - 喝水提醒小助手PushBear简介基于微信模板的一对多消息送达服务 接入说明详见官网 http://pushbear.ftqq.com DEMO废话不多说，直接贴代码 1234567891011121314151617181920212223import requestsimport datetimefrom apscheduler.schedulers.blocking import BlockingSchedulerglobal timestimes = 1def remind(): global times sendkey = '此处换成自己的' text = '提醒喝水小助手' desp = '这是今天第' + str(times) + '次提醒你喝水啦' payload = &#123;'sendkey': sendkey, 'text': text, 'desp': desp&#125; requests.post("https://pushbear.ftqq.com/sub", data=payload) times = times + 1 now_hour = datetime.datetime.now().hour if now_hour &gt;= 21: times = 1if __name__ == "__main__": sched = BlockingScheduler() sched.add_job(remind, 'cron', hour='10,11,14,15,16,17,18,21', minute=6) sched.start()]]></content>
       <categories>
         <category>WeChat</category>
         <category>Push</category>
