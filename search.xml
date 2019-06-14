@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PushBear试用 - 喝水提醒小助手]]></title>
+    <url>%2F2019%2F06%2F14%2Fpushbear-demo%2F</url>
+    <content type="text"><![CDATA[PushBear试用 - 喝水提醒小助手PushBear简介基于微信模板的一对多消息送达服务 接入说明详见官网 http://pushbear.ftqq.com DEMO废话不多说，直接贴代码 1234567891011121314151617181920212223import requestsimport datetimefrom apscheduler.schedulers.blocking import BlockingSchedulerglobal timestimes = 1def remind(): global times sendkey = '此处换成自己的' text = '提醒喝水小助手' desp = '这是今天第' + str(times) + '提醒你喝水啦' payload = &#123;'sendkey': sendkey, 'text': text, 'desp': desp&#125; requests.post("https://pushbear.ftqq.com/sub", data=payload) times = times + 1 now_hour = datetime.datetime.now().hour if now_hour &gt;= 21: times = 1if __name__ == "__main__": sched = BlockingScheduler() sched.add_job(remind, 'cron', hour='10,11,14,15,16,17,18,21', minute=6) sched.start()]]></content>
+      <categories>
+        <category>WeChat</category>
+        <category>Push</category>
+      </categories>
+      <tags>
+        <tag>WeChat</tag>
+        <tag>Push</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[jmeter-plugins-dubbo简单试用]]></title>
     <url>%2F2019%2F02%2F18%2Fjmeter-plugins-dubbo%2F</url>
     <content type="text"><![CDATA[jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext 使用 add -&gt; Sampler -&gt; dubbo sample 选择注册中心类型（以zookeeper注册中心为例） Protocol -&gt; zookeeper 填写注册中心地址 Address 填写Interface与Method 填写接口相关参数 官方文档https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97 https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ]]></content>
