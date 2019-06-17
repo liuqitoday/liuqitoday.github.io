@@ -6,11 +6,11 @@
     <content type="text"><![CDATA[PushBear试用 - 喝水提醒小助手PushBear简介基于微信模板的一对多消息送达服务 接入说明详见官网 http://pushbear.ftqq.com DEMO废话不多说，直接贴代码 1234567891011121314151617181920212223import requestsimport datetimefrom apscheduler.schedulers.blocking import BlockingSchedulerglobal timestimes = 1def remind(): global times sendkey = '此处换成自己的' text = '提醒喝水小助手' desp = '这是今天第' + str(times) + '次提醒你喝水啦' payload = &#123;'sendkey': sendkey, 'text': text, 'desp': desp&#125; requests.post("https://pushbear.ftqq.com/sub", data=payload) times = times + 1 now_hour = datetime.datetime.now().hour if now_hour &gt;= 21: times = 1if __name__ == "__main__": sched = BlockingScheduler() sched.add_job(remind, 'cron', hour='10,11,14,15,16,17,18,21', minute=6) sched.start()]]></content>
       <categories>
         <category>WeChat</category>
-        <category>Push</category>
       </categories>
       <tags>
         <tag>WeChat</tag>
         <tag>Push</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -18,7 +18,6 @@
     <url>%2F2019%2F02%2F18%2Fjmeter-plugins-dubbo%2F</url>
     <content type="text"><![CDATA[jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext 使用 add -&gt; Sampler -&gt; dubbo sample 选择注册中心类型（以zookeeper注册中心为例） Protocol -&gt; zookeeper 填写注册中心地址 Address 填写Interface与Method 填写接口相关参数 官方文档https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97 https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ]]></content>
       <categories>
-        <category>JMeter</category>
         <category>Dubbo</category>
       </categories>
       <tags>
@@ -31,7 +30,6 @@
     <url>%2F2019%2F02%2F18%2Ffrp%2F</url>
     <content type="text"><![CDATA[frp 内网穿透前言对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。 此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。 frp简介frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。 项目地址：https://github.com/fatedier/frp 准备工作我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。 网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。 安装安装非常简单，仅需简单的几个步骤就可以上手。 服务端 - frps1234# 下载 在github release页面下载适合自己系统的版本wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz# 解压tar -zxvf frp_0.27.0_linux_amd64.tar.gz 此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。 12345678[common]bind_port = 7000# 客户端与服务端token一致才可连接成功token = 676767 # dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控dashboard_port = 7500 dashboard_user = liuqitechdashboard_pwd = liuqitech 启动 1./frps -c frps.ini 客户端 - frpc同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置 123456[common]# 服务端IP 端口server_addr = x.x.x.xserver_port = 7000# token 服务端与客户端需一致token = 676767 启动 1./frpc.exe -c frpc.ini 使用实例以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。 我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。 更多不同的配置请参考官方文档https://github.com/fatedier/frp/blob/master/README_zh.md 客户端配置文件 frpc.ini 进行修改，添加以下配置 1234567[rdp]type = tcplocal_ip = 127.0.0.1# 3389为默认的Windows远程桌面连接的端口local_port = 3389# 进行远程连接时的端口remote_port = 7001 重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。 当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。]]></content>
       <categories>
-        <category>frp</category>
         <category>内网穿透</category>
       </categories>
       <tags>
