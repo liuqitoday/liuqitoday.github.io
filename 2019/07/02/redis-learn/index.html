@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="liuqitech">
 <meta property="og:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-02T10:06:11.339Z">
+<meta property="og:updated_time" content="2019-07-02T10:07:17.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置">
 <meta name="twitter:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
@@ -392,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2019-07-02 17:58:00 / 修改时间：18:06:11" itemprop="dateCreated datePublished" datetime="2019-07-02T17:58:00+08:00">2019-07-02</time>
+              <time title="创建时间：2019-07-02 17:58:00 / 修改时间：18:07:17" itemprop="dateCreated datePublished" datetime="2019-07-02T17:58:00+08:00">2019-07-02</time>
             </span>
           
 
@@ -475,6 +475,7 @@
 <h4 id="Redis-Strings"><a href="#Redis-Strings" class="headerlink" title="Redis Strings"></a>Redis Strings</h4><p>Redis String 字符串类型，最简单的数据类型。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; set mykey somevalue</span><br><span class="line">OK</span><br><span class="line">&gt; get mykey</span><br><span class="line">&quot;somevalue&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="Redis-Lists"><a href="#Redis-Lists" class="headerlink" title="Redis Lists"></a>Redis Lists</h4><p>Redis Lists 存储的字符串类型的元素，是按插入顺序排序的列表。</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush mylist A</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; rpush mylist B</span><br><span class="line">(integer) 2</span><br><span class="line">&gt; lpush mylist first</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;first&quot;</span><br><span class="line">2) &quot;A&quot;</span><br><span class="line">3) &quot;B&quot;</span><br><span class="line">&gt; lpop mylist</span><br><span class="line">&quot;first&quot;</span><br><span class="line">&gt; rpop mylist</span><br><span class="line">&quot;B&quot;</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;A&quot;</span><br></pre></td></tr></table></figure>
 <h4 id="Redis-Hashes"><a href="#Redis-Hashes" class="headerlink" title="Redis Hashes"></a>Redis Hashes</h4><p>Redis Hashes 是字符串类型的键值对。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset myhash name liuqi</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; hget myhash name</span><br><span class="line">&quot;liuqi&quot;</span><br><span class="line">&gt; hmset myhash age 27 website liuqitech.com</span><br><span class="line">OK</span><br><span class="line">&gt; hgetall myhash</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;liuqi&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;27&quot;</span><br><span class="line">5) &quot;website&quot;</span><br><span class="line">6) &quot;liuqitech.com&quot;</span><br></pre></td></tr></table></figure>
