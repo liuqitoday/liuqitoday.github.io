@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（多种实现方式）设置系统属性方式发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(">
-<meta name="keywords" content="代理">
+  <meta name="description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
+<meta name="keywords" content="Redis,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设置HTTP(HTTPS)代理">
-<meta property="og:url" content="http://blog.liuqitech.com/2018/03/15/http-poxy/index.html">
+<meta property="og:title" content="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置">
+<meta property="og:url" content="http://blog.liuqitech.com/2019/07/02/redis-learn/index.html">
 <meta property="og:site_name" content="liuqitech">
-<meta property="og:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（多种实现方式）设置系统属性方式发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(">
+<meta property="og:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-16T05:27:46.965Z">
+<meta property="og:updated_time" content="2019-07-02T09:59:05.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设置HTTP(HTTPS)代理">
-<meta name="twitter:description" content="背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（多种实现方式）设置系统属性方式发送HTTP请求前通过设置JVM中的系统属性来实现12345// HTTP/HTTPS ProxySystem.setProperty(&amp;quot;http.proxyHost&amp;quot;, yourProxyIp);System.setProperty(">
+<meta name="twitter:title" content="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置">
+<meta name="twitter:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://blog.liuqitech.com/2018/03/15/http-poxy/"/>
+  <link rel="canonical" href="http://blog.liuqitech.com/2019/07/02/redis-learn/"/>
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>设置HTTP(HTTPS)代理 | liuqitech</title>
+  <title>Redis基础笔记 - 数据类型&部署方式&项目配置 | liuqitech</title>
   
 
 
@@ -349,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.liuqitech.com/2018/03/15/http-poxy/"/>
+    <link itemprop="mainEntityOfPage" href="http://blog.liuqitech.com/2019/07/02/redis-learn/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuqi"/>
@@ -366,7 +366,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">设置HTTP(HTTPS)代理
+          <h2 class="post-title" itemprop="name headline">Redis基础笔记 - 数据类型&部署方式&项目配置
 
               
             
@@ -392,23 +392,13 @@
                 
               
 
-              <time title="创建时间：2018-03-15 14:51:37" itemprop="dateCreated datePublished" datetime="2018-03-15T14:51:37+08:00">2018-03-15</time>
+              <time title="创建时间：2019-07-02 17:58:00 / 修改时间：17:59:05" itemprop="dateCreated datePublished" datetime="2019-07-02T17:58:00+08:00">2019-07-02</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-03-16 13:27:46" itemprop="dateModified" datetime="2018-03-16T13:27:46+08:00">2018-03-16</time>
-              </span>
             
           
 
@@ -421,7 +411,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
 
                 
                 
@@ -439,8 +429,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/03/15/http-poxy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/15/http-poxy/" itemprop="commentCount"></span>
+                <a href="/2019/07/02/redis-learn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/02/redis-learn/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -480,10 +470,48 @@
       
 
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。</p>
-<h3 id="设置代理IP（多种实现方式）"><a href="#设置代理IP（多种实现方式）" class="headerlink" title="设置代理IP（多种实现方式）"></a>设置代理IP（多种实现方式）</h3><h4 id="设置系统属性方式"><a href="#设置系统属性方式" class="headerlink" title="设置系统属性方式"></a>设置系统属性方式</h4><p>发送HTTP请求前通过设置JVM中的系统属性来实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// HTTP/HTTPS Proxy</span><br><span class="line">System.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);</span><br><span class="line">System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt);</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h4 id="使用HttpClient时设置代理"><a href="#使用HttpClient时设置代理" class="headerlink" title="使用HttpClient时设置代理"></a>使用HttpClient时设置代理</h4><p>直接引用HttpClient官方的示例代码进行说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.http.HttpHost;</span><br><span class="line">import org.apache.http.client.config.RequestConfig;</span><br><span class="line">import org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line">import org.apache.http.client.methods.HttpGet;</span><br><span class="line">import org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line">import org.apache.http.impl.client.HttpClients;</span><br><span class="line">import org.apache.http.util.EntityUtils;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * How to send a request via proxy.</span><br><span class="line"> *</span><br><span class="line"> * @since 4.0</span><br><span class="line"> */</span><br><span class="line">public class ClientExecuteProxy &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)throws Exception &#123;</span><br><span class="line">        CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">        try &#123;</span><br><span class="line">            HttpHost target = new HttpHost(&quot;httpbin.org&quot;, 443, &quot;https&quot;);</span><br><span class="line">            HttpHost proxy = new HttpHost(&quot;127.0.0.1&quot;, 8080, &quot;http&quot;);</span><br><span class="line"></span><br><span class="line">            RequestConfig config = RequestConfig.custom()</span><br><span class="line">                    .setProxy(proxy)</span><br><span class="line">                    .build();</span><br><span class="line">            HttpGet request = new HttpGet(&quot;/&quot;);</span><br><span class="line">            request.setConfig(config);</span><br><span class="line"></span><br><span class="line">            System.out.println(&quot;Executing request &quot; + request.getRequestLine() + &quot; to &quot; + target + &quot; via &quot; + proxy);</span><br><span class="line"></span><br><span class="line">            CloseableHttpResponse response = httpclient.execute(target, request);</span><br><span class="line">            try &#123;</span><br><span class="line">                System.out.println(&quot;----------------------------------------&quot;);</span><br><span class="line">                System.out.println(response.getStatusLine());</span><br><span class="line">                System.out.println(EntityUtils.toString(response.getEntity()));</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line">                response.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            httpclient.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Redis基础笔记-数据类型-amp-部署方式-amp-项目配置"><a href="#Redis基础笔记-数据类型-amp-部署方式-amp-项目配置" class="headerlink" title="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置"></a>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</h2><h3 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h3><p>Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。</p>
+<p>官方文档对于数据类型说明 <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="noopener">https://redis.io/topics/data-types-intro</a></p>
+<h4 id="Redis-Strings"><a href="#Redis-Strings" class="headerlink" title="Redis Strings"></a>Redis Strings</h4><p>Redis String 字符串类型，最简单的数据类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; set mykey somevalue</span><br><span class="line">OK</span><br><span class="line">&gt; get mykey</span><br><span class="line">&quot;somevalue&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Redis-Lists"><a href="#Redis-Lists" class="headerlink" title="Redis Lists"></a>Redis Lists</h4><p>Redis Lists 存储的字符串类型的元素，是按插入顺序排序的列表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush mylist A</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; rpush mylist B</span><br><span class="line">(integer) 2</span><br><span class="line">&gt; lpush mylist first</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;first&quot;</span><br><span class="line">2) &quot;A&quot;</span><br><span class="line">3) &quot;B&quot;</span><br><span class="line">&gt; lpop mylist</span><br><span class="line">&quot;first&quot;</span><br><span class="line">&gt; rpop mylist</span><br><span class="line">&quot;B&quot;</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;A&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Redis-Hashes"><a href="#Redis-Hashes" class="headerlink" title="Redis Hashes"></a>Redis Hashes</h4><p>Redis Hashes 是字符串类型的键值对。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset myhash name liuqi</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; hget myhash name</span><br><span class="line">&quot;liuqi&quot;</span><br><span class="line">&gt; hmset myhash age 27 website liuqitech.com</span><br><span class="line">OK</span><br><span class="line">&gt; hgetall myhash</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;liuqi&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;27&quot;</span><br><span class="line">5) &quot;website&quot;</span><br><span class="line">6) &quot;liuqitech.com&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="Redis-Sets"><a href="#Redis-Sets" class="headerlink" title="Redis Sets"></a>Redis Sets</h4><p>Redis Sets 是字符串类型的无序集合，不能有重复的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd myset 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; smembers myset</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">&gt; sismember myset 1</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sismember myset 10</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+<h4 id="Redis-Sorted-sets"><a href="#Redis-Sorted-sets" class="headerlink" title="Redis Sorted sets"></a>Redis Sorted sets</h4><p>Redis Sorted sets 与 Redis Sets 不同的是，每一个元素都会关联一个浮点数类型的分数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; zadd hackers 1940 &quot;Alan Kay&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1957 &quot;Sophie Wilson&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1953 &quot;Richard Stallman&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1949 &quot;Anita Borg&quot;</span><br><span class="line">&gt; zrange hackers 0 -1</span><br><span class="line">1) &quot;Alan Kay&quot;</span><br><span class="line">2) &quot;Anita Borg&quot;</span><br><span class="line">3) &quot;Richard Stallman&quot;</span><br><span class="line">4) &quot;Sophie Wilson&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Redis-部署方式"><a href="#Redis-部署方式" class="headerlink" title="Redis 部署方式"></a>Redis 部署方式</h3><p>单机、主从、哨兵、集群</p>
+<h4 id="单机"><a href="#单机" class="headerlink" title="单机"></a>单机</h4><p>单机方式没什么好说的，使用默认的配置文件启动即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server redis.conf</span><br></pre></td></tr></table></figure>
+<h4 id="主从复制-（replication）"><a href="#主从复制-（replication）" class="headerlink" title="主从复制 （replication）"></a>主从复制 （replication）</h4><p>配置主从复制方式非常简单，只需要在 slave 的配置文件中添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slaveof 192.168.1.1 6379</span><br></pre></td></tr></table></figure>
+<p>其中 192.168.1.1 6379 为 master 的IP和端口</p>
+<p>官方文档 <a href="https://redis.io/topics/replication" target="_blank" rel="noopener">https://redis.io/topics/replication</a></p>
+<h4 id="哨兵（Sentinel）"><a href="#哨兵（Sentinel）" class="headerlink" title="哨兵（Sentinel）"></a>哨兵（Sentinel）</h4><p>哨兵是在主从复制的基础上进行的增强方案。原主从复制的方式中，若master宕机，无法进行主从切，所以会引发一些故障。哨兵可以监控多个，master-slave集群，若发现其中的master宕机时，会把该master下的slave转换为master，同时原master下的slave也会slaveof为新的master。</p>
+<p>哨兵启动的方式有以下两种，sentinel的默认端口为26379。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure>
+<p>我们需要配置监听的master，slave无需手动配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds mymaster 60000</span><br><span class="line">sentinel failover-timeout mymaster 180000</span><br><span class="line">sentinel parallel-syncs mymaster 1</span><br><span class="line"></span><br><span class="line">sentinel monitor resque 192.168.1.3 6380 4</span><br><span class="line">sentinel down-after-milliseconds resque 10000</span><br><span class="line">sentinel failover-timeout resque 180000</span><br><span class="line">sentinel parallel-syncs resque 5</span><br></pre></td></tr></table></figure>
+<p>以上为监听两个master的例子。sentinel monitor 语句参数的含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor &lt;master-group-name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br></pre></td></tr></table></figure>
+<p>其中quorum的意义为，当sentinel为集群时，若quorum为2，此时其中监听的一个master发生了宕机，当有2个sentinel认为它为不可用状态的时候才会真正判定该master已经为不可用状态。</p>
+<p>官方文档 <a href="https://redis.io/topics/sentinel" target="_blank" rel="noopener">https://redis.io/topics/sentinel</a></p>
+<h4 id="集群-（cluster）"><a href="#集群-（cluster）" class="headerlink" title="集群 （cluster）"></a>集群 （cluster）</h4><p>按照文档做个简单的搭建，复制6份redis到文件夹（如 7000 7001 7002 7003 7004 7005），7000到7005的redis.conf分别按以下模板进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 7000</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<p>分别启动这6个reids实例，然后redis-cli创建集群（5以上版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
+<p>官方文档 <a href="https://redis.io/topics/cluster-tutorial" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial</a></p>
+<h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><p>我demo中使用的 Spring Boot 版本为 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">添加依赖</span><br></pre></td></tr></table></figure></p>
+<p><dependency><br>    <groupid>org.springframework.boot</groupid><br>    <artifactid>spring-boot-starter-data-redis</artifactid><br></dependency><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">查看依赖可知现在版本的使用的默认的reids客户端为 ```Lettuce</span><br></pre></td></tr></table></figure></p>
+<p>通过查看<code>LettuceConnectionConfiguration</code> 可发现，它可以为我们初始化一个 <code>RedisTemplate&lt;Object, Object&gt;</code> 类型的 redisTemplate，和一个 <code>RedisTemplate&lt;String, String&gt;</code> 类型的 stringRedisTemplate。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ConditionalOnClass(RedisOperations.class)</span><br><span class="line">@EnableConfigurationProperties(RedisProperties.class)</span><br><span class="line">@Import(&#123; LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class &#125;)</span><br><span class="line">public class RedisAutoConfiguration &#123;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean(name = &quot;redisTemplate&quot;)</span><br><span class="line">	public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate&lt;&gt;();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean</span><br><span class="line">	public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		StringRedisTemplate template = new StringRedisTemplate();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后面的例子中为了方便测试，直接注入<figure class="highlight plain"><figcaption><span>来使用，当然你也可以自定义自己需要类型的 RedisTemplate。针对不同的部署方式，修改application.yml 配置文件如下：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 单机</span><br></pre></td></tr></table></figure></p>
+<p>spring:<br>redis:<br>  host: 127.0.0.1<br>  port: 6379<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 哨兵</span><br></pre></td></tr></table></figure></p>
+<p>spring:<br>redis:<br>  sentinel:<br>    master: mymaster<br>    nodes: 127.0.0.1:26379, 127.0.0.1:26380<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 集群</span><br></pre></td></tr></table></figure></p>
+<p>spring:<br>redis:<br>  cluster:<br>    nodes: 127.0.0.1:7000, 127.0.0.1:7001, 127.0.0.1:7002, 127.0.0.1:7003, 127.0.0.1:7004, 127.0.0.1:7005<br><code>`</code></p>
 
       
     </div>
@@ -510,7 +538,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/代理/" rel="tag"># 代理</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -523,8 +553,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/16/mybatis-ognl/" rel="next" title="MyBatis中OGNL表达式的强制对象类型">
-                <i class="fa fa-chevron-left"></i> MyBatis中OGNL表达式的强制对象类型
+              <a href="/2019/06/16/frp/" rel="next" title="frp 内网穿透">
+                <i class="fa fa-chevron-left"></i> frp 内网穿透
               </a>
             
           </div>
@@ -532,10 +562,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/15/clear_wechat_web_cache/" rel="prev" title="清除微信网页缓存">
-                清除微信网页缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -743,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置代理IP（多种实现方式）"><span class="nav-number">2.</span> <span class="nav-text">设置代理IP（多种实现方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置系统属性方式"><span class="nav-number">2.1.</span> <span class="nav-text">设置系统属性方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用HttpClient时设置代理"><span class="nav-number">2.2.</span> <span class="nav-text">使用HttpClient时设置代理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis基础笔记-数据类型-amp-部署方式-amp-项目配置"><span class="nav-number">1.</span> <span class="nav-text">Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Strings"><span class="nav-number">1.1.1.</span> <span class="nav-text">Redis Strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Lists"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redis Lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Hashes"><span class="nav-number">1.1.3.</span> <span class="nav-text">Redis Hashes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Sets"><span class="nav-number">1.1.4.</span> <span class="nav-text">Redis Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Sorted-sets"><span class="nav-number">1.1.5.</span> <span class="nav-text">Redis Sorted sets</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-部署方式"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单机"><span class="nav-number">1.2.1.</span> <span class="nav-text">单机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主从复制-（replication）"><span class="nav-number">1.2.2.</span> <span class="nav-text">主从复制 （replication）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哨兵（Sentinel）"><span class="nav-number">1.2.3.</span> <span class="nav-text">哨兵（Sentinel）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集群-（cluster）"><span class="nav-number">1.2.4.</span> <span class="nav-text">集群 （cluster）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-配置"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Boot 配置</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -939,9 +965,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://blog.liuqitech.com/2018/03/15/http-poxy/";
-    this.page.identifier = "2018/03/15/http-poxy/";
-    this.page.title = '设置HTTP(HTTPS)代理';
+    this.page.url = "http://blog.liuqitech.com/2019/07/02/redis-learn/";
+    this.page.identifier = "2019/07/02/redis-learn/";
+    this.page.title = 'Redis基础笔记 - 数据类型&部署方式&项目配置';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
