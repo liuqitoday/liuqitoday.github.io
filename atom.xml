@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.liuqitech.com/"/>
-  <updated>2019-07-02T10:17:09.215Z</updated>
+  <updated>2019-07-05T06:45:22.864Z</updated>
   <id>http://blog.liuqitech.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM笔记 - 运行时内存区域</title>
+    <link href="http://blog.liuqitech.com/2019/07/04/jvm-spec/"/>
+    <id>http://blog.liuqitech.com/2019/07/04/jvm-spec/</id>
+    <published>2019-07-04T05:26:00.000Z</published>
+    <updated>2019-07-05T06:45:22.864Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/JvmSpec7.png" alt="JvmSpec"></p><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>它可以看做是当前线程执行的字节码的指示器。</p><h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>它描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口信息等。每一个方法从调用到执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。</p><h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>它是被所有线程共享的一块区域，在虚拟机启动时创建。此内存区域的唯一目的是存放对象实例。</p><p>对象的内存布局分为3块区域 对象头、实例数据、对齐填充</p><h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>它也是被所有线程共享的一块区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p><p>运行时常量池是方法区的一部分。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/d/dd/JvmSpec7.png&quot; alt=&quot;JvmSpec&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;程序计数器&quot;&gt;&lt;a href=&quot;#程序计数器&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://blog.liuqitech.com/tags/Java/"/>
+    
+      <category term="JVM" scheme="http://blog.liuqitech.com/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</title>
