@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git flow 简单入门]]></title>
+    <url>%2F2019%2F12%2F26%2Fgit-flow-learn%2F</url>
+    <content type="text"><![CDATA[简介Git 作为源码管理系统，不可避免涉及到多人协作。团队中商定一个工作流程至关重要的。本文已常用的Git flow 做说明，该模型如下图所示： 说明该模型总存在两个长期（核心）分支： master develop master ，我们认为该分支存放对外发布的版本，任何时候该分支都是稳定的发布版。我们不可以直接在该分支push 代码。 develop ，我们认为该分支的代码存放的是达到稳定并且准备发布时的，我们的新功能开发都是基于此分支。 其次，项目存在的三种短期分支： feature hotfix release feature ，即功能分支，我们进行新功能的开发将在此分支上进行。该分支的代码基于develop 并且最终回合并回develop 分支。 hoxtfix , 即补丁分支，我们进行线上问题修复将在此分支进行，该代码分支基于master 并且最终将合并会develop、master 分支。 release, 即预发分支。 操作流程实例当我们进行新功能开发时，需要基于develop分支拉取feature分支进行开发，如增加了一个功能 我们将基于develop分支创建 feature/news 分支。 当功能开发完毕时，我们将提交merge request，将该功能合并到develop 分支。 当所有feature 功能开发完毕，且都已合并回develop，且开发自己测试完毕后。准备创建预发布版本，就可以基于develop创建release分支。此时测试人员可以基于该版本release进行测试，发现了问题，则需要基于release创建分支，进行修复后，将这些修改合并回release分支同时需要合并回develop分支。 当具备上线条件时，需要将release分支合并到master和develop分支，然后进行上线操作，线上发布的为master分支。 当需要修复线上bug时，我们需要基于master创建hotfix分支，当修复且验证完毕后，将hotfix分支合并回master分支，同时为了保证该hotfix包含在下一个发行版中，同时需要合并回develop分支。最后删除hotfix分支。 SourceTree操作SourceTree 的图形化界面git工具，可以简化我们上述的复杂操作。 初始化项目 点击右上角Git工作流按钮，初始化git flow。 开发新功能 点击创建新的功能，此时我们发现已经为我们创建了feature/news分支，我们将在此分支进行功能开发。 开发完成 点击完成功能。 此时我们发现已经将feature/news分支合并到了develop分支。 预发布 开始release 点击建立新的发布版本，此时我们发现已经为我们创建了release/v1.0.0 分支。 发布 完成release 点击完成发布版本，此时我们发现已经将release/1.0.0分支合并到了develop和master 线上问题修复 开始hotfix 点击创建新的修复补丁，此时我们发现基于master为我们创建了hotfix/v1.0.0-20191226 完成问题修复 完成hotfix 点击完成修复补丁，此时我们发现将hotfix合并回了develop和master分支。 参考文档https://nvie.com/posts/a-successful-git-branching-model/]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>gitflow</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[斐讯K2 刷机资料]]></title>
     <url>%2F2019%2F12%2F12%2Fphicomm_k2%2F</url>
     <content type="text"><![CDATA[型号K2 : PSG1218 Breed https://breed.hackpascal.net/ 老毛子padavan https://opt.cn2qq.com/padavan/ 无线AP工作模式 AP (禁用桥接) WDS 桥接 (禁用AP) WDS 中继 (桥接 + AP) AP-Client (禁用AP) AP-Client + AP 无线AP-Client角色 LAN bridge : 网桥，简单的说就是承担AP的角色，相当于一个无线交换机了，从主路由获取IP。选择这个就需要关掉华硕的DHCP功能。 Wireless ISP : 这个不难理解，就是供应商的形式，副路由在这里就是另外一个网段。选择这个得保证副路由和主路由LAN口地址不在一个网段。 高恪http://www.gocloud.cn/]]></content>
       <categories>
-        <category>路由器</category>
+        <category>net</category>
       </categories>
       <tags>
         <tag>斐讯</tag>
@@ -68,7 +80,7 @@
     <url>%2F2019%2F06%2F16%2Ffrp%2F</url>
     <content type="text"><![CDATA[frp 内网穿透前言对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。 此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。 frp简介frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。 项目地址：https://github.com/fatedier/frp 准备工作我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。 网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。 安装安装非常简单，仅需简单的几个步骤就可以上手。 服务端 - frps1234# 下载 在github release页面下载适合自己系统的版本wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz# 解压tar -zxvf frp_0.27.0_linux_amd64.tar.gz 此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。 12345678[common]bind_port = 7000# 客户端与服务端token一致才可连接成功token = 676767 # dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控dashboard_port = 7500 dashboard_user = liuqitechdashboard_pwd = liuqitech 启动 1./frps -c frps.ini 客户端 - frpc同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置 123456[common]# 服务端IP 端口server_addr = x.x.x.xserver_port = 7000# token 服务端与客户端需一致token = 676767 启动 1./frpc.exe -c frpc.ini 使用实例以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。 我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。 更多不同的配置请参考官方文档https://github.com/fatedier/frp/blob/master/README_zh.md 客户端配置文件 frpc.ini 进行修改，添加以下配置 1234567[rdp]type = tcplocal_ip = 127.0.0.1# 3389为默认的Windows远程桌面连接的端口local_port = 3389# 进行远程连接时的端口remote_port = 7001 重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。 当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。]]></content>
       <categories>
-        <category>内网穿透</category>
+        <category>net</category>
       </categories>
       <tags>
         <tag>frp</tag>
@@ -93,7 +105,7 @@
     <url>%2F2019%2F02%2F18%2Fjmeter-plugins-dubbo%2F</url>
     <content type="text"><![CDATA[jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext 使用 add -&gt; Sampler -&gt; dubbo sample 选择注册中心类型（以zookeeper注册中心为例） Protocol -&gt; zookeeper 填写注册中心地址 Address 填写Interface与Method 填写接口相关参数 官方文档https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97 https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ]]></content>
       <categories>
-        <category>Dubbo</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>JMeter</tag>
@@ -105,7 +117,7 @@
     <url>%2F2018%2F06%2F10%2Fsnowflake%2F</url>
     <content type="text"><![CDATA[概述 41-bit的时间可以表示（1L&lt;&lt;41）/(1000L360024*365)=69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w/s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。 算法实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152public class SnowFlakeService &#123; private static final long TIMESTAMP_BIT_NUM = 41L; private static final long SEQUENCE_BIT_NUM = 12L; private static final long MACHINE_BIT_NUM = 5L; private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM); private long BEGIN_TIMESTAMP = 1262275200000L; private long lastTimeStamp = -1L; private long sequence = 0L; public Long getSnowFlake(Long machineId) &#123; long currentTimeStamp = System.currentTimeMillis(); if (currentTimeStamp &lt; lastTimeStamp) &#123; throw new RuntimeException(&quot;服务器时间异常！&quot;); &#125; if (currentTimeStamp == lastTimeStamp) &#123; sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE; if (sequence == 0) &#123; currentTimeStamp = getNextTimeMillis(); &#125; &#125; else &#123; lastTimeStamp = currentTimeStamp; sequence = 0; &#125; return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM) | machineId &lt;&lt; SEQUENCE_BIT_NUM | sequence; &#125; private long getNextTimeMillis() &#123; long currentTimeMillis = 0L; do &#123; currentTimeMillis = System.currentTimeMillis(); &#125; while (currentTimeMillis &lt;= lastTimeStamp); return currentTimeMillis; &#125; public static void main(String[] args) &#123; long beginTime = System.currentTimeMillis(); SnowFlakeService snowFlakeService = new SnowFlakeService(); int count = 0; while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123; Long snowFlake = snowFlakeService.getSnowFlake(1L); System.out.println(snowFlake); count++; &#125; System.out.println(&quot;产生个数&quot; + count); &#125;&#125;]]></content>
       <categories>
-        <category>JAVA</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>snowflake</tag>
@@ -129,7 +141,7 @@
     <url>%2F2018%2F03%2F15%2Fhttp-poxy%2F</url>
     <content type="text"><![CDATA[背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（多种实现方式）设置系统属性方式发送HTTP请求前通过设置JVM中的系统属性来实现 12345// HTTP/HTTPS ProxySystem.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt); 使用HttpClient时设置代理直接引用HttpClient官方的示例代码进行说明 12345678910111213141516171819202122232425262728293031323334353637383940414243import org.apache.http.HttpHost;import org.apache.http.client.config.RequestConfig;import org.apache.http.client.methods.CloseableHttpResponse;import org.apache.http.client.methods.HttpGet;import org.apache.http.impl.client.CloseableHttpClient;import org.apache.http.impl.client.HttpClients;import org.apache.http.util.EntityUtils;/** * How to send a request via proxy. * * @since 4.0 */public class ClientExecuteProxy &#123; public static void main(String[] args)throws Exception &#123; CloseableHttpClient httpclient = HttpClients.createDefault(); try &#123; HttpHost target = new HttpHost(&quot;httpbin.org&quot;, 443, &quot;https&quot;); HttpHost proxy = new HttpHost(&quot;127.0.0.1&quot;, 8080, &quot;http&quot;); RequestConfig config = RequestConfig.custom() .setProxy(proxy) .build(); HttpGet request = new HttpGet(&quot;/&quot;); request.setConfig(config); System.out.println(&quot;Executing request &quot; + request.getRequestLine() + &quot; to &quot; + target + &quot; via &quot; + proxy); CloseableHttpResponse response = httpclient.execute(target, request); try &#123; System.out.println(&quot;----------------------------------------&quot;); System.out.println(response.getStatusLine()); System.out.println(EntityUtils.toString(response.getEntity())); &#125; finally &#123; response.close(); &#125; &#125; finally &#123; httpclient.close(); &#125; &#125;&#125;]]></content>
       <categories>
-        <category>JAVA</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>代理</tag>
@@ -140,7 +152,7 @@
     <url>%2F2016%2F10%2F16%2Fmybatis-ognl%2F</url>
     <content type="text"><![CDATA[在使用MyBatis过程中可能会遇到如下问题 mapper.xml中，当type为数字类型并且值为0时，下面的if test判断为false 123&lt;if test=&quot;type != null and type != &apos;&apos;&quot;&gt; and type = #&#123;type&#125; &lt;/if&gt; 经过查阅相关资料发现MyBatis中if test的解析是使用的OGNL表达式。 下面贴以下OGNL表达式中关于对象类型强制转换的说明 1234567891011121314151617181920212223242526272829303132Coercing Objects to TypesHere we describe how OGNL interprets objects as various types. See below for how OGNL coerces objects to booleans, numbers, integers, and collections.Interpreting Objects as BooleansAny object can be used where a boolean is required. OGNL interprets objects as booleans like this:If the object is a Boolean, its value is extracted and returned;If the object is a Number, its double-precision floating-point value is compared with zero; non-zero is treated as true, zero as false;If the object is a Character, its boolean value is true if and only if its char value is non-zero;Otherwise, its boolean value is true if and only if it is non-null.Interpreting Objects as NumbersNumerical operators try to treat their arguments as numbers. The basic primitive-type wrapper classes (Integer, Double, and so on, including Character and Boolean, which are treated as integers), and the &quot;big&quot; numeric classes from the java.math package (BigInteger and BigDecimal), are recognized as special numeric types. Given an object of some other class, OGNL tries to parse the object&apos;s string value as a number.Numerical operators that take two arguments use the following algorithm to decide what type the result should be. The type of the actual result may be wider, if the result does not fit in the given type.If both arguments are of the same type, the result will be of the same type if possible;If either argument is not of a recognized numeric class, it will be treated as if it was a Double for the rest of this algorithm;If both arguments are approximations to real numbers (Float, Double, or BigDecimal), the result will be the wider type;If both arguments are integers (Boolean, Byte, Character, Short, Integer, Long, or BigInteger), the result will be the wider type;If one argument is a real type and the other an integer type, the result will be the real type if the integer is narrower than &quot;int&quot;; BigDecimal if the integer is BigInteger; or the wider of the real type and Double otherwise.Interpreting Objects as IntegersOperators that work only on integers, like the bit-shifting operators, treat their arguments as numbers, except that BigDecimals and BigIntegers are operated on as BigIntegers and all other kinds of numbers are operated on as Longs. For the BigInteger case, the result of these operators remains a BigInteger; for the Long case, the result is expressed as the same type of the arguments, if it fits, or as a Long otherwise.Interpreting Objects as CollectionsThe projection and selection operators (e1.&#123;e2&#125; and e1.&#123;?e2&#125;), and the in operator, all treat one of their arguments as a collection and walk it. This is done differently depending on the class of the argument:Java arrays are walked from front to back;Members of java.util.Collection are walked by walking their iterators;Members of java.util.Map are walked by walking iterators over their values;Members of java.util.Iterator and java.util.Enumeration are walked by iterating them;Members of java.lang.Number are &quot;walked&quot; by returning integers less than the given number starting with zero;All other objects are treated as singleton collections containing only themselves. 那么可以发现上面的判断中type为0时 type != ‘’其实是为false，Number类型的0与空字符串’’进行比较时，0被转换成了空字符串。 其实规范代码这种问题是不存在的，Number类型是无需和空字符串进行判断的。把该条件去掉只需判断是否为null即可。]]></content>
       <categories>
-        <category>MyBatis</category>
+        <category>Java</category>
       </categories>
       <tags>
         <tag>OGNL</tag>
