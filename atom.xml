@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.liuqitech.com/"/>
+  <link href="https://liuqitech.com/"/>
   <updated>2019-12-30T01:33:23.474Z</updated>
-  <id>http://blog.liuqitech.com/</id>
+  <id>https://liuqitech.com/</id>
   
   <author>
     <name>liuqi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>git flow 简单入门 | SourceTree操作Git工作流</title>
-    <link href="http://blog.liuqitech.com/2019/12/26/git-flow-learn/"/>
-    <id>http://blog.liuqitech.com/2019/12/26/git-flow-learn/</id>
+    <link href="https://liuqitech.com/2019/12/26/git-flow-learn/"/>
+    <id>https://liuqitech.com/2019/12/26/git-flow-learn/</id>
     <published>2019-12-26T08:26:50.000Z</published>
     <updated>2019-12-30T01:33:23.474Z</updated>
     
@@ -32,19 +32,19 @@
     
     </summary>
     
-      <category term="Git" scheme="http://blog.liuqitech.com/categories/Git/"/>
+      <category term="Git" scheme="https://liuqitech.com/categories/Git/"/>
     
     
-      <category term="gitflow" scheme="http://blog.liuqitech.com/tags/gitflow/"/>
+      <category term="gitflow" scheme="https://liuqitech.com/tags/gitflow/"/>
     
-      <category term="Git" scheme="http://blog.liuqitech.com/tags/Git/"/>
+      <category term="Git" scheme="https://liuqitech.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>斐讯K2 刷机资料</title>
-    <link href="http://blog.liuqitech.com/2019/12/12/phicomm_k2/"/>
-    <id>http://blog.liuqitech.com/2019/12/12/phicomm_k2/</id>
+    <link href="https://liuqitech.com/2019/12/12/phicomm_k2/"/>
+    <id>https://liuqitech.com/2019/12/12/phicomm_k2/</id>
     <published>2019-12-12T08:26:50.000Z</published>
     <updated>2019-12-26T08:16:01.165Z</updated>
     
@@ -58,23 +58,23 @@
     
     </summary>
     
-      <category term="net" scheme="http://blog.liuqitech.com/categories/net/"/>
+      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
     
     
-      <category term="斐讯" scheme="http://blog.liuqitech.com/tags/%E6%96%90%E8%AE%AF/"/>
+      <category term="斐讯" scheme="https://liuqitech.com/tags/%E6%96%90%E8%AE%AF/"/>
     
-      <category term="路由器" scheme="http://blog.liuqitech.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+      <category term="路由器" scheme="https://liuqitech.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
-      <category term="K2" scheme="http://blog.liuqitech.com/tags/K2/"/>
+      <category term="K2" scheme="https://liuqitech.com/tags/K2/"/>
     
-      <category term="padavan" scheme="http://blog.liuqitech.com/tags/padavan/"/>
+      <category term="padavan" scheme="https://liuqitech.com/tags/padavan/"/>
     
   </entry>
   
   <entry>
     <title>玩物下载 群晖ARM版 安装方法</title>
-    <link href="http://blog.liuqitech.com/2019/12/11/synology_owapp_armv8/"/>
-    <id>http://blog.liuqitech.com/2019/12/11/synology_owapp_armv8/</id>
+    <link href="https://liuqitech.com/2019/12/11/synology_owapp_armv8/"/>
+    <id>https://liuqitech.com/2019/12/11/synology_owapp_armv8/</id>
     <published>2019-12-11T04:00:00.000Z</published>
     <updated>2019-12-12T03:41:50.006Z</updated>
     
@@ -91,23 +91,23 @@
     
     </summary>
     
-      <category term="synology" scheme="http://blog.liuqitech.com/categories/synology/"/>
+      <category term="synology" scheme="https://liuqitech.com/categories/synology/"/>
     
     
-      <category term="synology" scheme="http://blog.liuqitech.com/tags/synology/"/>
+      <category term="synology" scheme="https://liuqitech.com/tags/synology/"/>
     
-      <category term="owapp" scheme="http://blog.liuqitech.com/tags/owapp/"/>
+      <category term="owapp" scheme="https://liuqitech.com/tags/owapp/"/>
     
-      <category term="玩物下载" scheme="http://blog.liuqitech.com/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/"/>
+      <category term="玩物下载" scheme="https://liuqitech.com/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/"/>
     
-      <category term="群晖" scheme="http://blog.liuqitech.com/tags/%E7%BE%A4%E6%99%96/"/>
+      <category term="群晖" scheme="https://liuqitech.com/tags/%E7%BE%A4%E6%99%96/"/>
     
   </entry>
   
   <entry>
     <title>多租户的实现</title>
-    <link href="http://blog.liuqitech.com/2019/10/09/tenant/"/>
-    <id>http://blog.liuqitech.com/2019/10/09/tenant/</id>
+    <link href="https://liuqitech.com/2019/10/09/tenant/"/>
+    <id>https://liuqitech.com/2019/10/09/tenant/</id>
     <published>2019-10-09T02:20:00.000Z</published>
     <updated>2019-10-12T08:27:51.996Z</updated>
     
@@ -130,17 +130,17 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="MyBatis" scheme="http://blog.liuqitech.com/tags/MyBatis/"/>
+      <category term="MyBatis" scheme="https://liuqitech.com/tags/MyBatis/"/>
     
   </entry>
   
   <entry>
     <title>JVM笔记 - 运行时内存区域</title>
-    <link href="http://blog.liuqitech.com/2019/07/04/jvm-spec/"/>
-    <id>http://blog.liuqitech.com/2019/07/04/jvm-spec/</id>
+    <link href="https://liuqitech.com/2019/07/04/jvm-spec/"/>
+    <id>https://liuqitech.com/2019/07/04/jvm-spec/</id>
     <published>2019-07-04T05:26:00.000Z</published>
     <updated>2019-07-05T06:45:22.000Z</updated>
     
@@ -156,19 +156,19 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://blog.liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
     
-      <category term="JVM" scheme="http://blog.liuqitech.com/tags/JVM/"/>
+      <category term="JVM" scheme="https://liuqitech.com/tags/JVM/"/>
     
   </entry>
   
   <entry>
     <title>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</title>
-    <link href="http://blog.liuqitech.com/2019/07/02/redis-learn/"/>
-    <id>http://blog.liuqitech.com/2019/07/02/redis-learn/</id>
+    <link href="https://liuqitech.com/2019/07/02/redis-learn/"/>
+    <id>https://liuqitech.com/2019/07/02/redis-learn/</id>
     <published>2019-07-02T09:58:00.000Z</published>
     <updated>2019-07-02T10:17:09.000Z</updated>
     
@@ -185,19 +185,19 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="Redis" scheme="http://blog.liuqitech.com/tags/Redis/"/>
+      <category term="Redis" scheme="https://liuqitech.com/tags/Redis/"/>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>frp 内网穿透</title>
-    <link href="http://blog.liuqitech.com/2019/06/16/frp/"/>
-    <id>http://blog.liuqitech.com/2019/06/16/frp/</id>
+    <link href="https://liuqitech.com/2019/06/16/frp/"/>
+    <id>https://liuqitech.com/2019/06/16/frp/</id>
     <published>2019-06-16T08:26:50.000Z</published>
     <updated>2019-12-26T08:14:45.170Z</updated>
     
@@ -214,19 +214,19 @@
     
     </summary>
     
-      <category term="net" scheme="http://blog.liuqitech.com/categories/net/"/>
+      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
     
     
-      <category term="frp" scheme="http://blog.liuqitech.com/tags/frp/"/>
+      <category term="frp" scheme="https://liuqitech.com/tags/frp/"/>
     
-      <category term="内网穿透" scheme="http://blog.liuqitech.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
+      <category term="内网穿透" scheme="https://liuqitech.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
     
   </entry>
   
   <entry>
     <title>PushBear试用 - 喝水提醒小助手</title>
-    <link href="http://blog.liuqitech.com/2019/06/14/pushbear-demo/"/>
-    <id>http://blog.liuqitech.com/2019/06/14/pushbear-demo/</id>
+    <link href="https://liuqitech.com/2019/06/14/pushbear-demo/"/>
+    <id>https://liuqitech.com/2019/06/14/pushbear-demo/</id>
     <published>2019-06-14T08:21:50.000Z</published>
     <updated>2019-06-17T02:34:32.000Z</updated>
     
@@ -239,21 +239,21 @@
     
     </summary>
     
-      <category term="WeChat" scheme="http://blog.liuqitech.com/categories/WeChat/"/>
+      <category term="WeChat" scheme="https://liuqitech.com/categories/WeChat/"/>
     
     
-      <category term="WeChat" scheme="http://blog.liuqitech.com/tags/WeChat/"/>
+      <category term="WeChat" scheme="https://liuqitech.com/tags/WeChat/"/>
     
-      <category term="Push" scheme="http://blog.liuqitech.com/tags/Push/"/>
+      <category term="Push" scheme="https://liuqitech.com/tags/Push/"/>
     
-      <category term="Python" scheme="http://blog.liuqitech.com/tags/Python/"/>
+      <category term="Python" scheme="https://liuqitech.com/tags/Python/"/>
     
   </entry>
   
   <entry>
     <title>jmeter-plugins-dubbo简单试用</title>
-    <link href="http://blog.liuqitech.com/2019/02/18/jmeter-plugins-dubbo/"/>
-    <id>http://blog.liuqitech.com/2019/02/18/jmeter-plugins-dubbo/</id>
+    <link href="https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/"/>
+    <id>https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/</id>
     <published>2019-02-18T04:26:50.000Z</published>
     <updated>2019-12-26T08:15:30.055Z</updated>
     
@@ -267,19 +267,19 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="JMeter" scheme="http://blog.liuqitech.com/tags/JMeter/"/>
+      <category term="JMeter" scheme="https://liuqitech.com/tags/JMeter/"/>
     
-      <category term="Dubbo" scheme="http://blog.liuqitech.com/tags/Dubbo/"/>
+      <category term="Dubbo" scheme="https://liuqitech.com/tags/Dubbo/"/>
     
   </entry>
   
   <entry>
     <title>Twitter的SnowFlake算法demo</title>
-    <link href="http://blog.liuqitech.com/2018/06/10/snowflake/"/>
-    <id>http://blog.liuqitech.com/2018/06/10/snowflake/</id>
+    <link href="https://liuqitech.com/2018/06/10/snowflake/"/>
+    <id>https://liuqitech.com/2018/06/10/snowflake/</id>
     <published>2018-06-10T02:10:20.000Z</published>
     <updated>2019-12-26T08:16:23.999Z</updated>
     
@@ -294,21 +294,21 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="snowflake" scheme="http://blog.liuqitech.com/tags/snowflake/"/>
+      <category term="snowflake" scheme="https://liuqitech.com/tags/snowflake/"/>
     
-      <category term="算法" scheme="http://blog.liuqitech.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://liuqitech.com/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="高并发" scheme="http://blog.liuqitech.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+      <category term="高并发" scheme="https://liuqitech.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>清除微信网页缓存</title>
-    <link href="http://blog.liuqitech.com/2018/04/15/clear_wechat_web_cache/"/>
-    <id>http://blog.liuqitech.com/2018/04/15/clear_wechat_web_cache/</id>
+    <link href="https://liuqitech.com/2018/04/15/clear_wechat_web_cache/"/>
+    <id>https://liuqitech.com/2018/04/15/clear_wechat_web_cache/</id>
     <published>2018-04-15T05:26:50.000Z</published>
     <updated>2018-08-21T07:44:41.000Z</updated>
     
@@ -323,17 +323,17 @@
     
     </summary>
     
-      <category term="WeChat" scheme="http://blog.liuqitech.com/categories/WeChat/"/>
+      <category term="WeChat" scheme="https://liuqitech.com/categories/WeChat/"/>
     
     
-      <category term="WeChat" scheme="http://blog.liuqitech.com/tags/WeChat/"/>
+      <category term="WeChat" scheme="https://liuqitech.com/tags/WeChat/"/>
     
   </entry>
   
   <entry>
     <title>设置HTTP(HTTPS)代理</title>
-    <link href="http://blog.liuqitech.com/2018/03/15/http-poxy/"/>
-    <id>http://blog.liuqitech.com/2018/03/15/http-poxy/</id>
+    <link href="https://liuqitech.com/2018/03/15/http-poxy/"/>
+    <id>https://liuqitech.com/2018/03/15/http-poxy/</id>
     <published>2018-03-15T06:51:37.000Z</published>
     <updated>2019-12-26T08:15:19.718Z</updated>
     
@@ -347,17 +347,17 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="代理" scheme="http://blog.liuqitech.com/tags/%E4%BB%A3%E7%90%86/"/>
+      <category term="代理" scheme="https://liuqitech.com/tags/%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>MyBatis中OGNL表达式的强制对象类型</title>
-    <link href="http://blog.liuqitech.com/2016/10/16/mybatis-ognl/"/>
-    <id>http://blog.liuqitech.com/2016/10/16/mybatis-ognl/</id>
+    <link href="https://liuqitech.com/2016/10/16/mybatis-ognl/"/>
+    <id>https://liuqitech.com/2016/10/16/mybatis-ognl/</id>
     <published>2016-10-16T06:29:52.000Z</published>
     <updated>2019-12-26T08:15:45.190Z</updated>
     
@@ -373,19 +373,19 @@
     
     </summary>
     
-      <category term="Java" scheme="http://blog.liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
     
     
-      <category term="OGNL" scheme="http://blog.liuqitech.com/tags/OGNL/"/>
+      <category term="OGNL" scheme="https://liuqitech.com/tags/OGNL/"/>
     
-      <category term="MyBatis" scheme="http://blog.liuqitech.com/tags/MyBatis/"/>
+      <category term="MyBatis" scheme="https://liuqitech.com/tags/MyBatis/"/>
     
   </entry>
   
   <entry>
     <title>Windows + Ubuntu双系统删除Ubuntu</title>
-    <link href="http://blog.liuqitech.com/2016/03/15/delete-ubuntu/"/>
-    <id>http://blog.liuqitech.com/2016/03/15/delete-ubuntu/</id>
+    <link href="https://liuqitech.com/2016/03/15/delete-ubuntu/"/>
+    <id>https://liuqitech.com/2016/03/15/delete-ubuntu/</id>
     <published>2016-03-15T09:48:30.000Z</published>
     <updated>2019-04-28T10:20:51.000Z</updated>
     
@@ -397,10 +397,10 @@
     
     </summary>
     
-      <category term="Windows" scheme="http://blog.liuqitech.com/categories/Windows/"/>
+      <category term="Windows" scheme="https://liuqitech.com/categories/Windows/"/>
     
     
-      <category term="双系统" scheme="http://blog.liuqitech.com/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="双系统" scheme="https://liuqitech.com/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
