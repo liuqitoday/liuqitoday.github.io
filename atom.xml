@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuqitech.com/"/>
-  <updated>2020-01-02T07:47:10.519Z</updated>
+  <updated>2020-01-03T09:41:32.006Z</updated>
   <id>https://liuqitech.com/</id>
   
   <author>
@@ -17,11 +17,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring - FactoryBean 简要说明</title>
+    <title>Spring学习笔记 - Spring AOP 概述</title>
+    <link href="https://liuqitech.com/2020/01/03/spring-aop-concept/"/>
+    <id>https://liuqitech.com/2020/01/03/spring-aop-concept/</id>
+    <published>2020-01-03T09:30:00.000Z</published>
+    <updated>2020-01-03T09:41:32.006Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="AOP中涉及的概念"><a href="#AOP中涉及的概念" class="headerlink" title="AOP中涉及的概念"></a>AOP中涉及的概念</h4><ul><li><p>Joinpoint</p><p>在系统运行之前，AOP的功能模块都需要植入到OOP的功能模块中。所以，要进行这些植入过程，我们需要知道再系统的哪些执行点上进行织入操作，这些将要在其之上进行植入操作的系统执行点就称之为Joinpoint。</p></li><li><p>Pointcut</p><p>Pointcut概念代表的是Joinpoint的表述方式。将横切逻辑织入当前系统的过程中，需要参照Pointcut规定的Joinpoint信息，才可以知道应该往系统的哪些Joinpoint上织入横切逻辑。</p></li><li><p>Advice</p><p>Advice是单一横切关注点逻辑的载体，它代表将会织入到Joinpoint的横切逻辑。</p></li><li><p>Aspect</p><p>Aspect是对系统中的横切关注点逻辑进行模块化封装的AOP概念实体。通常情况下，Aspect可以包含多个Pointcut以及相关的Advice定义。</p></li><li><p>织入和织入器</p><p>织入（Weaving）的过程就是将横切逻辑融合到原系统中的过程。只有经过织入过程以后，以Aspect模块话的横切关注点才会集成到OOP的现存系统中。完成织入过程的“人”就称之为织入器（Weaver）。</p></li><li><p>目标对象</p><p>符合Pointcut所指定的条件，将在织入过程中被织入横切逻辑的对象，称之为目标对象（Target Object）。</p></li></ul><a id="more"></a><h4 id="Java-平台上的AOP实现机制"><a href="#Java-平台上的AOP实现机制" class="headerlink" title="Java 平台上的AOP实现机制"></a>Java 平台上的AOP实现机制</h4><ul><li><p>动态代理</p><p>JDK 1.3之后，引入了动态代理（Dynamic Proxy）机制，可以在运行期间，为响应的接口（Interface）动态生成对应的代理对象。所以，我们可以将横切关注点逻辑封装到动态代理的InvocationHandler中，然后在系统的运行期间，根据横切关注点需要织入的模块位置，将横切逻辑织入到相应的代理类中。</p></li><li><p>动态字节码增强</p><p>我们知道，我们可以可以使用CGLIB等类似的动态字节码增强的工具库，在程序运行期间动态构建字节码class文件。这样我们可以为需要织入横切逻辑的模块类在运行期间通过动态字节码增强技术为这些系统模块类生成相应的子类，将横切逻辑假如到这些子类中。</p></li><li><p>Java代码生成</p><p>这种方式比较古老，不做了解。</p></li><li><p>自定义类加载器</p><p>所有的Java程序的class都要通过相应的类加载器（Classloader）加载到Java虚拟机之后才能运行。</p><p>所以我们可以通过自定义类加载器，在class文件加载到虚拟机的解析过程中，将横切逻辑织入到class文件中来达到目的。</p></li><li><p>AOL扩展</p><p>此处暂时略过，该方式我也不太了解。</p></li></ul><h4 id="Spring-AOP-的实现机制"><a href="#Spring-AOP-的实现机制" class="headerlink" title="Spring AOP 的实现机制"></a>Spring AOP 的实现机制</h4><p>Spring AOP 采用了动态代理机制和动态字节码增强技术来实现。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;AOP中涉及的概念&quot;&gt;&lt;a href=&quot;#AOP中涉及的概念&quot; class=&quot;headerlink&quot; title=&quot;AOP中涉及的概念&quot;&gt;&lt;/a&gt;AOP中涉及的概念&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Joinpoint&lt;/p&gt;
+&lt;p&gt;在系统运行之前，AOP的功能模块都需要植入到OOP的功能模块中。所以，要进行这些植入过程，我们需要知道再系统的哪些执行点上进行织入操作，这些将要在其之上进行植入操作的系统执行点就称之为Joinpoint。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pointcut&lt;/p&gt;
+&lt;p&gt;Pointcut概念代表的是Joinpoint的表述方式。将横切逻辑织入当前系统的过程中，需要参照Pointcut规定的Joinpoint信息，才可以知道应该往系统的哪些Joinpoint上织入横切逻辑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Advice&lt;/p&gt;
+&lt;p&gt;Advice是单一横切关注点逻辑的载体，它代表将会织入到Joinpoint的横切逻辑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Aspect&lt;/p&gt;
+&lt;p&gt;Aspect是对系统中的横切关注点逻辑进行模块化封装的AOP概念实体。通常情况下，Aspect可以包含多个Pointcut以及相关的Advice定义。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;织入和织入器&lt;/p&gt;
+&lt;p&gt;织入（Weaving）的过程就是将横切逻辑融合到原系统中的过程。只有经过织入过程以后，以Aspect模块话的横切关注点才会集成到OOP的现存系统中。完成织入过程的“人”就称之为织入器（Weaver）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;目标对象&lt;/p&gt;
+&lt;p&gt;符合Pointcut所指定的条件，将在织入过程中被织入横切逻辑的对象，称之为目标对象（Target Object）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+    
+      <category term="Spring" scheme="https://liuqitech.com/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring学习笔记 - Spring FactoryBean</title>
     <link href="https://liuqitech.com/2020/01/02/spring-factorybean/"/>
     <id>https://liuqitech.com/2020/01/02/spring-factorybean/</id>
     <published>2020-01-02T07:00:00.000Z</published>
-    <updated>2020-01-02T07:47:10.519Z</updated>
+    <updated>2020-01-03T09:36:59.867Z</updated>
     
     <content type="html"><![CDATA[<h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p><code>org.springframework.beans.factory.FactoryBean&lt;T&gt;</code>是<code>Spring</code>容器提供的一种可以扩展容器对象实例化逻辑的接口。<code>FactoryBean</code>，其主语是Ben，定于为Factory，也就是说，它本身与其他注册到容器中的对象一样，只是一个Bean而已，只不过这种类型的Bean本身就是生产对象的工厂。</p><h4 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h4><p>它的接口定义如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public interface FactoryBean&lt;T&gt; &#123;</span><br><span class="line">  @Nullable</span><br><span class="line">  T getObject() throws Exception;</span><br><span class="line">  @Nullable</span><br><span class="line">  Class&lt;?&gt; getObjectType();</span><br><span class="line">  default boolean isSingleton() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><code>getObject()</code>方法会返回该<code>FactoryBean</code>“生产”的对象实例，我们需要实现该方法以给出自己的对象实例化逻辑；<code>getObjectType()</code>方法仅返回<code>getObject()</code>方法所返回的对象的类型，如果预先无法确定，则返回null；<code>isSingleton()</code>方法返回结果用于表明，工厂方法（<code>getObject()</code>）所“生产”的对象是否要以singleton形式存在于容器中。如果以singleton形式存在，则返回true，否则返回false； </p><a id="more"></a><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p><code>FactoryBean</code>的一般使用场景是，当我们需要实例化一个比较复杂的Bean时，我们可以通过实现<code>FactoryBean</code>来定制Bean的实例化过程。</p><p>在IOC容器中，通过<code>getBean(BeanName)</code>方法获取Bean时，如果该Bean实现了<code>FactoryBean</code>接口，则获取到该Bean的实例为<code>getObjet()</code>方法返回的结果，并不是<code>FactoryBean</code>的实现类对象。</p><h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p>我们实现一个<code>FactoryBean</code>示例，我们将实现一个<code>ToolFactory</code>，它将产生Tool类型的实例对象。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Tool &#123;</span><br><span class="line"> </span><br><span class="line">    private int id;</span><br><span class="line"> </span><br><span class="line">    // standard constructors, getters and setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class ToolFactory implements FactoryBean&lt;Tool&gt; &#123;</span><br><span class="line"> </span><br><span class="line">    private int factoryId;</span><br><span class="line">    private int toolId;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public Tool getObject() throws Exception &#123;</span><br><span class="line">        return new Tool(toolId);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public Class&lt;?&gt; getObjectType() &#123;</span><br><span class="line">        return Tool.class;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public boolean isSingleton() &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // standard setters and getters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使<code>ToolFactory</code>生效（将<code>FactoryBean</code>的实现注册到IOC容器中），有以下两种方式：</p><ul><li><p>XML</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans ...&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;bean id=&quot;tool&quot; class=&quot;com.baeldung.factorybean.ToolFactory&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;factoryId&quot; value=&quot;9090&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;toolId&quot; value=&quot;1&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></li><li><p>Java编码</p><p>与XML不同的是，我们需要显示的调用<code>getObject()</code>方法来生成实例对象。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class FactoryBeanAppConfig &#123;</span><br><span class="line">  </span><br><span class="line">    @Bean(name = &quot;tool&quot;)</span><br><span class="line">    public ToolFactory toolFactory() &#123;</span><br><span class="line">        ToolFactory factory = new ToolFactory();</span><br><span class="line">        factory.setFactoryId(7070);</span><br><span class="line">        factory.setToolId(2);</span><br><span class="line">        return factory;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Bean</span><br><span class="line">    public Tool tool() throws Exception &#123;</span><br><span class="line">        return toolFactory().getObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>使用时，直接引入Tool实例对象即可</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class FactoryBeanTest &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private Tool tool;</span><br><span class="line"> </span><br><span class="line">    @Test</span><br><span class="line">    public void test() &#123;</span><br><span class="line">        assertThat(tool.getId(), equalTo(1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
