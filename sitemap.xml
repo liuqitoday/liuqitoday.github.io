@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuqitech.com/2020/01/03/spring-aop-concept/</loc>
+    
+    <lastmod>2020-01-03T09:41:32.006Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuqitech.com/2020/01/02/spring-factorybean/</loc>
     
-    <lastmod>2020-01-02T07:47:10.519Z</lastmod>
+    <lastmod>2020-01-03T09:36:59.867Z</lastmod>
     
   </url>
   
