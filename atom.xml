@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuqitech.com/"/>
-  <updated>2020-01-15T10:17:46.574Z</updated>
+  <updated>2020-02-04T03:12:45.014Z</updated>
   <id>https://liuqitech.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中兴 E8820 V2 资料</title>
+    <link href="https://liuqitech.com/2020/02/03/zxhn_e8820v2/"/>
+    <id>https://liuqitech.com/2020/02/03/zxhn_e8820v2/</id>
+    <published>2020-02-03T08:26:50.000Z</published>
+    <updated>2020-02-04T03:12:45.014Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>ZXHN E8820 V2是一款支持IEEE802.11ac的智能无线路由器，支持双频最高1200Mbps（5G 900M和2.4G 300M）无线传输，支持1个GE上网口，4个GE用户端接口，支持USB端口，可外接移动硬盘进行家庭私有云备份。</p><h4 id="硬件参数"><a href="#硬件参数" class="headerlink" title="硬件参数"></a>硬件参数</h4><p>用户接口 4GE+1USB+Wi-Fi<br>上行接口 GE<br>设备尺寸 222 mm (L) x 150mm(W) x 36 mm (H)<br>设备重量 0.25(kg)<br>工作环境 0℃～+40℃<br>相对湿度 10%－90%（非凝结）<br>电源适配器: 输入100-240VAC,输出 12VDC, 1.5A</p><a id="more"></a><h4 id="官方固件"><a href="#官方固件" class="headerlink" title="官方固件"></a>官方固件</h4><p>2.03、2.07 版本的官方web升级文件: <a href="https://72k.us/dir/22553047-37127644-e78cd2" target="_blank" rel="noopener">https://72k.us/dir/22553047-37127644-e78cd2</a> 提取密码:156276</p><h4 id="第三方固件"><a href="#第三方固件" class="headerlink" title="第三方固件"></a>第三方固件</h4><p>OPENWRT: <a href="https://www.right.com.cn/forum/thread-506561-1-1.html" target="_blank" rel="noopener">https://www.right.com.cn/forum/thread-506561-1-1.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h4&gt;&lt;p&gt;ZXHN E8820 V2是一款支持IEEE802.11ac的智能无线路由器，支持双频最高1200Mbps（5G 900M和2.4G 300M）无线传输，支持1个GE上网口，4个GE用户端接口，支持USB端口，可外接移动硬盘进行家庭私有云备份。&lt;/p&gt;
+&lt;h4 id=&quot;硬件参数&quot;&gt;&lt;a href=&quot;#硬件参数&quot; class=&quot;headerlink&quot; title=&quot;硬件参数&quot;&gt;&lt;/a&gt;硬件参数&lt;/h4&gt;&lt;p&gt;用户接口 4GE+1USB+Wi-Fi&lt;br&gt;上行接口 GE&lt;br&gt;设备尺寸 222 mm (L) x 150mm(W) x 36 mm (H)&lt;br&gt;设备重量 0.25(kg)&lt;br&gt;工作环境 0℃～+40℃&lt;br&gt;相对湿度 10%－90%（非凝结）&lt;br&gt;电源适配器: 输入100-240VAC,输出 12VDC, 1.5A&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
+    
+    
+      <category term="路由器" scheme="https://liuqitech.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中的强引用、软引用、弱引用、虚引用</title>
