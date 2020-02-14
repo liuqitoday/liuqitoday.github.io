@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuqitech.com/"/>
-  <updated>2020-02-14T04:03:35.763Z</updated>
+  <updated>2020-02-14T14:18:57.320Z</updated>
   <id>https://liuqitech.com/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>去广告规则分享</title>
+    <link href="https://liuqitech.com/2020/02/14/ad_block_filter/"/>
+    <id>https://liuqitech.com/2020/02/14/ad_block_filter/</id>
+    <published>2020-02-14T14:00:50.000Z</published>
+    <updated>2020-02-14T14:18:57.320Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="适用于-Adblock-Plus-AdGuard-uBlock-等"><a href="#适用于-Adblock-Plus-AdGuard-uBlock-等" class="headerlink" title="适用于 Adblock Plus/AdGuard/uBlock 等"></a>适用于 Adblock Plus/AdGuard/uBlock 等</h4><ul><li><p>EasyList + EasyList China</p><blockquote><p><a href="https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt" target="_blank" rel="noopener">https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt</a></p></blockquote></li><li><p><a href="https://github.com/cjx82630/cjxlist" target="_blank" rel="noopener">CJX’s Annoyance List</a></p><p>这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则</p><blockquote><p> <a href="https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt" target="_blank" rel="noopener">https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt</a></p></blockquote></li><li><p><a href="https://gitee.com/halflife/list" target="_blank" rel="noopener">合并规则EasylistChina、EasylistLite、CJX’sAnnoyance</a></p><p>合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则；</p><blockquote><p><a href="https://gitee.com/halflife/list/raw/master/ad.txt" target="_blank" rel="noopener">https://gitee.com/halflife/list/raw/master/ad.txt</a></p></blockquote></li><li><p><a href="https://gitee.com/xinggsf/Adblock-Rule/" target="_blank" rel="noopener">乘风 广告过滤规则</a></p><blockquote><p><a href="https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt" target="_blank" rel="noopener">https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt</a></p></blockquote><a id="more"></a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;适用于-Adblock-Plus-AdGuard-uBlock-等&quot;&gt;&lt;a href=&quot;#适用于-Adblock-Plus-AdGuard-uBlock-等&quot; class=&quot;headerlink&quot; title=&quot;适用于 Adblock Plus/AdGuard/uBlock 等&quot;&gt;&lt;/a&gt;适用于 Adblock Plus/AdGuard/uBlock 等&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;EasyList + EasyList China&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/cjx82630/cjxlist&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CJX’s Annoyance List&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是”EasyList China+EasyList” &amp;amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; &lt;a href=&quot;https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://gitee.com/halflife/list&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;合并规则EasylistChina、EasylistLite、CJX’sAnnoyance&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则；&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitee.com/halflife/list/raw/master/ad.txt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gitee.com/halflife/list/raw/master/ad.txt&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://gitee.com/xinggsf/Adblock-Rule/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;乘风 广告过滤规则&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>MySQL COALESCE 函数</title>
@@ -554,28 +595,6 @@
       <category term="OGNL" scheme="https://liuqitech.com/tags/OGNL/"/>
     
       <category term="MyBatis" scheme="https://liuqitech.com/tags/MyBatis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows + Ubuntu双系统删除Ubuntu</title>
-    <link href="https://liuqitech.com/2016/03/15/delete-ubuntu/"/>
-    <id>https://liuqitech.com/2016/03/15/delete-ubuntu/</id>
-    <published>2016-03-15T09:48:30.000Z</published>
-    <updated>2019-04-28T10:20:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="确定启动方式-UEFI、Legacy"><a href="#确定启动方式-UEFI、Legacy" class="headerlink" title="确定启动方式(UEFI、Legacy)"></a>确定启动方式(UEFI、Legacy)</h3><p>按 WIN+R 快捷键打开“运行”，输入 msinfo32 确定打开“系统信息”，在系统摘要中即可看到BIOS模式。<br><img src="http://image.liuqitech.com/blog/systeminfo.png" alt="image"></p><a id="more"></a><h3 id="UEFI-方式的操作"><a href="#UEFI-方式的操作" class="headerlink" title="UEFI 方式的操作"></a>UEFI 方式的操作</h3><p>借助<a href="https://www.easyuefi.com/index-us.html" target="_blank" rel="noopener">EasyUEFI</a>来实现，下载安装运行软件，点击“管理EFI”启动项，删除Ubuntu项即可。<br><img src="http://image.liuqitech.com/blog/EasyUEFI.png" alt="image"></p><h3 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h3><p>管理计算机-磁盘管理<br>找到Ubuntu对应的分区，删除卷即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;确定启动方式-UEFI、Legacy&quot;&gt;&lt;a href=&quot;#确定启动方式-UEFI、Legacy&quot; class=&quot;headerlink&quot; title=&quot;确定启动方式(UEFI、Legacy)&quot;&gt;&lt;/a&gt;确定启动方式(UEFI、Legacy)&lt;/h3&gt;&lt;p&gt;按 WIN+R 快捷键打开“运行”，输入 msinfo32 确定打开“系统信息”，在系统摘要中即可看到BIOS模式。&lt;br&gt;&lt;img src=&quot;http://image.liuqitech.com/blog/systeminfo.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Windows" scheme="https://liuqitech.com/categories/Windows/"/>
-    
-    
-      <category term="双系统" scheme="https://liuqitech.com/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
