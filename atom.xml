@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuqitech.com/"/>
-  <updated>2020-02-15T09:30:55.722Z</updated>
+  <updated>2020-03-03T11:15:40.467Z</updated>
   <id>https://liuqitech.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos 7 安装 JDK</title>
+    <link href="https://liuqitech.com/2020/02/26/centos7_jdk/"/>
+    <id>https://liuqitech.com/2020/02/26/centos7_jdk/</id>
+    <published>2020-02-26T02:00:00.000Z</published>
+    <updated>2020-03-03T11:15:40.467Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h4><p>确保使用<em>root</em>用户或具有<em>sudo</em>权限的用户登陆。</p><h4 id="OpenJDK"><a href="#OpenJDK" class="headerlink" title="OpenJDK"></a>OpenJDK</h4><p>通过<code>yum search</code>命令查看java相关包</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum search java | grep openjdk</span><br></pre></td></tr></table></figure><table><thead><tr><th>版本</th><th>jre</th><th>jdk</th></tr></thead><tbody><tr><td>11</td><td>java-11-openjdk.x86_64</td><td>java-11-openjdk-devel.x86_64</td></tr><tr><td>1.8</td><td>java-1.8.0-openjdk.x86_64</td><td>java-1.8.0-openjdk-headless.x86_64</td></tr></tbody></table><p>以安装11版本的jdk为例</p><p>安装命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install java-11-openjdk-devel.x86_64</span><br></pre></td></tr></table></figure><p>卸载命令如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove java-11-openjdk-devel.x86_64</span><br></pre></td></tr></table></figure><a id="more"></a><h4 id="Oracle-JDK"><a href="#Oracle-JDK" class="headerlink" title="Oracle JDK"></a>Oracle JDK</h4><p>Oracle 的 JDK 需要从Oracle的官网下载来进行安装</p><table><thead><tr><th>版本</th><th>jre</th><th>jdk</th></tr></thead><tbody><tr><td>11</td><td><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a></td><td><a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk11-downloads.html</a></td></tr><tr><td>1.8</td><td><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-downloads.html</a></td><td><a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a></td></tr></tbody></table><p>以安装11版本的jdk为例。下载<em>jdk-11.0.6_linux-x64_bin.rpm</em></p><p>安装命令如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum localinstall jdk-11_linux-x64_bin.rpm</span><br></pre></td></tr></table></figure><p>卸载命令如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查看已安装的jdk包</span><br><span class="line">rpm -qa | grep jdk</span><br><span class="line"># 卸载(其中jdk-11-11-ga.x86_64为软件包名)</span><br><span class="line">rpm -e jdk-11-11-ga.x86_64</span><br></pre></td></tr></table></figure><h4 id="设置默认的版本"><a href="#设置默认的版本" class="headerlink" title="设置默认的版本"></a>设置默认的版本</h4><p>查看当前系统默认java版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openjdk version &quot;11.0.6&quot; 2020-01-14 LTS</span><br><span class="line">OpenJDK Runtime Environment 18.9 (build 11.0.6+10-LTS)</span><br><span class="line">OpenJDK 64-Bit Server VM 18.9 (build 11.0.6+10-LTS, mixed mode, sharing)</span><br></pre></td></tr></table></figure><p>如果安装了多个版本，可以按以下操作进行切换默认版本。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alternatives --config java</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">There are 2 programs which provide &apos;java&apos;.</span><br><span class="line"></span><br><span class="line">  Selection    Command</span><br><span class="line">-----------------------------------------------</span><br><span class="line">   1           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.6.10-1.el7_7.x86_64/bin/java)</span><br><span class="line">*+ 2           /usr/java/jdk-11/bin/java</span><br><span class="line"></span><br><span class="line">Enter to keep the current selection[+], or type selection number:</span><br></pre></td></tr></table></figure><p>通过输入对应数字并按Enter即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前提条件&quot;&gt;&lt;a href=&quot;#前提条件&quot; class=&quot;headerlink&quot; title=&quot;前提条件&quot;&gt;&lt;/a&gt;前提条件&lt;/h4&gt;&lt;p&gt;确保使用&lt;em&gt;root&lt;/em&gt;用户或具有&lt;em&gt;sudo&lt;/em&gt;权限的用户登陆。&lt;/p&gt;
+&lt;h4 id=&quot;OpenJDK&quot;&gt;&lt;a href=&quot;#OpenJDK&quot; class=&quot;headerlink&quot; title=&quot;OpenJDK&quot;&gt;&lt;/a&gt;OpenJDK&lt;/h4&gt;&lt;p&gt;通过&lt;code&gt;yum search&lt;/code&gt;命令查看java相关包&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum search java | grep openjdk&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;版本&lt;/th&gt;
+&lt;th&gt;jre&lt;/th&gt;
+&lt;th&gt;jdk&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;java-11-openjdk.x86_64&lt;/td&gt;
+&lt;td&gt;java-11-openjdk-devel.x86_64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1.8&lt;/td&gt;
+&lt;td&gt;java-1.8.0-openjdk.x86_64&lt;/td&gt;
+&lt;td&gt;java-1.8.0-openjdk-headless.x86_64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;以安装11版本的jdk为例&lt;/p&gt;
+&lt;p&gt;安装命令如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install java-11-openjdk-devel.x86_64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;卸载命令如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum remove java-11-openjdk-devel.x86_64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://liuqitech.com/categories/Linux/"/>
+    
+    
+      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>去广告规则</title>
@@ -567,34 +617,6 @@
     
     
       <category term="代理" scheme="https://liuqitech.com/tags/%E4%BB%A3%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MyBatis中OGNL表达式的强制对象类型</title>
-    <link href="https://liuqitech.com/2016/10/16/mybatis-ognl/"/>
-    <id>https://liuqitech.com/2016/10/16/mybatis-ognl/</id>
-    <published>2016-10-16T06:29:52.000Z</published>
-    <updated>2019-12-26T08:15:45.190Z</updated>
-    
-    <content type="html"><![CDATA[<p>在使用MyBatis过程中可能会遇到如下问题</p><p>mapper.xml中，当type为数字类型并且值为0时，下面的if test判断为false</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test=&quot;type != null and type != &apos;&apos;&quot;&gt;  </span><br><span class="line">    and type = #&#123;type&#125;   </span><br><span class="line">&lt;/if&gt;</span><br></pre></td></tr></table></figure><p>经过查阅相关资料发现MyBatis中if test的解析是使用的OGNL表达式。</p><a id="more"></a><p>下面贴以下<a href="https://commons.apache.org/proper/commons-ognl/language-guide.html" target="_blank" rel="noopener">OGNL表达式</a>中关于对象类型强制转换的说明</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Coercing Objects to Types</span><br><span class="line">Here we describe how OGNL interprets objects as various types. See below for how OGNL coerces objects to booleans, numbers, integers, and collections.</span><br><span class="line"></span><br><span class="line">Interpreting Objects as Booleans</span><br><span class="line">Any object can be used where a boolean is required. OGNL interprets objects as booleans like this:</span><br><span class="line"></span><br><span class="line">If the object is a Boolean, its value is extracted and returned;</span><br><span class="line">If the object is a Number, its double-precision floating-point value is compared with zero; non-zero is treated as true, zero as false;</span><br><span class="line">If the object is a Character, its boolean value is true if and only if its char value is non-zero;</span><br><span class="line">Otherwise, its boolean value is true if and only if it is non-null.</span><br><span class="line">Interpreting Objects as Numbers</span><br><span class="line">Numerical operators try to treat their arguments as numbers. The basic primitive-type wrapper classes (Integer, Double, and so on, including Character and Boolean, which are treated as integers), and the &quot;big&quot; numeric classes from the java.math package (BigInteger and BigDecimal), are recognized as special numeric types. Given an object of some other class, OGNL tries to parse the object&apos;s string value as a number.</span><br><span class="line"></span><br><span class="line">Numerical operators that take two arguments use the following algorithm to decide what type the result should be. The type of the actual result may be wider, if the result does not fit in the given type.</span><br><span class="line"></span><br><span class="line">If both arguments are of the same type, the result will be of the same type if possible;</span><br><span class="line">If either argument is not of a recognized numeric class, it will be treated as if it was a Double for the rest of this algorithm;</span><br><span class="line">If both arguments are approximations to real numbers (Float, Double, or BigDecimal), the result will be the wider type;</span><br><span class="line">If both arguments are integers (Boolean, Byte, Character, Short, Integer, Long, or BigInteger), the result will be the wider type;</span><br><span class="line">If one argument is a real type and the other an integer type, the result will be the real type if the integer is narrower than &quot;int&quot;; BigDecimal if the integer is BigInteger; or the wider of the real type and Double otherwise.</span><br><span class="line">Interpreting Objects as Integers</span><br><span class="line">Operators that work only on integers, like the bit-shifting operators, treat their arguments as numbers, except that BigDecimals and BigIntegers are operated on as BigIntegers and all other kinds of numbers are operated on as Longs. For the BigInteger case, the result of these operators remains a BigInteger; for the Long case, the result is expressed as the same type of the arguments, if it fits, or as a Long otherwise.</span><br><span class="line"></span><br><span class="line">Interpreting Objects as Collections</span><br><span class="line">The projection and selection operators (e1.&#123;e2&#125; and e1.&#123;?e2&#125;), and the in operator, all treat one of their arguments as a collection and walk it. This is done differently depending on the class of the argument:</span><br><span class="line"></span><br><span class="line">Java arrays are walked from front to back;</span><br><span class="line">Members of java.util.Collection are walked by walking their iterators;</span><br><span class="line">Members of java.util.Map are walked by walking iterators over their values;</span><br><span class="line">Members of java.util.Iterator and java.util.Enumeration are walked by iterating them;</span><br><span class="line">Members of java.lang.Number are &quot;walked&quot; by returning integers less than the given number starting with zero;</span><br><span class="line">All other objects are treated as singleton collections containing only themselves.</span><br></pre></td></tr></table></figure><p>那么可以发现上面的判断中type为0时 type != ‘’其实是为false<br>，Number类型的0与空字符串’’进行比较时，0被转换成了空字符串。</p><p>其实规范代码这种问题是不存在的，Number类型是无需和空字符串进行判断的。把该条件去掉只需判断是否为null即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用MyBatis过程中可能会遇到如下问题&lt;/p&gt;
-&lt;p&gt;mapper.xml中，当type为数字类型并且值为0时，下面的if test判断为false&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;if test=&amp;quot;type != null and type != &amp;apos;&amp;apos;&amp;quot;&amp;gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    and type = #&amp;#123;type&amp;#125;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/if&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;经过查阅相关资料发现MyBatis中if test的解析是使用的OGNL表达式。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
-    
-    
-      <category term="OGNL" scheme="https://liuqitech.com/tags/OGNL/"/>
-    
-      <category term="MyBatis" scheme="https://liuqitech.com/tags/MyBatis/"/>
     
   </entry>
   
