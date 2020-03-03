@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Centos 7 安装 JDK]]></title>
+    <title><![CDATA[CentOS 7 安装 JDK]]></title>
     <url>%2F2020%2F02%2F26%2Fcentos7_jdk%2F</url>
     <content type="text"><![CDATA[前提条件确保使用root用户或具有sudo权限的用户登陆。 OpenJDK通过yum search命令查看java相关包 1yum search java | grep openjdk 版本 jre jdk 11 java-11-openjdk.x86_64 java-11-openjdk-devel.x86_64 1.8 java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-headless.x86_64 以安装11版本的jdk为例 安装命令如下： 1yum install java-11-openjdk-devel.x86_64 卸载命令如下 1sudo yum remove java-11-openjdk-devel.x86_64 Oracle JDKOracle 的 JDK 需要从Oracle的官网下载来进行安装 版本 jre jdk 11 https://www.oracle.com/java/technologies/javase-downloads.html https://www.oracle.com/java/technologies/javase-jdk11-downloads.html 1.8 https://www.oracle.com/java/technologies/javase-downloads.html https://www.oracle.com/java/technologies/javase-jdk8-downloads.html 以安装11版本的jdk为例。下载jdk-11.0.6_linux-x64_bin.rpm 安装命令如下： 1sudo yum localinstall jdk-11_linux-x64_bin.rpm 卸载命令如下 1234# 查看已安装的jdk包rpm -qa | grep jdk# 卸载(其中jdk-11-11-ga.x86_64为软件包名)rpm -e jdk-11-11-ga.x86_64 设置默认的版本查看当前系统默认java版本 1java -version 123openjdk version &quot;11.0.6&quot; 2020-01-14 LTSOpenJDK Runtime Environment 18.9 (build 11.0.6+10-LTS)OpenJDK 64-Bit Server VM 18.9 (build 11.0.6+10-LTS, mixed mode, sharing) 如果安装了多个版本，可以按以下操作进行切换默认版本。 1sudo alternatives --config java 12345678There are 2 programs which provide &apos;java&apos;. Selection Command----------------------------------------------- 1 java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.6.10-1.el7_7.x86_64/bin/java)*+ 2 /usr/java/jdk-11/bin/javaEnter to keep the current selection[+], or type selection number: 通过输入对应数字并按Enter即可。]]></content>
       <categories>
