@@ -272,6 +272,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2020/02/27/mysql_replication/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuqi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuqitech">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/02/27/mysql_replication/" class="post-title-link" itemprop="url">MySQL Replication 主从复制 配置</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-27 16:00:00" itemprop="dateCreated datePublished" datetime="2020-02-27T16:00:00+08:00">2020-02-27</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2020/02/27/mysql_replication/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/27/mysql_replication/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><em>Replication</em> 可以使数据从一个MySQL数据库(master)复制到一个或多个MySQL数据库(slave)中，默认情况下该复制过程是异步的。我们可以通过配置来实现复制所有的<em>database</em>或者指定的<em>database</em>。</p>
+<p>MySQL Replication 的优点如下：</p>
+<ul>
+<li>横向扩展：可以将负载分布在多个slave上以提高性能。所有的写操作都必须在master上进行，但是读操作可以分布在一个或多个slave上。这样的模型可以提高写入性能，因为master专注于数据更新，同时多个slave可以显著的提高读取速度。</li>
+<li>数据安全：定期备份是保护数据的重要手段之一，若在master上进行数据备份则需要使master处于readonly状态，这将影响写操作 。而salve可以暂停复制的过程，所以slave上进行数据备份而不会影响到master。</li>
+<li>分析：数据是从master上实时写入的，数据分析可以在slave上进行而不影响master的性能。</li>
+<li>远程数据分发：如果master的物理位置距离较远，我们可以在临近的地方创建slave，方便使用数据使用，而不需要总是访问远端的master。</li>
+</ul>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>作为master 的MySQL实例将数据的变更操作作为”事件”记录到<code>binary log</code>中，slave 的MySQL实例被被指为读取master的<code>binary log</code>，slave将读取到的<code>binary log</code>写入自己的中继日志中，然后slave回把相关的事件进行执行。slave具体执行哪些事件由slave决定。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><h5 id="创建用于复制的账号"><a href="#创建用于复制的账号" class="headerlink" title="创建用于复制的账号"></a>创建用于复制的账号</h5><p>进入master的MySQL实例，执行以下操作：</p>
+<p>执行以下命令创建账号，其中<code>172.20.254.176</code>为slave的MySQL的ip，<code>liuqitech@2020</code>为密码。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/02/27/mysql_replication/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2020/02/26/centos7_jdk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1273,110 +1385,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2019/12/12/phicomm_k2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuqi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liuqitech">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/12/12/phicomm_k2/" class="post-title-link" itemprop="url">斐讯K2 刷机资料</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-12-12 16:26:50" itemprop="dateCreated datePublished" datetime="2019-12-12T16:26:50+08:00">2019-12-12</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/net/" itemprop="url" rel="index"><span itemprop="name">net</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2019/12/12/phicomm_k2/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/12/phicomm_k2/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="型号"><a href="#型号" class="headerlink" title="型号"></a>型号</h3><p>K2 : PSG1218</p>
-<h3 id="Breed"><a href="#Breed" class="headerlink" title="Breed"></a>Breed</h3><p> <a href="https://breed.hackpascal.net/" target="_blank" rel="noopener">https://breed.hackpascal.net/</a> </p>
-<h3 id="老毛子padavan"><a href="#老毛子padavan" class="headerlink" title="老毛子padavan"></a>老毛子padavan</h3><p> <a href="https://opt.cn2qq.com/padavan/" target="_blank" rel="noopener">https://opt.cn2qq.com/padavan/</a> </p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/12/12/phicomm_k2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1429,7 +1437,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
