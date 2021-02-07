@@ -57,22 +57,19 @@
 </script>
 <script data-ad-client="ca-pub-7060393628775158" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <meta name="description" content="jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext">
-<meta name="keywords" content="JMeter,Dubbo">
+  <meta name="description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
+<meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jmeter-plugins-dubbo简单试用">
-<meta property="og:url" content="https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/index.html">
+<meta property="og:title" content="Spring DeferredResult 指南（译）">
+<meta property="og:url" content="https://liuqitech.com/2021/02/07/spring-deferred-result/index.html">
 <meta property="og:site_name" content="liuqitech">
-<meta property="og:description" content="jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext">
+<meta property="og:description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg">
-<meta property="og:image" content="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_2.jpg">
-<meta property="og:updated_time" content="2019-12-26T08:15:30.000Z">
+<meta property="og:updated_time" content="2021-02-07T08:25:29.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jmeter-plugins-dubbo简单试用">
-<meta name="twitter:description" content="jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext">
-<meta name="twitter:image" content="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg">
-  <link rel="canonical" href="https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/">
+<meta name="twitter:title" content="Spring DeferredResult 指南（译）">
+<meta name="twitter:description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
+  <link rel="canonical" href="https://liuqitech.com/2021/02/07/spring-deferred-result/">
 
 
 <script id="page-configurations">
@@ -86,7 +83,7 @@
   };
 </script>
 
-  <title>jmeter-plugins-dubbo简单试用 | liuqitech</title>
+  <title>Spring DeferredResult 指南（译） | liuqitech</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154702867-1"></script>
     <script>
@@ -280,7 +277,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/">
+    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2021/02/07/spring-deferred-result/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuqi">
@@ -292,7 +289,7 @@
       <meta itemprop="name" content="liuqitech">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">jmeter-plugins-dubbo简单试用
+        <h2 class="post-title" itemprop="name headline">Spring DeferredResult 指南（译）
 
           
         </h2>
@@ -308,7 +305,7 @@
                 
               
 
-              <time title="创建时间：2019-02-18 12:26:50" itemprop="dateCreated datePublished" datetime="2019-02-18T12:26:50+08:00">2019-02-18</time>
+              <time title="创建时间：2021-02-07 15:00:00" itemprop="dateCreated datePublished" datetime="2021-02-07T15:00:00+08:00">2021-02-07</time>
             </span>
           
             <span class="post-meta-item">
@@ -344,7 +341,7 @@
       
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2019/02/18/jmeter-plugins-dubbo/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/18/jmeter-plugins-dubbo/" itemprop="commentCount"></span></a>
+    <a title="disqus" href="/2021/02/07/spring-deferred-result/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/02/07/spring-deferred-result/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -358,28 +355,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="jmeter-plugins-dubbo简单试用"><a href="#jmeter-plugins-dubbo简单试用" class="headerlink" title="jmeter-plugins-dubbo简单试用"></a>jmeter-plugins-dubbo简单试用</h2><h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo" target="_blank" rel="noopener">https://github.com/dubbo/jmeter-plugins-dubbo</a></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载dist目录下的jar包<br>推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>将插件的jar包放入 ${JMETER_HOME}\lib\ext</p>
+        <h1 id="Spring-DeferredResult-指南（译）"><a href="#Spring-DeferredResult-指南（译）" class="headerlink" title="Spring DeferredResult 指南（译）"></a>Spring DeferredResult 指南（译）</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用<em>DeferredResult</em>类来执行异步请求处理。</p>
+<p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
+<p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
+<p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
+<p>异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。</p>
 <a id="more"></a>
 
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>add -&gt; Sampler -&gt; dubbo sample</p>
-</li>
-<li><p>选择注册中心类型（以zookeeper注册中心为例）</p>
-<p>Protocol -&gt; zookeeper</p>
-</li>
-<li><p>填写注册中心地址</p>
-<p>Address</p>
-</li>
-<li><p>填写Interface与Method</p>
-</li>
-<li><p>填写接口相关参数</p>
-</li>
-</ul>
-<p><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg" alt><br><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_2.jpg" alt></p>
-<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97" target="_blank" rel="noopener">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97</a></p>
-<p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ" target="_blank" rel="noopener">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ</a></p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用<em>DeferredResult</em> 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。</p>
+<h2 id="3-阻塞的-REST-服务"><a href="#3-阻塞的-REST-服务" class="headerlink" title="3. 阻塞的 REST 服务"></a>3. 阻塞的 REST 服务</h2><p>我们以一个标准的阻塞的 REST 服务开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/process-blocking&quot;)</span><br><span class="line">public ResponseEntity&lt;?&gt; handleReqSync() &#123;</span><br><span class="line">    // ...</span><br><span class="line">    return ResponseEntity.ok(&quot;ok&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的问题是，请求处理线程在处理完成返回结果前是一直被阻塞的，对于需要进行长时间的计算时这不是一个好的解决方案。</p>
+<h2 id="4-使用-DeferredResult-非阻塞的-REST-服务"><a href="#4-使用-DeferredResult-非阻塞的-REST-服务" class="headerlink" title="4. 使用 DeferredResult 非阻塞的 REST 服务"></a>4. 使用 <em>DeferredResult</em> 非阻塞的 REST 服务</h2><p>为了避免阻塞，我们将使用基于回调的变成模型，我们将返回一个 <em>DeferredResult</em> 到 Servlet 容器中，来取代实际的返回结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/async-deferredresult&quot;)</span><br><span class="line">public DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; handleReqDefResult() &#123;</span><br><span class="line">    log.info(&quot;Received async-deferredresult request&quot;);</span><br><span class="line">    DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; output = new DeferredResult&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    ForkJoinPool.commonPool().submit(() -&gt; &#123;</span><br><span class="line">        log.info(&quot;Processing in separate thread&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(6000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        output.setResult(ResponseEntity.ok(&quot;ok&quot;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    log.info(&quot;servlet thread freed&quot;);</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请求的处理逻辑在一个单独的线程中完成，并且完成之后调用  <em>DeferredResult</em> 类的 <em>setResult</em> 方法来设置实际结果。</p>
+<p>下面是日志输出结果，看看是否按照我们的预期顺序输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Received async-deferredresult request</span><br><span class="line">servlet thread freed</span><br><span class="line">Processing in separate thread</span><br></pre></td></tr></table></figure>
+
+<p>在内部，将通知容器线程并将 HTTP 响应返回给给客户端。连接将由容器(servlet 3.0或更高版本)一直保持打开的状态，直到返回相应结果或超时。</p>
+<h2 id="5-DeferredResult-回调"><a href="#5-DeferredResult-回调" class="headerlink" title="5. DeferredResult 回调"></a>5. <em>DeferredResult</em> 回调</h2><p>我们可以使用<em>DeferredResult</em> 注册3种类型的回调：完成、超时与异常。</p>
+<p>我们使用<code>onCompletion</code> 方法来定义一个异步请求完成时执行的代码块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deferredResult.onCompletion(() -&gt; log.info(&quot;Processing complete&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>为了限制请求的处理时间，我们可以在 <em>DeferredResult</em> 实例化时设置一个超时时间，并且可以使用<code>ontTimeout</code> 方法来注册一个自定义的代码块用来在超时后执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; deferredResult = new DeferredResult&lt;&gt;(500L);</span><br><span class="line"></span><br><span class="line">deferredResult.onTimeout(() -&gt;</span><br><span class="line">        deferredResult.setErrorResult(</span><br><span class="line">                ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT)</span><br><span class="line">                        .body(&quot;Request timeout occurred.&quot;)));</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以使用<code>onError</code> 方法来注册一个发生异常时的回调。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deferredResult.onError((Throwable t) -&gt; &#123;</span><br><span class="line">    deferredResult.setErrorResult(</span><br><span class="line">      ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">        .body(&quot;An error occurred.&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -395,9 +400,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/JMeter/" rel="tag"># JMeter</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
             
-              <a href="/tags/Dubbo/" rel="tag"># Dubbo</a>
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
             
           </div>
         
@@ -407,8 +412,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2018/06/10/snowflake/" rel="next" title="Twitter的SnowFlake算法demo">
-                  <i class="fa fa-chevron-left"></i> Twitter的SnowFlake算法demo
+                <a href="/2020/11/03/array-implementation-of-queue/" rel="next" title="数组实现队列">
+                  <i class="fa fa-chevron-left"></i> 数组实现队列
                 </a>
               
             </div>
@@ -416,10 +421,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/06/14/pushbear-demo/" rel="prev" title="PushBear试用 - 喝水提醒小助手">
-                  PushBear试用 - 喝水提醒小助手 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -474,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jmeter-plugins-dubbo简单试用"><span class="nav-number">1.</span> <span class="nav-text">jmeter-plugins-dubbo简单试用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目地址"><span class="nav-number">1.1.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方文档"><span class="nav-number">1.5.</span> <span class="nav-text">官方文档</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-DeferredResult-指南（译）"><span class="nav-number">1.</span> <span class="nav-text">Spring DeferredResult 指南（译）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装"><span class="nav-number">1.2.</span> <span class="nav-text">2. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-阻塞的-REST-服务"><span class="nav-number">1.3.</span> <span class="nav-text">3. 阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-DeferredResult-非阻塞的-REST-服务"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用 DeferredResult 非阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-DeferredResult-回调"><span class="nav-number">1.5.</span> <span class="nav-text">5. DeferredResult 回调</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -684,9 +685,9 @@
 </script>
 <script>
   function disqus_config() {
-    this.page.url = "https://liuqitech.com/2019/02/18/jmeter-plugins-dubbo/";
-    this.page.identifier = "2019/02/18/jmeter-plugins-dubbo/";
-    this.page.title = 'jmeter-plugins-dubbo简单试用';};
+    this.page.url = "https://liuqitech.com/2021/02/07/spring-deferred-result/";
+    this.page.identifier = "2021/02/07/spring-deferred-result/";
+    this.page.title = 'Spring DeferredResult 指南（译）';};
   function loadComments() {
     if (window.DISQUS) {
       DISQUS.reset({
