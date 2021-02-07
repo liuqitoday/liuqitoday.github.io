@@ -57,18 +57,18 @@
 </script>
 <script data-ad-client="ca-pub-7060393628775158" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-  <meta name="description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
+  <meta name="description" content="1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worker线程中分离到一个单独的线程中。 尽管其他线程将占用一">
 <meta name="keywords" content="Java,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring DeferredResult 指南（译）">
 <meta property="og:url" content="https://liuqitech.com/2021/02/07/spring-deferred-result/index.html">
 <meta property="og:site_name" content="liuqitech">
-<meta property="og:description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
+<meta property="og:description" content="1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worker线程中分离到一个单独的线程中。 尽管其他线程将占用一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-02-07T08:25:29.455Z">
+<meta property="og:updated_time" content="2021-02-07T08:29:03.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring DeferredResult 指南（译）">
-<meta name="twitter:description" content="Spring DeferredResult 指南（译）1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worke">
+<meta name="twitter:description" content="1. 概述在本教程中，我们将研究如何在Spring MVC使用DeferredResult类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worker线程中分离到一个单独的线程中。 尽管其他线程将占用一">
   <link rel="canonical" href="https://liuqitech.com/2021/02/07/spring-deferred-result/">
 
 
@@ -355,7 +355,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Spring-DeferredResult-指南（译）"><a href="#Spring-DeferredResult-指南（译）" class="headerlink" title="Spring DeferredResult 指南（译）"></a>Spring DeferredResult 指南（译）</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用<em>DeferredResult</em>类来执行异步请求处理。</p>
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用<em>DeferredResult</em>类来执行异步请求处理。</p>
 <p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
 <p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
 <p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
@@ -475,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-DeferredResult-指南（译）"><span class="nav-number">1.</span> <span class="nav-text">Spring DeferredResult 指南（译）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装"><span class="nav-number">1.2.</span> <span class="nav-text">2. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-阻塞的-REST-服务"><span class="nav-number">1.3.</span> <span class="nav-text">3. 阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-DeferredResult-非阻塞的-REST-服务"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用 DeferredResult 非阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-DeferredResult-回调"><span class="nav-number">1.5.</span> <span class="nav-text">5. DeferredResult 回调</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装"><span class="nav-number">2.</span> <span class="nav-text">2. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-阻塞的-REST-服务"><span class="nav-number">3.</span> <span class="nav-text">3. 阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-DeferredResult-非阻塞的-REST-服务"><span class="nav-number">4.</span> <span class="nav-text">4. 使用 DeferredResult 非阻塞的 REST 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-DeferredResult-回调"><span class="nav-number">5.</span> <span class="nav-text">5. DeferredResult 回调</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
