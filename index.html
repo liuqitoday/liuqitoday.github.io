@@ -343,7 +343,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用<em>DeferredResult</em>类来执行异步请求处理。</p>
+          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用 <em>DeferredResult</em> 类来执行异步请求处理。</p>
 <p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
 <p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
 <p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
