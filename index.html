@@ -272,6 +272,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2021/08/22/google_pixel_android_10_install_magisk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuqi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuqitech">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+            
+            <a href="/2021/08/22/google_pixel_android_10_install_magisk/" class="post-title-link" itemprop="url">Google Pixel (Android 10) 安装 Magisk 过程记录</a>
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2021-08-22 00:20:00" itemprop="dateCreated datePublished" datetime="2021-08-22T00:20:00+08:00">2021-08-22</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2021/08/22/google_pixel_android_10_install_magisk/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/22/google_pixel_android_10_install_magisk/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Mac-安装-android-platform-tools"><a href="#Mac-安装-android-platform-tools" class="headerlink" title="Mac 安装 android-platform-tools"></a>Mac 安装 android-platform-tools</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install --cask android-platform-tools</span><br></pre></td></tr></table></figure>
+
+<h3 id="解锁-bootloader"><a href="#解锁-bootloader" class="headerlink" title="解锁 bootloader"></a>解锁 bootloader</h3><p>手机进入开发者模式 打开 USB模式，并勾选 ”OEM解锁“</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取原版-boot-img"><a href="#提取原版-boot-img" class="headerlink" title="提取原版 boot.img"></a>提取原版 boot.img</h3><p>下载<a href="https://developers.google.com/android/images#flashtool" target="_blank" rel="noopener">原版刷机包</a>并提取 boot.img 文件</p>
+<h3 id="制作-Magisk-patch"><a href="#制作-Magisk-patch" class="headerlink" title="制作 Magisk patch"></a>制作 Magisk patch</h3><p>下载 <a href="https://github.com/topjohnwu/Magisk/releases" target="_blank" rel="noopener">Magisk</a> 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push Magisk-v23.0.apk /sdcard/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push boot.img /sdcard/</span><br></pre></td></tr></table></figure>
+
+<p>手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched.img ~/Downloads/</span><br></pre></td></tr></table></figure>
+
+<h3 id="刷写-magisk-patched-img"><a href="#刷写-magisk-patched-img" class="headerlink" title="刷写 magisk_patched.img"></a>刷写 magisk_patched.img</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot fastboot</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot magisk_patched-23000_2TTns.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启并验证"><a href="#重启并验证" class="headerlink" title="重启并验证"></a>重启并验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+
+<p>打开 Magisk APP 显示状态各种状态都正常，成功！</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2021/02/07/spring-deferred-result/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1262,118 +1378,6 @@
   
 
     
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2020/01/06/spring-aop-use/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuqi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liuqitech">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/01/06/spring-aop-use/" class="post-title-link" itemprop="url">Spring学习笔记 - Spring AOP 使用</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-01-06 16:30:00" itemprop="dateCreated datePublished" datetime="2020-01-06T16:30:00+08:00">2020-01-06</time>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2020/01/06/spring-aop-use/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/06/spring-aop-use/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="定义-Aspect"><a href="#定义-Aspect" class="headerlink" title="定义 Aspect"></a>定义 Aspect</h4><p>定义一个Aspect，只需要我们定义一个最普通的POJO，然后在类上加上<code>@Aspect</code>注解即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="声明-Pointcut"><a href="#声明-Pointcut" class="headerlink" title="声明 Pointcut"></a>声明 Pointcut</h4><p>Pointcut 的声明，依附在<code>@Aspect</code>所标注的Asepct定义类之内，通过使用<code>@Pointcut</code>注解，指定Pointcut表达式之后，将这个指定了相应表达式的注解标注到Aspect定义类的某个方法上即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line">  @Pointcut(&quot;execution(void *.method1()) || execution(void *.method2())&quot;)</span><br><span class="line">  public void pointcut1()&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Pointcut 声明包含两部分</p>
-<ul>
-<li>Pointcut Expression，切点表达式。它用来规定Pointcut匹配规则。</li>
-<li>Pointcut Signature，切点签名。它是一个具体化的方法定义，是Pointcut Expression的载体。</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2020/01/06/spring-aop-use/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </article>
-  
-  
-  
-
-    
   </div>
 
   
@@ -1426,7 +1430,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1439,7 +1443,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1452,7 +1456,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
