@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Google Pixel (Android 10) 安装 Magisk 过程记录]]></title>
     <url>%2F2021%2F08%2F22%2Fgoogle_pixel_android_10_install_magisk%2F</url>
-    <content type="text"><![CDATA[Mac 安装 android-platform-tools1brew install --cask android-platform-tools 解锁 bootloader手机进入开发者模式 打开 USB模式，并勾选 ”OEM解锁“ 1adb reboot bootloader 1fastboot flashing unlock 提取原版 boot.img下载原版刷机包并提取 boot.img 文件 制作 Magisk patch下载 Magisk 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 1adb push Magisk-v23.0.apk /sdcard/ 1adb push boot.img /sdcard/ 手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中 1adb pull /sdcard/Download/magisk_patched.img ~/Downloads/ 刷写 magisk_patched.img1adb reboot fastboot 1fastboot flash boot magisk_patched-23000_2TTns.img 重启并验证1fastboot reboot 打开 Magisk APP 显示各种状态均正常，成功！]]></content>
+    <content type="text"><![CDATA[Mac 安装 android-platform-tools1brew install --cask android-platform-tools 解锁 bootloader手机进入开发者模式 打开 USB模式，并勾选 ”OEM解锁“ 1adb reboot bootloader 1fastboot flashing unlock 提取原版 boot.img下载原版刷机包并提取 boot.img 文件 制作 Magisk patch下载 Magisk 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 1adb push Magisk-v23.0.apk /sdcard/ 1adb push boot.img /sdcard/ 手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中 1adb pull /sdcard/Download/magisk_patched.img ~/Downloads/ 刷写 magisk_patched.img1adb reboot fastboot 1fastboot flash boot magisk_patched.img 重启并验证1fastboot reboot 打开 Magisk APP 显示各种状态均正常，成功！]]></content>
       <categories>
         <category>Android</category>
       </categories>
