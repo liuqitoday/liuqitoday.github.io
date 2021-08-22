@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liuqitech.com/"/>
-  <updated>2021-02-07T08:35:52.360Z</updated>
+  <updated>2021-08-22T05:21:28.008Z</updated>
   <id>https://liuqitech.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google Pixel (Android 10) 安装 Magisk 过程记录</title>
+    <link href="https://liuqitech.com/2021/08/22/google_pixel_android_10_install_magisk/"/>
+    <id>https://liuqitech.com/2021/08/22/google_pixel_android_10_install_magisk/</id>
+    <published>2021-08-21T16:20:00.000Z</published>
+    <updated>2021-08-22T05:21:28.008Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Mac-安装-android-platform-tools"><a href="#Mac-安装-android-platform-tools" class="headerlink" title="Mac 安装 android-platform-tools"></a>Mac 安装 android-platform-tools</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install --cask android-platform-tools</span><br></pre></td></tr></table></figure><h3 id="解锁-bootloader"><a href="#解锁-bootloader" class="headerlink" title="解锁 bootloader"></a>解锁 bootloader</h3><p>手机进入开发者模式 打开 USB模式，并勾选 ”OEM解锁“</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure><h3 id="提取原版-boot-img"><a href="#提取原版-boot-img" class="headerlink" title="提取原版 boot.img"></a>提取原版 boot.img</h3><p>下载<a href="https://developers.google.com/android/images#flashtool" target="_blank" rel="noopener">原版刷机包</a>并提取 boot.img 文件</p><h3 id="制作-Magisk-patch"><a href="#制作-Magisk-patch" class="headerlink" title="制作 Magisk patch"></a>制作 Magisk patch</h3><p>下载 <a href="https://github.com/topjohnwu/Magisk/releases" target="_blank" rel="noopener">Magisk</a> 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push Magisk-v23.0.apk /sdcard/</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push boot.img /sdcard/</span><br></pre></td></tr></table></figure><p>手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched.img ~/Downloads/</span><br></pre></td></tr></table></figure><h3 id="刷写-magisk-patched-img"><a href="#刷写-magisk-patched-img" class="headerlink" title="刷写 magisk_patched.img"></a>刷写 magisk_patched.img</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot fastboot</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot magisk_patched-23000_2TTns.img</span><br></pre></td></tr></table></figure><h3 id="重启并验证"><a href="#重启并验证" class="headerlink" title="重启并验证"></a>重启并验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure><p>打开 Magisk APP 显示状态各种状态都正常，成功！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Mac-安装-android-platform-tools&quot;&gt;&lt;a href=&quot;#Mac-安装-android-platform-tools&quot; class=&quot;headerlink&quot; title=&quot;Mac 安装 android-platform-tools&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://liuqitech.com/categories/Android/"/>
+    
+    
+      <category term="Android, Magisk" scheme="https://liuqitech.com/tags/Android-Magisk/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring DeferredResult 指南（译）</title>
@@ -599,33 +624,6 @@
       <category term="frp" scheme="https://liuqitech.com/tags/frp/"/>
     
       <category term="内网穿透" scheme="https://liuqitech.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PushBear试用 - 喝水提醒小助手</title>
-    <link href="https://liuqitech.com/2019/06/14/pushbear-demo/"/>
-    <id>https://liuqitech.com/2019/06/14/pushbear-demo/</id>
-    <published>2019-06-14T08:21:50.000Z</published>
-    <updated>2019-06-17T02:34:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="PushBear试用-喝水提醒小助手"><a href="#PushBear试用-喝水提醒小助手" class="headerlink" title="PushBear试用 - 喝水提醒小助手"></a>PushBear试用 - 喝水提醒小助手</h2><h3 id="PushBear简介"><a href="#PushBear简介" class="headerlink" title="PushBear简介"></a>PushBear简介</h3><p>基于微信模板的一对多消息送达服务</p><h3 id="接入说明"><a href="#接入说明" class="headerlink" title="接入说明"></a>接入说明</h3><p>详见官网 <a href="http://pushbear.ftqq.com/" target="_blank" rel="noopener">http://pushbear.ftqq.com</a></p><a id="more"></a><h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><p>废话不多说，直接贴代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.blocking <span class="keyword">import</span> BlockingScheduler</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> times</span><br><span class="line">times = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remind</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> times</span><br><span class="line">    sendkey = <span class="string">'此处换成自己的'</span></span><br><span class="line">    text = <span class="string">'提醒喝水小助手'</span></span><br><span class="line">    desp = <span class="string">'这是今天第'</span> + str(times) + <span class="string">'次提醒你喝水啦'</span></span><br><span class="line">    payload = &#123;<span class="string">'sendkey'</span>: sendkey, <span class="string">'text'</span>: text, <span class="string">'desp'</span>: desp&#125;</span><br><span class="line">    requests.post(<span class="string">"https://pushbear.ftqq.com/sub"</span>, data=payload)</span><br><span class="line">    times  = times + <span class="number">1</span></span><br><span class="line">    now_hour = datetime.datetime.now().hour</span><br><span class="line">    <span class="keyword">if</span> now_hour &gt;= <span class="number">21</span>:</span><br><span class="line">        times = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    sched = BlockingScheduler()</span><br><span class="line">    sched.add_job(remind, <span class="string">'cron'</span>, hour=<span class="string">'10,11,14,15,16,17,18,21'</span>, minute=<span class="number">6</span>)</span><br><span class="line">    sched.start()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;PushBear试用-喝水提醒小助手&quot;&gt;&lt;a href=&quot;#PushBear试用-喝水提醒小助手&quot; class=&quot;headerlink&quot; title=&quot;PushBear试用 - 喝水提醒小助手&quot;&gt;&lt;/a&gt;PushBear试用 - 喝水提醒小助手&lt;/h2&gt;&lt;h3 id=&quot;PushBear简介&quot;&gt;&lt;a href=&quot;#PushBear简介&quot; class=&quot;headerlink&quot; title=&quot;PushBear简介&quot;&gt;&lt;/a&gt;PushBear简介&lt;/h3&gt;&lt;p&gt;基于微信模板的一对多消息送达服务&lt;/p&gt;
-&lt;h3 id=&quot;接入说明&quot;&gt;&lt;a href=&quot;#接入说明&quot; class=&quot;headerlink&quot; title=&quot;接入说明&quot;&gt;&lt;/a&gt;接入说明&lt;/h3&gt;&lt;p&gt;详见官网 &lt;a href=&quot;http://pushbear.ftqq.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://pushbear.ftqq.com&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="WeChat" scheme="https://liuqitech.com/categories/WeChat/"/>
-    
-    
-      <category term="WeChat" scheme="https://liuqitech.com/tags/WeChat/"/>
-    
-      <category term="Push" scheme="https://liuqitech.com/tags/Push/"/>
-    
-      <category term="Python" scheme="https://liuqitech.com/tags/Python/"/>
     
   </entry>
   
