@@ -71,7 +71,7 @@
   <entry>
     <title><![CDATA[去广告规则]]></title>
     <url>%2F2020%2F02%2F14%2Fad_block_filter%2F</url>
-    <content type="text"><![CDATA[适用于 Adblock Plus/AdGuard/uBlock 等 EasyList + EasyList China https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt CJX’s Annoyance List 这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则 https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt 合并规则EasylistChina、EasylistLite、CJX’sAnnoyance 合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则； https://gitee.com/halflife/list/raw/master/ad.txt 乘风 广告过滤规则 https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt]]></content>
+    <content type="text"><![CDATA[适用于 Adblock Plus/AdGuard/uBlock 等 EasyList + EasyList China https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt CJX’s Annoyance List 这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则 https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt 合并规则EasylistChina、EasylistLite、CJX’sAnnoyance 合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则； https://gitee.com/halflife/list/raw/master/ad.txt 乘风 广告过滤规则 https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/rule.txt]]></content>
       <categories>
         <category>net</category>
       </categories>
