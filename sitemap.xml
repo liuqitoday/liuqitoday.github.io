@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liuqitech.com/2016/03/15/delete-ubuntu/</loc>
+    
+    <lastmod>2022-02-08T10:29:35.313Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuqitech.com/2019/12/11/synology_owapp_armv8/</loc>
+    
+    <lastmod>2022-02-08T10:28:22.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuqitech.com/2019/12/26/git-flow-learn/</loc>
+    
+    <lastmod>2022-02-08T10:26:46.796Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liuqitech.com/2020/02/14/ad_block_filter/</loc>
     
     <lastmod>2021-09-03T04:40:54.536Z</lastmod>
@@ -51,13 +72,6 @@
   </url>
   
   <url>
-    <loc>https://liuqitech.com/2019/12/26/git-flow-learn/</loc>
-    
-    <lastmod>2020-02-21T11:47:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://liuqitech.com/2020/02/14/mysql_coalesce/</loc>
     
     <lastmod>2020-02-14T04:03:35.000Z</lastmod>
@@ -96,13 +110,6 @@
     <loc>https://liuqitech.com/2020/01/02/spring-factorybean/</loc>
     
     <lastmod>2020-01-03T09:36:59.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liuqitech.com/2019/12/11/synology_owapp_armv8/</loc>
-    
-    <lastmod>2020-01-02T05:55:00.000Z</lastmod>
     
   </url>
   
@@ -180,13 +187,6 @@
     <loc>https://liuqitech.com/2019/06/14/pushbear-demo/</loc>
     
     <lastmod>2019-06-17T02:34:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liuqitech.com/2016/03/15/delete-ubuntu/</loc>
-    
-    <lastmod>2019-04-28T10:20:51.000Z</lastmod>
     
   </url>
   
