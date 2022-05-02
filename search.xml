@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[iPhone 照片同步至 Pixel]]></title>
     <url>%2F2021%2F08%2F21%2Fphotos_sync_to_pixel%2F</url>
-    <content type="text"><![CDATA[安装 Synology Photos群晖安装Synology Photos 套件，iPhone 手机端安装 Photos Mobile APP，使用该 APP 对手机照片进行备份。 安装 Syncthing群晖添加社区套件源 https://packages.synocommunity.com/，并安装 Syncthing 套件。Pixel 手机端安装 Syncthing APP。 配置 Syncthing 照片目录权限配置。群晖端使用 File Station，将照片所在目录（例如 homes/liuqi/Photos）的读写权限设置给 sc-syncthing 用户。 添加设备。群晖端 Syncthing 显示设备二维码（操作 - 显示ID），手机端操作“添加设备”并扫描该二维码完成添加，此时在群晖的端 Syncthing 页面同意添加进来的设备。 群晖端 Syncthing 配置同步文件夹。群晖端 Syncthing 添加文件夹，常规标签页面下，填写文件夹标签（例如 tag_dsm_photos_lq）、文件夹ID（例如 id_dsm_photos_lq）、文件夹路径（例如 /var/services/homes/liuqi/Photos）等信息。共享标签页面下勾选上一步添加的 Pixel 手机。高级标签页面下文件夹类型修改为仅发送，勾选忽略文件权限。进行保存。 Pixel 手机端 Syncthing 配置同步文件夹。此时打开 Pixel 手机端 Syncthing APP，同意提示添加的同步文件夹信息，并配置手机端的文件夹目录，目录种类修改为仅接收。 查看两端的 Syncthing 显示的同步进度是否正常，完成。]]></content>
+    <content type="text"><![CDATA[安装 Synology Photos群晖安装Synology Photos 套件，iPhone 手机端安装 Photos Mobile APP，使用该 APP 对手机照片进行备份。 安装 Syncthing群晖添加社区套件源 https://packages.synocommunity.com/，并安装 Syncthing 套件。Pixel 手机端安装 Syncthing APP。 配置 Syncthing 照片目录权限配置。群晖端使用 File Station，将照片所在目录（例如 homes/liuqi/Photos）的读写权限设置给 sc-syncthing 用户。 添加设备。群晖端 Syncthing 显示设备二维码（操作 - 显示ID），手机端操作“添加设备”并扫描该二维码完成添加，此时在群晖的端 Syncthing 页面同意添加进来的设备。 群晖端 Syncthing 配置同步文件夹。群晖端 Syncthing 添加文件夹，常规标签页面下，填写文件夹标签（例如 tag_dsm_photos_lq）、文件夹ID（例如 id_dsm_photos_lq）、文件夹路径（例如 /var/services/homes/liuqi/Photos）等信息。共享标签页面下勾选上一步添加的 Pixel 手机。忽略模式标签页面下添加@eaDir。高级标签页面下文件夹类型修改为仅发送，勾选忽略文件权限。进行保存。 Pixel 手机端 Syncthing 配置同步文件夹。此时打开 Pixel 手机端 Syncthing APP，同意提示添加的同步文件夹信息，并配置手机端的文件夹目录，目录种类修改为仅接收。 查看两端的 Syncthing 显示的同步进度是否正常，完成。]]></content>
       <categories>
         <category>Synology</category>
       </categories>
