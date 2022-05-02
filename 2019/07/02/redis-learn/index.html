@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="liuqitech" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+<script data-ad-client="ca-pub-7060393628775158" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  <meta name="description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
+<meta name="keywords" content="Java,Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置">
+<meta property="og:url" content="https://liuqitech.com/2019/07/02/redis-learn/index.html">
+<meta property="og:site_name" content="liuqitech">
+<meta property="og:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-02T10:17:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置">
+<meta name="twitter:description" content="Redis基础笔记 - 数据类型&amp;amp;部署方式&amp;amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis Strin">
+  <link rel="canonical" href="https://liuqitech.com/2019/07/02/redis-learn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Redis基础笔记 - 数据类型&部署方式&项目配置 | liuqitech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154702867-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-154702867-1');
+      }
+    </script>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?83ed284182ffa2ecc5c8dd8a00a6a0e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liuqitech</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-resources">
+      
+    
+
+    <a href="/resources/" rel="section"><i class="fa fa-fw fa-archive"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liuqitech.com/2019/07/02/redis-learn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuqi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuqitech">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">Redis基础笔记 - 数据类型&部署方式&项目配置
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 17:58:00" itemprop="dateCreated datePublished" datetime="2019-07-02T17:58:00+08:00">2019-07-02</time>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2019/07/02/redis-learn/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/02/redis-learn/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Redis基础笔记-数据类型-amp-部署方式-amp-项目配置"><a href="#Redis基础笔记-数据类型-amp-部署方式-amp-项目配置" class="headerlink" title="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置"></a>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</h2><h3 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h3><p>Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。</p>
+<p>官方文档对于数据类型说明 <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="noopener">https://redis.io/topics/data-types-intro</a></p>
+<h4 id="Redis-Strings"><a href="#Redis-Strings" class="headerlink" title="Redis Strings"></a>Redis Strings</h4><p>Redis String 字符串类型，最简单的数据类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; set mykey somevalue</span><br><span class="line">OK</span><br><span class="line">&gt; get mykey</span><br><span class="line">&quot;somevalue&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Lists"><a href="#Redis-Lists" class="headerlink" title="Redis Lists"></a>Redis Lists</h4><p>Redis Lists 存储的字符串类型的元素，是按插入顺序排序的列表。</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush mylist A</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; rpush mylist B</span><br><span class="line">(integer) 2</span><br><span class="line">&gt; lpush mylist first</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;first&quot;</span><br><span class="line">2) &quot;A&quot;</span><br><span class="line">3) &quot;B&quot;</span><br><span class="line">&gt; lpop mylist</span><br><span class="line">&quot;first&quot;</span><br><span class="line">&gt; rpop mylist</span><br><span class="line">&quot;B&quot;</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;A&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Hashes"><a href="#Redis-Hashes" class="headerlink" title="Redis Hashes"></a>Redis Hashes</h4><p>Redis Hashes 是字符串类型的键值对。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset myhash name liuqi</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; hget myhash name</span><br><span class="line">&quot;liuqi&quot;</span><br><span class="line">&gt; hmset myhash age 27 website liuqitech.com</span><br><span class="line">OK</span><br><span class="line">&gt; hgetall myhash</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;liuqi&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;27&quot;</span><br><span class="line">5) &quot;website&quot;</span><br><span class="line">6) &quot;liuqitech.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Sets"><a href="#Redis-Sets" class="headerlink" title="Redis Sets"></a>Redis Sets</h4><p>Redis Sets 是字符串类型的无序集合，不能有重复的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd myset 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; smembers myset</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">&gt; sismember myset 1</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sismember myset 10</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Sorted-sets"><a href="#Redis-Sorted-sets" class="headerlink" title="Redis Sorted sets"></a>Redis Sorted sets</h4><p>Redis Sorted sets 与 Redis Sets 不同的是，每一个元素都会关联一个浮点数类型的分数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; zadd hackers 1940 &quot;Alan Kay&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1957 &quot;Sophie Wilson&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1953 &quot;Richard Stallman&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1949 &quot;Anita Borg&quot;</span><br><span class="line">&gt; zrange hackers 0 -1</span><br><span class="line">1) &quot;Alan Kay&quot;</span><br><span class="line">2) &quot;Anita Borg&quot;</span><br><span class="line">3) &quot;Richard Stallman&quot;</span><br><span class="line">4) &quot;Sophie Wilson&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Redis-部署方式"><a href="#Redis-部署方式" class="headerlink" title="Redis 部署方式"></a>Redis 部署方式</h3><p>单机、主从、哨兵、集群</p>
+<h4 id="单机"><a href="#单机" class="headerlink" title="单机"></a>单机</h4><p>单机方式没什么好说的，使用默认的配置文件启动即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="主从复制-（replication）"><a href="#主从复制-（replication）" class="headerlink" title="主从复制 （replication）"></a>主从复制 （replication）</h4><p>配置主从复制方式非常简单，只需要在 slave 的配置文件中添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slaveof 192.168.1.1 6379</span><br></pre></td></tr></table></figure>
+
+<p>其中 192.168.1.1 6379 为 master 的IP和端口</p>
+<p>官方文档 <a href="https://redis.io/topics/replication" target="_blank" rel="noopener">https://redis.io/topics/replication</a></p>
+<h4 id="哨兵（Sentinel）"><a href="#哨兵（Sentinel）" class="headerlink" title="哨兵（Sentinel）"></a>哨兵（Sentinel）</h4><p>哨兵是在主从复制的基础上进行的增强方案。原主从复制的方式中，若master宕机，无法进行主从切，所以会引发一些故障。哨兵可以监控多个，master-slave集群，若发现其中的master宕机时，会把该master下的slave转换为master，同时原master下的slave也会slaveof为新的master。</p>
+<p>哨兵启动的方式有以下两种，sentinel的默认端口为26379。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure>
+
+<p>我们需要配置监听的master，slave无需手动配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds mymaster 60000</span><br><span class="line">sentinel failover-timeout mymaster 180000</span><br><span class="line">sentinel parallel-syncs mymaster 1</span><br><span class="line"></span><br><span class="line">sentinel monitor resque 192.168.1.3 6380 4</span><br><span class="line">sentinel down-after-milliseconds resque 10000</span><br><span class="line">sentinel failover-timeout resque 180000</span><br><span class="line">sentinel parallel-syncs resque 5</span><br></pre></td></tr></table></figure>
+
+<p>以上为监听两个master的例子。sentinel monitor 语句参数的含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentinel monitor &lt;master-group-name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中quorum的意义为，当sentinel为集群时，若quorum为2，此时其中监听的一个master发生了宕机，当有2个sentinel认为它为不可用状态的时候才会真正判定该master已经为不可用状态。</p>
+<p>官方文档 <a href="https://redis.io/topics/sentinel" target="_blank" rel="noopener">https://redis.io/topics/sentinel</a></p>
+<h4 id="集群-（cluster）"><a href="#集群-（cluster）" class="headerlink" title="集群 （cluster）"></a>集群 （cluster）</h4><p>按照文档做个简单的搭建，复制6份redis到文件夹（如 7000 7001 7002 7003 7004 7005），7000到7005的redis.conf分别按以下模板进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 7000</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>分别启动这6个reids实例，然后redis-cli创建集群（5以上版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
+
+<p>官方文档 <a href="https://redis.io/topics/cluster-tutorial" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial</a></p>
+<h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><p>我demo中使用的 Spring Boot 版本为 <code>2.1.6.RELEASE</code></p>
+<p>添加依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查看依赖可知现在版本的使用的默认的reids客户端为 <code>Lettuce</code></p>
+<p>通过查看<code>LettuceConnectionConfiguration</code> 可发现，它可以为我们初始化一个 <code>RedisTemplate&lt;Object, Object&gt;</code> 类型的 redisTemplate，和一个 <code>RedisTemplate&lt;String, String&gt;</code> 类型的 stringRedisTemplate。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ConditionalOnClass(RedisOperations.class)</span><br><span class="line">@EnableConfigurationProperties(RedisProperties.class)</span><br><span class="line">@Import(&#123; LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class &#125;)</span><br><span class="line">public class RedisAutoConfiguration &#123;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean(name = &quot;redisTemplate&quot;)</span><br><span class="line">	public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate&lt;&gt;();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean</span><br><span class="line">	public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		StringRedisTemplate template = new StringRedisTemplate();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面的例子中为了方便测试，直接注入<code>stringRedisTemplate</code> 来使用，当然你也可以自定义自己需要类型的 RedisTemplate。针对不同的部署方式，修改application.yml 配置文件如下：</p>
+<h4 id="单机-1"><a href="#单机-1" class="headerlink" title="单机"></a>单机</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    host: 127.0.0.1</span><br><span class="line">    port: 6379</span><br></pre></td></tr></table></figure>
+
+<h4 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    sentinel:</span><br><span class="line">	  master: mymaster</span><br><span class="line">	  nodes: 127.0.0.1:26379, 127.0.0.1:26380</span><br></pre></td></tr></table></figure>
+
+<h4 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    cluster:</span><br><span class="line">	  nodes: 127.0.0.1:7000, 127.0.0.1:7001, 127.0.0.1:7002, 127.0.0.1:7003, 127.0.0.1:7004, 127.0.0.1:7005</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+              <a href="/tags/Redis/" rel="tag"># Redis</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/06/16/frp/" rel="next" title="frp 内网穿透">
+                  <i class="fa fa-chevron-left"></i> frp 内网穿透
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/07/04/jvm-spec/" rel="prev" title="JVM笔记 - 运行时内存区域">
+                  JVM笔记 - 运行时内存区域 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis基础笔记-数据类型-amp-部署方式-amp-项目配置"><span class="nav-number">1.</span> <span class="nav-text">Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Strings"><span class="nav-number">1.1.1.</span> <span class="nav-text">Redis Strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Lists"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redis Lists</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Hashes"><span class="nav-number">1.1.3.</span> <span class="nav-text">Redis Hashes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Sets"><span class="nav-number">1.1.4.</span> <span class="nav-text">Redis Sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis-Sorted-sets"><span class="nav-number">1.1.5.</span> <span class="nav-text">Redis Sorted sets</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-部署方式"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单机"><span class="nav-number">1.2.1.</span> <span class="nav-text">单机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主从复制-（replication）"><span class="nav-number">1.2.2.</span> <span class="nav-text">主从复制 （replication）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哨兵（Sentinel）"><span class="nav-number">1.2.3.</span> <span class="nav-text">哨兵（Sentinel）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集群-（cluster）"><span class="nav-number">1.2.4.</span> <span class="nav-text">集群 （cluster）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot-配置"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Boot 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单机-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">单机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哨兵"><span class="nav-number">1.3.2.</span> <span class="nav-text">哨兵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集群"><span class="nav-number">1.3.3.</span> <span class="nav-text">集群</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://i.loli.net/2018/03/13/5aa73366e1eef.jpg"
+      alt="liuqi">
+  <p class="site-author-name" itemprop="name">liuqi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/liuqitoday" title="GitHub &rarr; https://github.com/liuqitoday" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://twitter.com/liuqitoday" title="Twitter &rarr; https://twitter.com/liuqitoday" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">冀ICP备18015151号-1 </a>
+  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" rel="noopener" target="_blank"> </a>&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuqi</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.1</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://liuqitoday.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://liuqitech.com/2019/07/02/redis-learn/";
+    this.page.identifier = "2019/07/02/redis-learn/";
+    this.page.title = 'Redis基础笔记 - 数据类型&部署方式&项目配置';};
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://liuqitoday.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+</body>
+</html>
