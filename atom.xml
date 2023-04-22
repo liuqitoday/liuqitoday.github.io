@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://liuqitech.com/"/>
+  <link href="https://100067.xyz/"/>
   <updated>2023-03-30T02:21:15.125Z</updated>
-  <id>https://liuqitech.com/</id>
+  <id>https://100067.xyz/</id>
   
   <author>
     <name>liuqi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>git filter-repo 简介</title>
-    <link href="https://liuqitech.com/2023/03/20/git-filter-repo/"/>
-    <id>https://liuqitech.com/2023/03/20/git-filter-repo/</id>
+    <link href="https://100067.xyz/2023/03/20/git-filter-repo/"/>
+    <id>https://100067.xyz/2023/03/20/git-filter-repo/</id>
     <published>2023-03-19T16:00:00.000Z</published>
     <updated>2023-03-30T02:21:15.125Z</updated>
     
@@ -56,17 +56,17 @@
     
     </summary>
     
-      <category term="Git" scheme="https://liuqitech.com/categories/Git/"/>
+      <category term="Git" scheme="https://100067.xyz/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://liuqitech.com/tags/Git/"/>
+      <category term="Git" scheme="https://100067.xyz/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>Google Pixel (Android 10) 安装 Magisk 过程记录</title>
-    <link href="https://liuqitech.com/2021/08/22/google_pixel_android_10_install_magisk/"/>
-    <id>https://liuqitech.com/2021/08/22/google_pixel_android_10_install_magisk/</id>
+    <link href="https://100067.xyz/2021/08/22/google_pixel_android_10_install_magisk/"/>
+    <id>https://100067.xyz/2021/08/22/google_pixel_android_10_install_magisk/</id>
     <published>2021-08-21T16:20:00.000Z</published>
     <updated>2021-08-22T05:30:24.000Z</updated>
     
@@ -81,19 +81,19 @@
     
     </summary>
     
-      <category term="Android" scheme="https://liuqitech.com/categories/Android/"/>
+      <category term="Android" scheme="https://100067.xyz/categories/Android/"/>
     
     
-      <category term="Android" scheme="https://liuqitech.com/tags/Android/"/>
+      <category term="Android" scheme="https://100067.xyz/tags/Android/"/>
     
-      <category term="Magisk" scheme="https://liuqitech.com/tags/Magisk/"/>
+      <category term="Magisk" scheme="https://100067.xyz/tags/Magisk/"/>
     
   </entry>
   
   <entry>
     <title>iPhone 照片同步至 Pixel</title>
-    <link href="https://liuqitech.com/2021/08/21/photos_sync_to_pixel/"/>
-    <id>https://liuqitech.com/2021/08/21/photos_sync_to_pixel/</id>
+    <link href="https://100067.xyz/2021/08/21/photos_sync_to_pixel/"/>
+    <id>https://100067.xyz/2021/08/21/photos_sync_to_pixel/</id>
     <published>2021-08-21T07:00:00.000Z</published>
     <updated>2022-05-02T10:24:59.359Z</updated>
     
@@ -108,27 +108,27 @@
     
     </summary>
     
-      <category term="Synology" scheme="https://liuqitech.com/categories/Synology/"/>
+      <category term="Synology" scheme="https://100067.xyz/categories/Synology/"/>
     
     
-      <category term="Android" scheme="https://liuqitech.com/tags/Android/"/>
+      <category term="Android" scheme="https://100067.xyz/tags/Android/"/>
     
-      <category term="DSM" scheme="https://liuqitech.com/tags/DSM/"/>
+      <category term="DSM" scheme="https://100067.xyz/tags/DSM/"/>
     
-      <category term="Synology" scheme="https://liuqitech.com/tags/Synology/"/>
+      <category term="Synology" scheme="https://100067.xyz/tags/Synology/"/>
     
-      <category term="群晖" scheme="https://liuqitech.com/tags/%E7%BE%A4%E6%99%96/"/>
+      <category term="群晖" scheme="https://100067.xyz/tags/%E7%BE%A4%E6%99%96/"/>
     
-      <category term="Pixel" scheme="https://liuqitech.com/tags/Pixel/"/>
+      <category term="Pixel" scheme="https://100067.xyz/tags/Pixel/"/>
     
-      <category term="iPhone" scheme="https://liuqitech.com/tags/iPhone/"/>
+      <category term="iPhone" scheme="https://100067.xyz/tags/iPhone/"/>
     
   </entry>
   
   <entry>
     <title>Spring DeferredResult 指南（译）</title>
-    <link href="https://liuqitech.com/2021/02/07/spring-deferred-result/"/>
-    <id>https://liuqitech.com/2021/02/07/spring-deferred-result/</id>
+    <link href="https://100067.xyz/2021/02/07/spring-deferred-result/"/>
+    <id>https://100067.xyz/2021/02/07/spring-deferred-result/</id>
     <published>2021-02-07T07:00:00.000Z</published>
     <updated>2021-02-07T08:35:52.000Z</updated>
     
@@ -144,19 +144,19 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
-      <category term="Spring" scheme="https://liuqitech.com/tags/Spring/"/>
+      <category term="Spring" scheme="https://100067.xyz/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>数组实现队列</title>
-    <link href="https://liuqitech.com/2020/11/03/array-implementation-of-queue/"/>
-    <id>https://liuqitech.com/2020/11/03/array-implementation-of-queue/</id>
+    <link href="https://100067.xyz/2020/11/03/array-implementation-of-queue/"/>
+    <id>https://100067.xyz/2020/11/03/array-implementation-of-queue/</id>
     <published>2020-11-03T10:00:00.000Z</published>
     <updated>2021-01-14T10:38:02.000Z</updated>
     
@@ -170,17 +170,17 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>使用Keepalived实现简单的Nginx高可用</title>
-    <link href="https://liuqitech.com/2020/02/28/nginx_keepalived/"/>
-    <id>https://liuqitech.com/2020/02/28/nginx_keepalived/</id>
+    <link href="https://100067.xyz/2020/02/28/nginx_keepalived/"/>
+    <id>https://100067.xyz/2020/02/28/nginx_keepalived/</id>
     <published>2020-02-28T10:00:00.000Z</published>
     <updated>2020-03-17T10:26:37.000Z</updated>
     
@@ -199,17 +199,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://liuqitech.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://100067.xyz/categories/Linux/"/>
     
     
-      <category term="Nginx" scheme="https://liuqitech.com/tags/Nginx/"/>
+      <category term="Nginx" scheme="https://100067.xyz/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>MySQL Replication 主从复制 配置</title>
-    <link href="https://liuqitech.com/2020/02/27/mysql_replication/"/>
-    <id>https://liuqitech.com/2020/02/27/mysql_replication/</id>
+    <link href="https://100067.xyz/2020/02/27/mysql_replication/"/>
+    <id>https://100067.xyz/2020/02/27/mysql_replication/</id>
     <published>2020-02-27T08:00:00.000Z</published>
     <updated>2020-03-07T10:43:05.000Z</updated>
     
@@ -231,17 +231,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://liuqitech.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://100067.xyz/categories/Linux/"/>
     
     
-      <category term="MySQL" scheme="https://liuqitech.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://100067.xyz/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>CentOS 7 安装 JDK</title>
-    <link href="https://liuqitech.com/2020/02/26/centos7_jdk/"/>
-    <id>https://liuqitech.com/2020/02/26/centos7_jdk/</id>
+    <link href="https://100067.xyz/2020/02/26/centos7_jdk/"/>
+    <id>https://100067.xyz/2020/02/26/centos7_jdk/</id>
     <published>2020-02-26T02:00:00.000Z</published>
     <updated>2020-03-03T11:17:45.000Z</updated>
     
@@ -281,17 +281,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://liuqitech.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://100067.xyz/categories/Linux/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>去广告规则</title>
-    <link href="https://liuqitech.com/2020/02/14/ad_block_filter/"/>
-    <id>https://liuqitech.com/2020/02/14/ad_block_filter/</id>
+    <link href="https://100067.xyz/2020/02/14/ad_block_filter/"/>
+    <id>https://100067.xyz/2020/02/14/ad_block_filter/</id>
     <published>2020-02-14T14:00:50.000Z</published>
     <updated>2021-09-03T04:40:54.000Z</updated>
     
@@ -324,15 +324,15 @@
     
     </summary>
     
-      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
+      <category term="net" scheme="https://100067.xyz/categories/net/"/>
     
     
   </entry>
   
   <entry>
     <title>MySQL COALESCE 函数</title>
-    <link href="https://liuqitech.com/2020/02/14/mysql_coalesce/"/>
-    <id>https://liuqitech.com/2020/02/14/mysql_coalesce/</id>
+    <link href="https://100067.xyz/2020/02/14/mysql_coalesce/"/>
+    <id>https://100067.xyz/2020/02/14/mysql_coalesce/</id>
     <published>2020-02-14T03:26:00.000Z</published>
     <updated>2020-02-14T04:03:35.000Z</updated>
     
@@ -347,17 +347,17 @@
     
     </summary>
     
-      <category term="MySQL" scheme="https://liuqitech.com/categories/MySQL/"/>
+      <category term="MySQL" scheme="https://100067.xyz/categories/MySQL/"/>
     
     
-      <category term="MySQL" scheme="https://liuqitech.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://100067.xyz/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>中兴 E8820 V2 资料</title>
-    <link href="https://liuqitech.com/2020/02/03/zxhn_e8820v2/"/>
-    <id>https://liuqitech.com/2020/02/03/zxhn_e8820v2/</id>
+    <link href="https://100067.xyz/2020/02/03/zxhn_e8820v2/"/>
+    <id>https://100067.xyz/2020/02/03/zxhn_e8820v2/</id>
     <published>2020-02-03T08:26:50.000Z</published>
     <updated>2020-02-04T03:12:45.000Z</updated>
     
@@ -370,17 +370,17 @@
     
     </summary>
     
-      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
+      <category term="net" scheme="https://100067.xyz/categories/net/"/>
     
     
-      <category term="路由器" scheme="https://liuqitech.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+      <category term="路由器" scheme="https://100067.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Java中的强引用、软引用、弱引用、虚引用</title>
-    <link href="https://liuqitech.com/2020/01/15/java-reference/"/>
-    <id>https://liuqitech.com/2020/01/15/java-reference/</id>
+    <link href="https://100067.xyz/2020/01/15/java-reference/"/>
+    <id>https://100067.xyz/2020/01/15/java-reference/</id>
     <published>2020-01-15T10:06:50.000Z</published>
     <updated>2020-01-15T10:17:46.000Z</updated>
     
@@ -392,17 +392,17 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Spring学习笔记 - Spring AOP 使用</title>
-    <link href="https://liuqitech.com/2020/01/06/spring-aop-use/"/>
-    <id>https://liuqitech.com/2020/01/06/spring-aop-use/</id>
+    <link href="https://100067.xyz/2020/01/06/spring-aop-use/"/>
+    <id>https://100067.xyz/2020/01/06/spring-aop-use/</id>
     <published>2020-01-06T08:30:00.000Z</published>
     <updated>2020-01-06T09:31:43.000Z</updated>
     
@@ -424,19 +424,19 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
-      <category term="Spring" scheme="https://liuqitech.com/tags/Spring/"/>
+      <category term="Spring" scheme="https://100067.xyz/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>Spring学习笔记 - Spring AOP 概述</title>
-    <link href="https://liuqitech.com/2020/01/03/spring-aop-concept/"/>
-    <id>https://liuqitech.com/2020/01/03/spring-aop-concept/</id>
+    <link href="https://100067.xyz/2020/01/03/spring-aop-concept/"/>
+    <id>https://100067.xyz/2020/01/03/spring-aop-concept/</id>
     <published>2020-01-03T09:30:00.000Z</published>
     <updated>2020-01-06T09:31:39.000Z</updated>
     
@@ -467,19 +467,19 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
-      <category term="Spring" scheme="https://liuqitech.com/tags/Spring/"/>
+      <category term="Spring" scheme="https://100067.xyz/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>Spring学习笔记 - Spring FactoryBean</title>
-    <link href="https://liuqitech.com/2020/01/02/spring-factorybean/"/>
-    <id>https://liuqitech.com/2020/01/02/spring-factorybean/</id>
+    <link href="https://100067.xyz/2020/01/02/spring-factorybean/"/>
+    <id>https://100067.xyz/2020/01/02/spring-factorybean/</id>
     <published>2020-01-02T07:00:00.000Z</published>
     <updated>2020-01-03T09:36:59.000Z</updated>
     
@@ -495,19 +495,19 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
-      <category term="Spring" scheme="https://liuqitech.com/tags/Spring/"/>
+      <category term="Spring" scheme="https://100067.xyz/tags/Spring/"/>
     
   </entry>
   
   <entry>
     <title>git flow 简单入门 | SourceTree操作Git工作流</title>
-    <link href="https://liuqitech.com/2019/12/26/git-flow-learn/"/>
-    <id>https://liuqitech.com/2019/12/26/git-flow-learn/</id>
+    <link href="https://100067.xyz/2019/12/26/git-flow-learn/"/>
+    <id>https://100067.xyz/2019/12/26/git-flow-learn/</id>
     <published>2019-12-26T08:26:50.000Z</published>
     <updated>2022-02-08T10:26:46.796Z</updated>
     
@@ -520,19 +520,19 @@
     
     </summary>
     
-      <category term="Git" scheme="https://liuqitech.com/categories/Git/"/>
+      <category term="Git" scheme="https://100067.xyz/categories/Git/"/>
     
     
-      <category term="Git" scheme="https://liuqitech.com/tags/Git/"/>
+      <category term="Git" scheme="https://100067.xyz/tags/Git/"/>
     
-      <category term="gitflow" scheme="https://liuqitech.com/tags/gitflow/"/>
+      <category term="gitflow" scheme="https://100067.xyz/tags/gitflow/"/>
     
   </entry>
   
   <entry>
     <title>斐讯K2 刷机资料</title>
-    <link href="https://liuqitech.com/2019/12/12/phicomm_k2/"/>
-    <id>https://liuqitech.com/2019/12/12/phicomm_k2/</id>
+    <link href="https://100067.xyz/2019/12/12/phicomm_k2/"/>
+    <id>https://100067.xyz/2019/12/12/phicomm_k2/</id>
     <published>2019-12-12T08:26:50.000Z</published>
     <updated>2019-12-26T08:16:01.000Z</updated>
     
@@ -546,23 +546,23 @@
     
     </summary>
     
-      <category term="net" scheme="https://liuqitech.com/categories/net/"/>
+      <category term="net" scheme="https://100067.xyz/categories/net/"/>
     
     
-      <category term="斐讯" scheme="https://liuqitech.com/tags/%E6%96%90%E8%AE%AF/"/>
+      <category term="斐讯" scheme="https://100067.xyz/tags/%E6%96%90%E8%AE%AF/"/>
     
-      <category term="路由器" scheme="https://liuqitech.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+      <category term="路由器" scheme="https://100067.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
-      <category term="K2" scheme="https://liuqitech.com/tags/K2/"/>
+      <category term="K2" scheme="https://100067.xyz/tags/K2/"/>
     
-      <category term="padavan" scheme="https://liuqitech.com/tags/padavan/"/>
+      <category term="padavan" scheme="https://100067.xyz/tags/padavan/"/>
     
   </entry>
   
   <entry>
     <title>玩物下载 群晖ARM版 安装方法</title>
-    <link href="https://liuqitech.com/2019/12/11/synology_owapp_armv8/"/>
-    <id>https://liuqitech.com/2019/12/11/synology_owapp_armv8/</id>
+    <link href="https://100067.xyz/2019/12/11/synology_owapp_armv8/"/>
+    <id>https://100067.xyz/2019/12/11/synology_owapp_armv8/</id>
     <published>2019-12-11T04:00:00.000Z</published>
     <updated>2022-05-02T09:21:18.334Z</updated>
     
@@ -579,23 +579,23 @@
     
     </summary>
     
-      <category term="Synology" scheme="https://liuqitech.com/categories/Synology/"/>
+      <category term="Synology" scheme="https://100067.xyz/categories/Synology/"/>
     
     
-      <category term="Synology" scheme="https://liuqitech.com/tags/Synology/"/>
+      <category term="Synology" scheme="https://100067.xyz/tags/Synology/"/>
     
-      <category term="群晖" scheme="https://liuqitech.com/tags/%E7%BE%A4%E6%99%96/"/>
+      <category term="群晖" scheme="https://100067.xyz/tags/%E7%BE%A4%E6%99%96/"/>
     
-      <category term="owapp" scheme="https://liuqitech.com/tags/owapp/"/>
+      <category term="owapp" scheme="https://100067.xyz/tags/owapp/"/>
     
-      <category term="玩物下载" scheme="https://liuqitech.com/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/"/>
+      <category term="玩物下载" scheme="https://100067.xyz/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>多租户的实现</title>
-    <link href="https://liuqitech.com/2019/10/09/tenant/"/>
-    <id>https://liuqitech.com/2019/10/09/tenant/</id>
+    <link href="https://100067.xyz/2019/10/09/tenant/"/>
+    <id>https://100067.xyz/2019/10/09/tenant/</id>
     <published>2019-10-09T02:20:00.000Z</published>
     <updated>2019-10-12T08:27:51.000Z</updated>
     
@@ -618,17 +618,17 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="MyBatis" scheme="https://liuqitech.com/tags/MyBatis/"/>
+      <category term="MyBatis" scheme="https://100067.xyz/tags/MyBatis/"/>
     
   </entry>
   
   <entry>
     <title>JVM笔记 - 运行时内存区域</title>
-    <link href="https://liuqitech.com/2019/07/04/jvm-spec/"/>
-    <id>https://liuqitech.com/2019/07/04/jvm-spec/</id>
+    <link href="https://100067.xyz/2019/07/04/jvm-spec/"/>
+    <id>https://100067.xyz/2019/07/04/jvm-spec/</id>
     <published>2019-07-04T05:26:00.000Z</published>
     <updated>2019-07-05T06:45:22.000Z</updated>
     
@@ -644,12 +644,12 @@
     
     </summary>
     
-      <category term="Java" scheme="https://liuqitech.com/categories/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/categories/Java/"/>
     
     
-      <category term="Java" scheme="https://liuqitech.com/tags/Java/"/>
+      <category term="Java" scheme="https://100067.xyz/tags/Java/"/>
     
-      <category term="JVM" scheme="https://liuqitech.com/tags/JVM/"/>
+      <category term="JVM" scheme="https://100067.xyz/tags/JVM/"/>
     
   </entry>
   
