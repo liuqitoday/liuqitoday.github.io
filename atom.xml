@@ -507,9 +507,9 @@
     <category term="Git" scheme="https://100067.xyz/categories/Git/"/>
     
     
-    <category term="gitflow" scheme="https://100067.xyz/tags/gitflow/"/>
-    
     <category term="Git" scheme="https://100067.xyz/tags/Git/"/>
+    
+    <category term="gitflow" scheme="https://100067.xyz/tags/gitflow/"/>
     
   </entry>
   
