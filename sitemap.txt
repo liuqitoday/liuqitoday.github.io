@@ -41,13 +41,12 @@ https://100067.xyz/tags/Git/
 https://100067.xyz/tags/Android/
 https://100067.xyz/tags/Magisk/
 https://100067.xyz/tags/%E4%BB%A3%E7%90%86/
+https://100067.xyz/tags/JVM/
 https://100067.xyz/tags/JMeter/
 https://100067.xyz/tags/Dubbo/
-https://100067.xyz/tags/JVM/
+https://100067.xyz/tags/MySQL/
 https://100067.xyz/tags/OGNL/
 https://100067.xyz/tags/MyBatis/
-https://100067.xyz/tags/MySQL/
-https://100067.xyz/tags/Nginx/
 https://100067.xyz/tags/%E6%96%90%E8%AE%AF/
 https://100067.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/
 https://100067.xyz/tags/K2/
@@ -57,6 +56,7 @@ https://100067.xyz/tags/Synology/
 https://100067.xyz/tags/%E7%BE%A4%E6%99%96/
 https://100067.xyz/tags/Pixel/
 https://100067.xyz/tags/iPhone/
+https://100067.xyz/tags/Nginx/
 https://100067.xyz/tags/Push/
 https://100067.xyz/tags/Python/
 https://100067.xyz/tags/Redis/
@@ -67,8 +67,8 @@ https://100067.xyz/tags/Spring/
 https://100067.xyz/tags/owapp/
 https://100067.xyz/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/
 https://100067.xyz/categories/net/
-https://100067.xyz/categories/Java/
 https://100067.xyz/categories/Linux/
+https://100067.xyz/categories/Java/
 https://100067.xyz/categories/WeChat/
 https://100067.xyz/categories/Windows/
 https://100067.xyz/categories/Git/

@@ -369,6 +369,13 @@
   </url>
   
   <url>
+    <loc>https://100067.xyz/tags/JVM/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://100067.xyz/tags/JMeter/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -383,7 +390,7 @@
   </url>
   
   <url>
-    <loc>https://100067.xyz/tags/JVM/</loc>
+    <loc>https://100067.xyz/tags/MySQL/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -398,20 +405,6 @@
   
   <url>
     <loc>https://100067.xyz/tags/MyBatis/</loc>
-    <lastmod>2024-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://100067.xyz/tags/MySQL/</loc>
-    <lastmod>2024-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://100067.xyz/tags/Nginx/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -475,6 +468,13 @@
   
   <url>
     <loc>https://100067.xyz/tags/iPhone/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Nginx/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -553,14 +553,14 @@
   </url>
   
   <url>
-    <loc>https://100067.xyz/categories/Java/</loc>
+    <loc>https://100067.xyz/categories/Linux/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://100067.xyz/categories/Linux/</loc>
+    <loc>https://100067.xyz/categories/Java/</loc>
     <lastmod>2024-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
