@@ -4,225 +4,608 @@
   <url>
     <loc>https://100067.xyz/2023/03/20/git-filter-repo/</loc>
     
-    <lastmod>2023-03-30T02:21:15.125Z</lastmod>
+    <lastmod>2023-03-30</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2021/08/21/photos_sync_to_pixel/</loc>
     
-    <lastmod>2022-05-02T10:24:59.359Z</lastmod>
+    <lastmod>2022-05-02</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/12/11/synology_owapp_armv8/</loc>
     
-    <lastmod>2022-05-02T09:21:18.334Z</lastmod>
+    <lastmod>2022-05-02</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2016/03/15/delete-ubuntu/</loc>
     
-    <lastmod>2022-02-08T10:29:35.313Z</lastmod>
+    <lastmod>2022-02-08</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/12/26/git-flow-learn/</loc>
     
-    <lastmod>2022-02-08T10:26:46.796Z</lastmod>
+    <lastmod>2022-02-08</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/14/ad_block_filter/</loc>
     
-    <lastmod>2021-09-03T04:40:54.000Z</lastmod>
+    <lastmod>2021-09-03</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2021/08/22/google_pixel_android_10_install_magisk/</loc>
     
-    <lastmod>2021-08-22T05:30:24.000Z</lastmod>
+    <lastmod>2021-08-22</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2021/02/07/spring-deferred-result/</loc>
     
-    <lastmod>2021-02-07T08:35:52.000Z</lastmod>
+    <lastmod>2021-02-07</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/11/03/array-implementation-of-queue/</loc>
     
-    <lastmod>2021-01-14T10:38:02.000Z</lastmod>
+    <lastmod>2021-01-14</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/28/nginx_keepalived/</loc>
     
-    <lastmod>2020-03-17T10:26:37.000Z</lastmod>
+    <lastmod>2020-03-17</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/27/mysql_replication/</loc>
     
-    <lastmod>2020-03-07T10:43:05.000Z</lastmod>
+    <lastmod>2020-03-07</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/26/centos7_jdk/</loc>
     
-    <lastmod>2020-03-03T11:17:45.000Z</lastmod>
+    <lastmod>2020-03-03</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/14/mysql_coalesce/</loc>
     
-    <lastmod>2020-02-14T04:03:35.000Z</lastmod>
+    <lastmod>2020-02-14</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/02/03/zxhn_e8820v2/</loc>
     
-    <lastmod>2020-02-04T03:12:45.000Z</lastmod>
+    <lastmod>2020-02-04</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/01/15/java-reference/</loc>
     
-    <lastmod>2020-01-15T10:17:46.000Z</lastmod>
+    <lastmod>2020-01-15</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/01/06/spring-aop-use/</loc>
     
-    <lastmod>2020-01-06T09:31:43.000Z</lastmod>
+    <lastmod>2020-01-06</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/01/03/spring-aop-concept/</loc>
     
-    <lastmod>2020-01-06T09:31:39.000Z</lastmod>
+    <lastmod>2020-01-06</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2020/01/02/spring-factorybean/</loc>
     
-    <lastmod>2020-01-03T09:36:59.000Z</lastmod>
+    <lastmod>2020-01-03</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2018/06/10/snowflake/</loc>
     
-    <lastmod>2019-12-26T08:16:23.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/12/12/phicomm_k2/</loc>
     
-    <lastmod>2019-12-26T08:16:01.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2016/10/16/mybatis-ognl/</loc>
     
-    <lastmod>2019-12-26T08:15:45.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/02/18/jmeter-plugins-dubbo/</loc>
     
-    <lastmod>2019-12-26T08:15:30.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2018/03/15/http-poxy/</loc>
     
-    <lastmod>2019-12-26T08:15:19.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/06/16/frp/</loc>
     
-    <lastmod>2019-12-26T08:14:45.000Z</lastmod>
+    <lastmod>2019-12-26</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/resources/index.html</loc>
     
-    <lastmod>2019-12-25T08:54:08.000Z</lastmod>
+    <lastmod>2019-12-25</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/10/09/tenant/</loc>
     
-    <lastmod>2019-10-12T08:27:51.000Z</lastmod>
+    <lastmod>2019-10-12</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/07/04/jvm-spec/</loc>
     
-    <lastmod>2019-07-05T06:45:22.000Z</lastmod>
+    <lastmod>2019-07-05</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/07/02/redis-learn/</loc>
     
-    <lastmod>2019-07-02T10:17:09.000Z</lastmod>
+    <lastmod>2019-07-02</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2019/06/14/pushbear-demo/</loc>
     
-    <lastmod>2019-06-17T02:34:32.000Z</lastmod>
+    <lastmod>2019-06-17</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/2018/04/15/clear_wechat_web_cache/</loc>
     
-    <lastmod>2018-08-21T07:44:41.000Z</lastmod>
+    <lastmod>2018-08-21</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/tags/index.html</loc>
     
-    <lastmod>2018-03-15T07:20:02.000Z</lastmod>
+    <lastmod>2018-03-15</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://100067.xyz/categories/index.html</loc>
     
-    <lastmod>2018-03-13T02:29:30.000Z</lastmod>
+    <lastmod>2018-03-13</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://100067.xyz/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://100067.xyz/tags/Java/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/WeChat/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/frp/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Git/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/gitflow/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Android/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Magisk/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/JMeter/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Dubbo/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/JVM/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/OGNL/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/MyBatis/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/MySQL/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Nginx/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E6%96%90%E8%AE%AF/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/K2/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/padavan/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/DSM/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Synology/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E7%BE%A4%E6%99%96/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Pixel/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/iPhone/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Push/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Python/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Redis/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/snowflake/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/Spring/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/owapp/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://100067.xyz/categories/net/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Java/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Linux/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/WeChat/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Windows/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Git/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Android/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/MySQL/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://100067.xyz/categories/Synology/</loc>
+    <lastmod>2024-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
 </urlset>

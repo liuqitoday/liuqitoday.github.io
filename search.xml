@@ -1,9 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[git filter-repo 简介]]></title>
-    <url>%2F2023%2F03%2F20%2Fgit-filter-repo%2F</url>
-    <content type="text"><![CDATA[简介git filter-repo 是一个快速而灵活的工具，用于修改 Git 仓库的历史记录。 它可以用于许多任务，例如： 重写提交历史记录 清理旧的大型文件 将仓库拆分成几个小仓库 将多个仓库合并成一个 移除密码和其他敏感数据 Git-Filter-Repo的一些特性是： 处理速度快 灵活，可配置性高 保留提交的作者和时间戳信息 可以对文件进行重命名和重构 可以对提交信息进行修改和删除 可以对提交信息进行搜索和替换 可以使用Python脚本进行自定义修改 安装MacOS 使用 homebrew 包管理工具进行安装，命令如下，其他方式参考官方文档 1brew install git-filter-repo 使用示例移除文件假设我们有一个包含敏感文件的 Git 仓库，需要将这些文件从提交记录中移除。 1git filter-repo --path sensitive.txt --invert-paths 这个命令会将所有包含 sensitive.txt 文件的提交从历史记录中移除。 修改提交信息修改指定 commit 的 message 信息 1git-filter-repo --message-callback &apos;return message.replace(b&quot;old commit message&quot;, b&quot;new commit message&quot;)&apos; 其中，new commit message 是你想要修改的新 commit message，old commit message 是你想要修改的旧 commit message。 替换指定的字符串例如我们的项目中，存在密码等敏感信息，我们希望将敏感信息删除。 首先我们需要创建文件，按照如下格式将替换文本的相关内容填写其中，如文件名为 expressions 1password123==&gt;****** 以上内容表示，将 password123替换为 ******，执行下面的命令进行替换 1git filter-repo --replace-text ../expressions 修改 commit 信息中的 user 与 mail新建 mailmap 文件，如文件名为 my-mailmap，文件内容格式如下： 1liuqitoday &lt;liuqitoday@163.com&gt; liuqitech &lt;liuqitech@email.com&gt; 执行下面的命令便会帮我们批量将commit 历史中的作者信息 liuqitech &lt;liuqitech@email.com&gt; 替换为 liuqitech &lt;liuqitech@email.com&gt; 1git filter-repo --mailmap ../my-mailmap 重命名文件如将 README.md 重命名为 README_1.md 1git filter-repo --path-rename README.md:README_1.md 提取子目录有时候，我们只需要一个 Git 仓库中的某个子目录。 1git filter-repo --path path/to/subdir 这个命令将会把 path/to/subdir 目录提取出来，形成一个新的 Git 仓库。 提取子目录下的所有文件如将 path/to/subdir 目录下的所有文件调整到根目录下 1git filter-repo --subdirectory-filter path/to/subdir]]></content>
+    <title>去广告规则</title>
+    <url>/2020/02/14/ad_block_filter/</url>
+    <content><![CDATA[<h4 id="适用于-Adblock-Plus-AdGuard-uBlock-等"><a href="#适用于-Adblock-Plus-AdGuard-uBlock-等" class="headerlink" title="适用于 Adblock Plus&#x2F;AdGuard&#x2F;uBlock 等"></a>适用于 Adblock Plus&#x2F;AdGuard&#x2F;uBlock 等</h4><ul>
+<li><p>EasyList + EasyList China</p>
+<blockquote>
+<p><a href="https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt">https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt</a></p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/cjx82630/cjxlist">CJX’s Annoyance List</a></p>
+<p>这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则</p>
+<blockquote>
+<p> <a href="https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt">https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt</a></p>
+</blockquote>
+</li>
+<li><p><a href="https://gitee.com/halflife/list">合并规则EasylistChina、EasylistLite、CJX’sAnnoyance</a></p>
+<p>合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则；</p>
+<blockquote>
+<p><a href="https://gitee.com/halflife/list/raw/master/ad.txt">https://gitee.com/halflife/list/raw/master/ad.txt</a></p>
+</blockquote>
+</li>
+<li><p><a href="http://bbs.kafan.cn/thread-1866845-1-1.html">乘风 广告过滤规则</a></p>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/rule.txt">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;xinggsf&#x2F;Adblock-Plus-Rule@master&#x2F;rule.txt</a></p>
+</blockquote>
+<span id="more"></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数组实现队列</title>
+    <url>/2020/11/03/array-implementation-of-queue/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>队列</strong>，又称为<strong>伫列</strong>（queue），<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8">计算机科学</a>中的一种<a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5">抽象资料型别</a>，是<a href="https://zh.wikipedia.org/wiki/%E5%85%88%E9%80%B2%E5%85%88%E5%87%BA%E6%BC%94%E7%AE%97%E6%B3%95">先进先出</a>（FIFO, First-In-First-Out）的<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a>。在具体应用中通常用<a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8">链表</a>或者<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%BB%84">数组</a>来实现。队列只允许在后端（称为<em>rear</em>）进行插入操作，在前端（称为<em>front</em>）进行删除操作。</p>
+<p>从上述的概念中我们可得知，<strong>队列</strong>两个主要的操作为<strong>入队</strong>(enqueue)与<strong>出队</strong>(dequeue)，入队为从队尾插入元素，出队为从队首去删除元素。</p>
+<h3 id="数组实现队列"><a href="#数组实现队列" class="headerlink" title="数组实现队列"></a>数组实现队列</h3><p>数组实现的队列即元素容器为数组，为了完成入队与出队列的操作，同时还需要两个指针来标记队首和队尾。</p>
+  <span id="more"></span>
+
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ArrayQueueTest &#123;</span><br><span class="line"></span><br><span class="line">    private final int[] items;</span><br><span class="line">    /**</span><br><span class="line">     * front 队首指针</span><br><span class="line">     * rear 对尾指针</span><br><span class="line">     * capital 队列容量</span><br><span class="line">     */</span><br><span class="line">    private int front, rear, capital;</span><br><span class="line"></span><br><span class="line">    public ArrayQueueTest(Integer capital) &#123;</span><br><span class="line">        this.items = new int[capital];</span><br><span class="line">        this.capital = capital;</span><br><span class="line">        this.front = rear = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队尾插入元素</span><br><span class="line">     *</span><br><span class="line">     * @param item 元素</span><br><span class="line">     */</span><br><span class="line">    public void add(int item) &#123;</span><br><span class="line">        // 当前容量已满</span><br><span class="line">        if (rear == capital) &#123;</span><br><span class="line">            if (front == 0) &#123;</span><br><span class="line">                throw new RuntimeException(&quot;队列已满&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 所有元素向前移动一位</span><br><span class="line">                for (int i = 0; i &lt; items.length - 1; i++) &#123;</span><br><span class="line">                    items[i] = items[i + 1];</span><br><span class="line">                &#125;</span><br><span class="line">                // 队尾指针向前移动一位，同时队首指针向前移动一位</span><br><span class="line">                rear--;</span><br><span class="line">                front--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        items[rear] = item;</span><br><span class="line">        rear++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队首取出元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队首取出的元素</span><br><span class="line">     */</span><br><span class="line">    public int remove() &#123;</span><br><span class="line">        if (front == capital) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;队列为空&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        int item = items[front];</span><br><span class="line">        front++;</span><br><span class="line">        return item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取队列所有元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队列所有元素数组</span><br><span class="line">     */</span><br><span class="line">    public int[] getItems() &#123;</span><br><span class="line">        int[] outItems = new int[rear - front];</span><br><span class="line">        for (int i = 0; i &lt; outItems.length; i++) &#123;</span><br><span class="line">            outItems[i] = items[front + i];</span><br><span class="line">        &#125;</span><br><span class="line">        return outItems;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ArrayQueueTest arrayQueue = new ArrayQueueTest(5);</span><br><span class="line">        arrayQueue.add(1);</span><br><span class="line">        arrayQueue.add(2);</span><br><span class="line">        arrayQueue.add(3);</span><br><span class="line">        arrayQueue.add(4);</span><br><span class="line">        arrayQueue.add(5);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">            int removeItem = arrayQueue.remove();</span><br><span class="line">            System.out.println(removeItem);</span><br><span class="line">            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        &#125;</span><br><span class="line">        arrayQueue.add(8);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        arrayQueue.add(9);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">//        for (int i = 10; i &lt; 20; i++) &#123;</span><br><span class="line">//            arrayQueue.add(i);</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">//        for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">//            System.out.println(arrayQueue.remove());</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 7 安装 JDK</title>
+    <url>/2020/02/26/centos7_jdk/</url>
+    <content><![CDATA[<h4 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h4><p>确保使用<em>root</em>用户或具有<em>sudo</em>权限的用户登陆。</p>
+<h4 id="OpenJDK"><a href="#OpenJDK" class="headerlink" title="OpenJDK"></a>OpenJDK</h4><p>通过<code>yum search</code>命令查看java相关包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum search java | grep openjdk</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>jre</th>
+<th>jdk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11</td>
+<td>java-11-openjdk.x86_64</td>
+<td>java-11-openjdk-devel.x86_64</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>java-1.8.0-openjdk.x86_64</td>
+<td>java-1.8.0-openjdk-headless.x86_64</td>
+</tr>
+</tbody></table>
+<p>以安装11版本的jdk为例</p>
+<p>安装命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install java-11-openjdk-devel.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>卸载命令如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum remove java-11-openjdk-devel.x86_64</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="Oracle-JDK"><a href="#Oracle-JDK" class="headerlink" title="Oracle JDK"></a>Oracle JDK</h4><p>Oracle 的 JDK 需要从Oracle的官网下载来进行安装</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>jre</th>
+<th>jdk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11</td>
+<td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a></td>
+<td><a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html">https://www.oracle.com/java/technologies/javase-jdk11-downloads.html</a></td>
+</tr>
+<tr>
+<td>1.8</td>
+<td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a></td>
+<td><a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a></td>
+</tr>
+</tbody></table>
+<p>以安装11版本的jdk为例。下载<em>jdk-11.0.6_linux-x64_bin.rpm</em></p>
+<p>安装命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum localinstall jdk-11_linux-x64_bin.rpm</span><br></pre></td></tr></table></figure>
+
+<p>卸载命令如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看已安装的jdk包</span><br><span class="line">rpm -qa | grep jdk</span><br><span class="line"># 卸载(其中jdk-11-11-ga.x86_64为软件包名)</span><br><span class="line">rpm -e jdk-11-11-ga.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置默认的版本"><a href="#设置默认的版本" class="headerlink" title="设置默认的版本"></a>设置默认的版本</h4><p>查看当前系统默认java版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;11.0.6&quot; 2020-01-14 LTS</span><br><span class="line">OpenJDK Runtime Environment 18.9 (build 11.0.6+10-LTS)</span><br><span class="line">OpenJDK 64-Bit Server VM 18.9 (build 11.0.6+10-LTS, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+
+<p>如果安装了多个版本，可以按以下操作进行切换默认版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo alternatives --config java</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">There are 2 programs which provide &#x27;java&#x27;.</span><br><span class="line"></span><br><span class="line">  Selection    Command</span><br><span class="line">-----------------------------------------------</span><br><span class="line">   1           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.6.10-1.el7_7.x86_64/bin/java)</span><br><span class="line">*+ 2           /usr/java/jdk-11/bin/java</span><br><span class="line"></span><br><span class="line">Enter to keep the current selection[+], or type selection number: </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>通过输入对应数字并按Enter即可。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>清除微信网页缓存</title>
+    <url>/2018/04/15/clear_wechat_web_cache/</url>
+    <content><![CDATA[<h2 id="清除微信网页缓存"><a href="#清除微信网页缓存" class="headerlink" title="清除微信网页缓存"></a>清除微信网页缓存</h2><h4 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h4><blockquote>
+<p>微信内打开 <a href="http://debugx5.qq.com/">http://debugx5.qq.com/</a></p>
+</blockquote>
+<h4 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h4><blockquote>
+<p>退出账号，重新登录（并不会删除聊天记录的）。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>WeChat</category>
+      </categories>
+      <tags>
+        <tag>WeChat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows + Ubuntu双系统删除Ubuntu</title>
+    <url>/2016/03/15/delete-ubuntu/</url>
+    <content><![CDATA[<h3 id="确定启动方式-UEFI、Legacy"><a href="#确定启动方式-UEFI、Legacy" class="headerlink" title="确定启动方式(UEFI、Legacy)"></a>确定启动方式(UEFI、Legacy)</h3><p>按 WIN+R 快捷键打开“运行”，输入 msinfo32 确定打开“系统信息”，在系统摘要中即可看到BIOS模式。<br><img src="https://raw.githubusercontent.com/liuqitoday/image/main/EasyUEFI.png" alt="image"></p>
+<span id="more"></span>
+
+<h3 id="UEFI-方式的操作"><a href="#UEFI-方式的操作" class="headerlink" title="UEFI 方式的操作"></a>UEFI 方式的操作</h3><p>借助<a href="https://www.easyuefi.com/index-us.html">EasyUEFI</a>来实现，下载安装运行软件，点击“管理EFI”启动项，删除Ubuntu项即可。<br><img src="http://image.liuqitech.com/blog/EasyUEFI.png" alt="image"></p>
+<h3 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h3><p>管理计算机-磁盘管理<br>找到Ubuntu对应的分区，删除卷即可。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>双系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>frp 内网穿透</title>
+    <url>/2019/06/16/frp/</url>
+    <content><![CDATA[<h2 id="frp-内网穿透"><a href="#frp-内网穿透" class="headerlink" title="frp 内网穿透"></a>frp 内网穿透</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。</p>
+<p>此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。</p>
+<h3 id="frp简介"><a href="#frp简介" class="headerlink" title="frp简介"></a>frp简介</h3><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p>
+<p>项目地址：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。</p>
+<p>网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。</p>
+<span id="more"></span>
+
+
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，仅需简单的几个步骤就可以上手。</p>
+<h4 id="服务端-frps"><a href="#服务端-frps" class="headerlink" title="服务端 - frps"></a>服务端 - frps</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载 在github release页面下载适合自己系统的版本</span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</span><br><span class="line"># 解压</span><br><span class="line">tar -zxvf frp_0.27.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line"># 客户端与服务端token一致才可连接成功</span><br><span class="line">token = 676767 </span><br><span class="line"># dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控</span><br><span class="line">dashboard_port = 7500 </span><br><span class="line">dashboard_user = liuqitech</span><br><span class="line">dashboard_pwd = liuqitech</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-frpc"><a href="#客户端-frpc" class="headerlink" title="客户端 - frpc"></a>客户端 - frpc</h4><p>同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"># 服务端IP 端口</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line"># token 服务端与客户端需一致</span><br><span class="line">token = 676767</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frpc.exe -c frpc.ini</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p>以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。</p>
+<p>我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。</p>
+<p>更多不同的配置请参考官方文档<a href="https://github.com/fatedier/frp/blob/master/README_zh.md">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
+<p>客户端配置文件 frpc.ini 进行修改，添加以下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[rdp]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"># 3389为默认的Windows远程桌面连接的端口</span><br><span class="line">local_port = 3389</span><br><span class="line"># 进行远程连接时的端口</span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
+
+<p>重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。</p>
+<p>当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。</p>
+]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+      <tags>
+        <tag>frp</tag>
+        <tag>内网穿透</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git filter-repo 简介</title>
+    <url>/2023/03/20/git-filter-repo/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git filter-repo 是一个快速而灵活的工具，用于修改 Git 仓库的历史记录。</p>
+<p>它可以用于许多任务，例如：</p>
+<ul>
+<li>重写提交历史记录</li>
+<li>清理旧的大型文件</li>
+<li>将仓库拆分成几个小仓库</li>
+<li>将多个仓库合并成一个</li>
+<li>移除密码和其他敏感数据</li>
+</ul>
+<p>Git-Filter-Repo的一些特性是：</p>
+<ul>
+<li>处理速度快</li>
+<li>灵活，可配置性高</li>
+<li>保留提交的作者和时间戳信息</li>
+<li>可以对文件进行重命名和重构</li>
+<li>可以对提交信息进行修改和删除</li>
+<li>可以对提交信息进行搜索和替换</li>
+<li>可以使用Python脚本进行自定义修改</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>MacOS 使用 homebrew 包管理工具进行安装，命令如下，其他方式参考官方文档</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install git-filter-repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>假设我们有一个包含敏感文件的 Git 仓库，需要将这些文件从提交记录中移除。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git filter-repo --path sensitive.txt --invert-paths</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会将所有包含 sensitive.txt 文件的提交从历史记录中移除。</p>
+<span id="more"></span>
+
+<h3 id="修改提交信息"><a href="#修改提交信息" class="headerlink" title="修改提交信息"></a>修改提交信息</h3><p>修改指定 commit 的 message 信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git-filter-repo --message-callback &#x27;return message.replace(b&quot;old commit message&quot;, b&quot;new commit message&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>new commit message</code> 是你想要修改的新 commit message，<code>old commit message</code> 是你想要修改的旧 commit message。</p>
+<h3 id="替换指定的字符串"><a href="#替换指定的字符串" class="headerlink" title="替换指定的字符串"></a>替换指定的字符串</h3><p>例如我们的项目中，存在密码等敏感信息，我们希望将敏感信息删除。</p>
+<p>首先我们需要创建文件，按照如下格式将替换文本的相关内容填写其中，如文件名为 expressions</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">password123==&gt;******</span><br></pre></td></tr></table></figure>
+
+<p>以上内容表示，将 <code>password123</code>替换为 <code>******</code>，执行下面的命令进行替换</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --replace-text ../expressions</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改-commit-信息中的-user-与-mail"><a href="#修改-commit-信息中的-user-与-mail" class="headerlink" title="修改 commit 信息中的 user 与 mail"></a>修改 commit 信息中的 user 与 mail</h3><p>新建 mailmap 文件，如文件名为 my-mailmap，文件内容格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">liuqitoday &lt;liuqitoday@163.com&gt; liuqitech &lt;liuqitech@email.com&gt;</span><br></pre></td></tr></table></figure>
+
+<p>执行下面的命令便会帮我们批量将commit 历史中的作者信息 <code>liuqitech &lt;liuqitech@email.com</code>&gt;  替换为 <code> liuqitech &lt;liuqitech@email.com&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git filter-repo --mailmap ../my-mailmap</span><br></pre></td></tr></table></figure>
+
+<h3 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h3><p>如将 README.md 重命名为 README_1.md</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path-rename README.md:README_1.md</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取子目录"><a href="#提取子目录" class="headerlink" title="提取子目录"></a>提取子目录</h3><p>有时候，我们只需要一个 Git 仓库中的某个子目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --path path/to/subdir</span><br></pre></td></tr></table></figure>
+
+<p>这个命令将会把 <code>path/to/subdir</code> 目录提取出来，形成一个新的 Git 仓库。</p>
+<h3 id="提取子目录下的所有文件"><a href="#提取子目录下的所有文件" class="headerlink" title="提取子目录下的所有文件"></a>提取子目录下的所有文件</h3><p>如将 <code>path/to/subdir</code> 目录下的所有文件调整到根目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-repo --subdirectory-filter path/to/subdir</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -12,9 +274,106 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Google Pixel (Android 10) 安装 Magisk 过程记录]]></title>
-    <url>%2F2021%2F08%2F22%2Fgoogle_pixel_android_10_install_magisk%2F</url>
-    <content type="text"><![CDATA[Mac 安装 android-platform-tools1brew install --cask android-platform-tools 解锁 bootloader手机进入开发者模式 打开 USB调试模式，并勾选 ”OEM解锁“ 1adb reboot bootloader 1fastboot flashing unlock 提取原版 boot.img下载原版刷机包并提取 boot.img 文件 制作 Magisk patch下载 Magisk 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 1adb push Magisk-v23.0.apk /sdcard/ 1adb push boot.img /sdcard/ 手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中 1adb pull /sdcard/Download/magisk_patched.img ~/Downloads/ 刷写 magisk_patched.img1adb reboot fastboot 1fastboot flash boot magisk_patched.img 重启并验证1fastboot reboot 打开 Magisk APP 显示各种状态均正常，成功！]]></content>
+    <title>git flow 简单入门 | SourceTree操作Git工作流</title>
+    <url>/2019/12/26/git-flow-learn/</url>
+    <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git 作为源码管理系统，不可避免涉及到多人协作。团队中商定一个工作流程至关重要的。本文已常用的Git flow 做说明，该模型如下图所示：</p>
+<p><img src="https://nvie.com/img/git-model@2x.png" alt="image"></p>
+<span id="more"></span>
+
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>该模型总存在两个长期（核心）分支：</p>
+<ul>
+<li>master</li>
+<li>develop</li>
+</ul>
+<p><code>master</code> ，我们认为该分支存放对外发布的版本，任何时候该分支都是稳定的发布版。我们不可以直接在该分支push 代码。</p>
+<p><code>develop</code> ，我们认为该分支的代码存放的是达到稳定并且准备发布时的，我们的新功能开发都是基于此分支。</p>
+<p>其次，项目存在的三种短期分支：</p>
+<ul>
+<li>feature</li>
+<li>hotfix</li>
+<li>release</li>
+</ul>
+<p><code>feature</code> ，即功能分支，我们进行新功能的开发将在此分支上进行。该分支的代码基于develop 并且最终回合并回develop 分支。</p>
+<p><code>hoxtfix</code> , 即补丁分支，我们进行线上问题修复将在此分支进行，该代码分支基于master 并且最终将合并会develop、master 分支。</p>
+<p> <code>release</code>, 即预发分支。</p>
+<h3 id="操作流程实例"><a href="#操作流程实例" class="headerlink" title="操作流程实例"></a>操作流程实例</h3><p>当我们进行新功能开发时，需要基于develop分支拉取feature分支进行开发，如增加了一个功能 我们将基于develop分支创建 feature&#x2F;news 分支。</p>
+<p>当功能开发完毕时，我们将提交merge request，将该功能合并到develop 分支。</p>
+<p>当所有feature 功能开发完毕，且都已合并回develop，开发自己测试完毕后。准备创建预发布版本，就可以基于develop创建release分支。此时测试人员可以基于该版本release进行测试，发现了问题，我们在release分支上进行问题的修复。</p>
+<p>当具备上线条件时，需要将release分支合并到master和develop分支，同时需要打tag，然后进行上线操作，线上发布的为master分支。</p>
+<p>当需要修复线上bug时，我们需要基于master创建hotfix分支，当修复且验证完毕后，将hotfix分支合并回master分支，同时为了保证该hotfix包含在下一个发行版中，同时需要合并回develop分支，同时需要打tag。最后删除hotfix分支。</p>
+<h3 id="SourceTree-操作"><a href="#SourceTree-操作" class="headerlink" title="SourceTree 操作"></a>SourceTree 操作</h3><p>SourceTree 的图形化界面git工具，可以简化我们上述的复杂操作。</p>
+<ul>
+<li><p>初始化项目</p>
+<p>点击右上角Git工作流按钮，初始化git flow。</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-1.png" alt="image"></p>
+</li>
+<li><p>开发新功能</p>
+<p>点击创建新的功能，此时我们发现已经为我们创建了feature&#x2F;news分支，我们将在此分支进行功能开发。</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-2.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-3.png" alt="image"></p>
+</li>
+<li><p>开发完成</p>
+<p>点击完成功能。 此时我们发现已经将feature&#x2F;news分支合并到了develop分支。</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-4.png" alt="image"></p>
+</li>
+<li><p>预发布 开始release</p>
+<p>点击建立新的发布版本，此时我们发现已经为我们创建了release&#x2F;v1.0.0 分支。</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-5.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-6.png" alt="image"></p>
+</li>
+<li><p>发布 完成release</p>
+<p>点击完成发布版本，此时我们发现已经将release&#x2F;1.0.0分支合并到了develop和master</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-7.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-8.png" alt="image"></p>
+</li>
+<li><p>线上问题修复 开始hotfix</p>
+<p>点击创建新的修复补丁，此时我们发现基于master为我们创建了hotfix&#x2F;v1.0.0-20191226</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-9.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-10.png" alt="image"></p>
+</li>
+<li><p>完成问题修复 完成hotfix</p>
+<p>点击完成修复补丁，此时我们发现将hotfix合并回了develop和master分支。</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-11.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/git-flow-12.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p><a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>gitflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Google Pixel (Android 10) 安装 Magisk 过程记录</title>
+    <url>/2021/08/22/google_pixel_android_10_install_magisk/</url>
+    <content><![CDATA[<h3 id="Mac-安装-android-platform-tools"><a href="#Mac-安装-android-platform-tools" class="headerlink" title="Mac 安装 android-platform-tools"></a>Mac 安装 android-platform-tools</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">brew install --cask android-platform-tools</span><br></pre></td></tr></table></figure>
+
+<h3 id="解锁-bootloader"><a href="#解锁-bootloader" class="headerlink" title="解锁 bootloader"></a>解锁 bootloader</h3><p>手机进入开发者模式 打开 USB调试模式，并勾选 ”OEM解锁“</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flashing unlock</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取原版-boot-img"><a href="#提取原版-boot-img" class="headerlink" title="提取原版 boot.img"></a>提取原版 boot.img</h3><p>下载<a href="https://developers.google.com/android/images#flashtool">原版刷机包</a>并提取 boot.img 文件</p>
+<h3 id="制作-Magisk-patch"><a href="#制作-Magisk-patch" class="headerlink" title="制作 Magisk patch"></a>制作 Magisk patch</h3><p>下载 <a href="https://github.com/topjohnwu/Magisk/releases">Magisk</a> 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push Magisk-v23.0.apk /sdcard/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb push boot.img /sdcard/</span><br></pre></td></tr></table></figure>
+
+<p>手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched.img ~/Downloads/</span><br></pre></td></tr></table></figure>
+
+<h3 id="刷写-magisk-patched-img"><a href="#刷写-magisk-patched-img" class="headerlink" title="刷写 magisk_patched.img"></a>刷写 magisk_patched.img</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb reboot fastboot</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot flash boot magisk_patched.img</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启并验证"><a href="#重启并验证" class="headerlink" title="重启并验证"></a>重启并验证</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+
+<p>打开 Magisk APP 显示各种状态均正常，成功！</p>
+]]></content>
       <categories>
         <category>Android</category>
       </categories>
@@ -24,9 +383,295 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[iPhone 照片同步至 Pixel]]></title>
-    <url>%2F2021%2F08%2F21%2Fphotos_sync_to_pixel%2F</url>
-    <content type="text"><![CDATA[安装 Synology Photos群晖安装Synology Photos 套件，iPhone 手机端安装 Photos Mobile APP，使用该 APP 对手机照片进行备份。 安装 Syncthing群晖添加社区套件源 https://packages.synocommunity.com/，并安装 Syncthing 套件。Pixel 手机端安装 Syncthing APP。 配置 Syncthing 照片目录权限配置。群晖端使用 File Station，将照片所在目录（例如 homes/liuqi/Photos/MobileBackup）的读写权限设置给 sc-syncthing 用户。 添加设备。群晖端 Syncthing 显示设备二维码（操作 - 显示ID），手机端操作“添加设备”并扫描该二维码完成添加，此时在群晖的端 Syncthing 页面同意添加进来的设备。 群晖端 Syncthing 配置同步文件夹。群晖端 Syncthing 添加文件夹，常规标签页面下，填写文件夹标签（例如 tag_dsm_photos_lq）、文件夹ID（例如 id_dsm_photos_lq）、文件夹路径（例如 /var/services/homes/liuqi/Photos/MobileBackup）等信息。共享标签页面下勾选上一步添加的 Pixel 手机。忽略模式标签页面下添加@eaDir。高级标签页面下文件夹类型修改为仅发送，勾选忽略文件权限。进行保存。 Pixel 手机端 Syncthing 配置同步文件夹。此时打开 Pixel 手机端 Syncthing APP，同意提示添加的同步文件夹信息，并配置手机端的文件夹目录，目录种类修改为仅接收。 查看两端的 Syncthing 显示的同步进度是否正常，完成。]]></content>
+    <title>设置HTTP(HTTPS)代理</title>
+    <url>/2018/03/15/http-poxy/</url>
+    <content><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。</p>
+<h3 id="设置代理IP（多种实现方式）"><a href="#设置代理IP（多种实现方式）" class="headerlink" title="设置代理IP（多种实现方式）"></a>设置代理IP（多种实现方式）</h3><h4 id="设置系统属性方式"><a href="#设置系统属性方式" class="headerlink" title="设置系统属性方式"></a>设置系统属性方式</h4><p>发送HTTP请求前通过设置JVM中的系统属性来实现</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// HTTP/HTTPS Proxy</span><br><span class="line">System.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);</span><br><span class="line">System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);</span><br><span class="line">System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt);</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="使用HttpClient时设置代理"><a href="#使用HttpClient时设置代理" class="headerlink" title="使用HttpClient时设置代理"></a>使用HttpClient时设置代理</h4><p>直接引用HttpClient官方的示例代码进行说明</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import org.apache.http.HttpHost;</span><br><span class="line">import org.apache.http.client.config.RequestConfig;</span><br><span class="line">import org.apache.http.client.methods.CloseableHttpResponse;</span><br><span class="line">import org.apache.http.client.methods.HttpGet;</span><br><span class="line">import org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line">import org.apache.http.impl.client.HttpClients;</span><br><span class="line">import org.apache.http.util.EntityUtils;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * How to send a request via proxy.</span><br><span class="line"> *</span><br><span class="line"> * @since 4.0</span><br><span class="line"> */</span><br><span class="line">public class ClientExecuteProxy &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)throws Exception &#123;</span><br><span class="line">        CloseableHttpClient httpclient = HttpClients.createDefault();</span><br><span class="line">        try &#123;</span><br><span class="line">            HttpHost target = new HttpHost(&quot;httpbin.org&quot;, 443, &quot;https&quot;);</span><br><span class="line">            HttpHost proxy = new HttpHost(&quot;127.0.0.1&quot;, 8080, &quot;http&quot;);</span><br><span class="line"></span><br><span class="line">            RequestConfig config = RequestConfig.custom()</span><br><span class="line">                    .setProxy(proxy)</span><br><span class="line">                    .build();</span><br><span class="line">            HttpGet request = new HttpGet(&quot;/&quot;);</span><br><span class="line">            request.setConfig(config);</span><br><span class="line"></span><br><span class="line">            System.out.println(&quot;Executing request &quot; + request.getRequestLine() + &quot; to &quot; + target + &quot; via &quot; + proxy);</span><br><span class="line"></span><br><span class="line">            CloseableHttpResponse response = httpclient.execute(target, request);</span><br><span class="line">            try &#123;</span><br><span class="line">                System.out.println(&quot;----------------------------------------&quot;);</span><br><span class="line">                System.out.println(response.getStatusLine());</span><br><span class="line">                System.out.println(EntityUtils.toString(response.getEntity()));</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line">                response.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            httpclient.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java中的强引用、软引用、弱引用、虚引用</title>
+    <url>/2020/01/15/java-reference/</url>
+    <content><![CDATA[<p>Java 对象的引用划分为4种，它们由强到弱依次是<strong>强引用</strong>、<strong>软引用</strong>、<strong>弱引用</strong>、<strong>虚引用</strong>。这样划分的作用是可以更好的控制对象的声明周期，有利于JVM 进行垃圾回收。</p>
+<span id="more"></span>
+
+<h5 id="强引用（StrongReference）"><a href="#强引用（StrongReference）" class="headerlink" title="强引用（StrongReference）"></a>强引用（StrongReference）</h5><p>强引用就是我们最常见的普通对象引用，通常我们通过<code>new</code>来创建的对象所产生的引用就是强引用，强引用的对象不可被JVM垃圾收集器回收。</p>
+<p>比如下面这段代码，<code>obj</code>和<code>str</code>都是强引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Object obj = new Object();</span><br><span class="line">String str = &quot;liuqitech&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>只要某个对象有强引用与之关联，JVM必定不会回收这个对象，即使在内存不足的情况下，JVM宁愿抛出OOM的错误也不会回收这种对象。比如下面的代码中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new Main().fun1();</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    public void fun1() &#123;</span><br><span class="line">        Object object = new Object();</span><br><span class="line">        Object[] objArr = new Object[1000];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当运行至<code>Object[] objArr = new Object[1000];</code>时，即使内存不足抛出OOM错误，也不会回收<code>object</code>所引用的对象。不过要注意的是当<code>fun1()</code>方法执行完毕后，<code>object</code>、<code>objArr</code>都已经不存在，所以他们指向的对象会被JVM回收。</p>
+<p>如果想中队强引用和某个对象之间的关联，可以显示的将引用赋值为null（如object &#x3D; null）,这样JVM就会在合适的时机回收原<code>object</code>所指向的对象。</p>
+<h5 id="软引用（SoftReference）"><a href="#软引用（SoftReference）" class="headerlink" title="软引用（SoftReference）"></a>软引用（SoftReference）</h5><p>软引用是一种相对强引用弱化一些的引用，可以让对象豁免一些垃圾收集，只有当 JVM 认为内存不足时，才会去试图回收软引用指向的对象。JVM 会确保在抛出 OutOfMemoryError 之前，清理软引用指向的对象。软引用通常用来实现内存敏感的缓存，如果还有空闲内存，就可以暂时保留缓存，当内存不足时清理掉，这样就保证了使用缓存的同时，不会耗尽内存。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SoftReference&lt;String&gt; sr = new SoftReference&lt;String&gt;(new String(&quot;hello&quot;));</span><br><span class="line">System.out.println(sr.get());</span><br></pre></td></tr></table></figure>
+
+<p>软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被回收，则这个软引用进入到与之关联的引用队列中。</p>
+<h5 id="弱引用（WeakReference）"><a href="#弱引用（WeakReference）" class="headerlink" title="弱引用（WeakReference）"></a>弱引用（WeakReference）</h5><p>弱引用并不能使对象豁免垃圾收集，仅仅是提供一种访问在弱引用状态下对象的途径。这就可以用来构建一种没有特定约束的关系，比如，维护一种非强制性的映射关系，如果试图获取时对象还在，就使用它，否则重现实例化。它同样是很多缓存实现的选择。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">     </span><br><span class="line">        WeakReference&lt;String&gt; sr = new WeakReference&lt;String&gt;(new String(&quot;hello&quot;));</span><br><span class="line">         </span><br><span class="line">        System.out.println(sr.get()); // hello</span><br><span class="line">        System.gc();                //通知JVM的gc进行垃圾回收</span><br><span class="line">        System.out.println(sr.get()); // null</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同样弱引用也可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被回收，则将这个若引用进入到与之关联的引用队列中。</p>
+<h5 id="虚引用（PhantomReference）"><a href="#虚引用（PhantomReference）" class="headerlink" title="虚引用（PhantomReference）"></a>虚引用（PhantomReference）</h5><p>虚引用也被翻译为幻象引用，你不能通过它访问对象。幻象引用仅仅是提供了一种确保对象被 finalize 以后，做某些事情的机制。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。</p>
+<p>虚引用必须和引用队列联合使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ReferenceQueue&lt;String&gt; queue = new ReferenceQueue&lt;String&gt;();</span><br><span class="line">        PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(new String(&quot;hello&quot;), queue);</span><br><span class="line">        System.out.println(pr.get()); // null</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="待补充"><a href="#待补充" class="headerlink" title="待补充"></a>待补充</h5><h5 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h5><p><a href="https://www.cnblogs.com/dolphin0520/p/3784171.html">https://www.cnblogs.com/dolphin0520/p/3784171.html</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jmeter-plugins-dubbo简单试用</title>
+    <url>/2019/02/18/jmeter-plugins-dubbo/</url>
+    <content><![CDATA[<h2 id="jmeter-plugins-dubbo简单试用"><a href="#jmeter-plugins-dubbo简单试用" class="headerlink" title="jmeter-plugins-dubbo简单试用"></a>jmeter-plugins-dubbo简单试用</h2><h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo">https://github.com/dubbo/jmeter-plugins-dubbo</a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载dist目录下的jar包<br>推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>将插件的jar包放入 ${JMETER_HOME}\lib\ext</p>
+<span id="more"></span>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li><p>add -&gt; Sampler -&gt; dubbo sample</p>
+</li>
+<li><p>选择注册中心类型（以zookeeper注册中心为例）</p>
+<p>Protocol -&gt; zookeeper</p>
+</li>
+<li><p>填写注册中心地址</p>
+<p>Address</p>
+</li>
+<li><p>填写Interface与Method</p>
+</li>
+<li><p>填写接口相关参数</p>
+</li>
+</ul>
+<p><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg"><br><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_2.jpg"></p>
+<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97</a></p>
+<p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>JMeter</tag>
+        <tag>Dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM笔记 - 运行时内存区域</title>
+    <url>/2019/07/04/jvm-spec/</url>
+    <content><![CDATA[<p><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/JvmSpec7.png" alt="JvmSpec"></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>它可以看做是当前线程执行的字节码的指示器。</p>
+<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>它描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口信息等。每一个方法从调用到执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>它是被所有线程共享的一块区域，在虚拟机启动时创建。此内存区域的唯一目的是存放对象实例。</p>
+<p>对象的内存布局分为3块区域 对象头、实例数据、对齐填充</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>它也是被所有线程共享的一块区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>运行时常量池是方法区的一部分。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MyBatis中OGNL表达式的强制对象类型</title>
+    <url>/2016/10/16/mybatis-ognl/</url>
+    <content><![CDATA[<p>在使用MyBatis过程中可能会遇到如下问题</p>
+<p>mapper.xml中，当type为数字类型并且值为0时，下面的if test判断为false</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;if test=&quot;type != null and type != &#x27;&#x27;&quot;&gt;  </span><br><span class="line">    and type = #&#123;type&#125;   </span><br><span class="line">&lt;/if&gt;  </span><br></pre></td></tr></table></figure>
+<p>经过查阅相关资料发现MyBatis中if test的解析是使用的OGNL表达式。</p>
+<span id="more"></span>
+
+<p>下面贴以下<a href="https://commons.apache.org/proper/commons-ognl/language-guide.html">OGNL表达式</a>中关于对象类型强制转换的说明</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Coercing Objects to Types</span><br><span class="line">Here we describe how OGNL interprets objects as various types. See below for how OGNL coerces objects to booleans, numbers, integers, and collections.</span><br><span class="line"></span><br><span class="line">Interpreting Objects as Booleans</span><br><span class="line">Any object can be used where a boolean is required. OGNL interprets objects as booleans like this:</span><br><span class="line"></span><br><span class="line">If the object is a Boolean, its value is extracted and returned;</span><br><span class="line">If the object is a Number, its double-precision floating-point value is compared with zero; non-zero is treated as true, zero as false;</span><br><span class="line">If the object is a Character, its boolean value is true if and only if its char value is non-zero;</span><br><span class="line">Otherwise, its boolean value is true if and only if it is non-null.</span><br><span class="line">Interpreting Objects as Numbers</span><br><span class="line">Numerical operators try to treat their arguments as numbers. The basic primitive-type wrapper classes (Integer, Double, and so on, including Character and Boolean, which are treated as integers), and the &quot;big&quot; numeric classes from the java.math package (BigInteger and BigDecimal), are recognized as special numeric types. Given an object of some other class, OGNL tries to parse the object&#x27;s string value as a number.</span><br><span class="line"></span><br><span class="line">Numerical operators that take two arguments use the following algorithm to decide what type the result should be. The type of the actual result may be wider, if the result does not fit in the given type.</span><br><span class="line"></span><br><span class="line">If both arguments are of the same type, the result will be of the same type if possible;</span><br><span class="line">If either argument is not of a recognized numeric class, it will be treated as if it was a Double for the rest of this algorithm;</span><br><span class="line">If both arguments are approximations to real numbers (Float, Double, or BigDecimal), the result will be the wider type;</span><br><span class="line">If both arguments are integers (Boolean, Byte, Character, Short, Integer, Long, or BigInteger), the result will be the wider type;</span><br><span class="line">If one argument is a real type and the other an integer type, the result will be the real type if the integer is narrower than &quot;int&quot;; BigDecimal if the integer is BigInteger; or the wider of the real type and Double otherwise.</span><br><span class="line">Interpreting Objects as Integers</span><br><span class="line">Operators that work only on integers, like the bit-shifting operators, treat their arguments as numbers, except that BigDecimals and BigIntegers are operated on as BigIntegers and all other kinds of numbers are operated on as Longs. For the BigInteger case, the result of these operators remains a BigInteger; for the Long case, the result is expressed as the same type of the arguments, if it fits, or as a Long otherwise.</span><br><span class="line"></span><br><span class="line">Interpreting Objects as Collections</span><br><span class="line">The projection and selection operators (e1.&#123;e2&#125; and e1.&#123;?e2&#125;), and the in operator, all treat one of their arguments as a collection and walk it. This is done differently depending on the class of the argument:</span><br><span class="line"></span><br><span class="line">Java arrays are walked from front to back;</span><br><span class="line">Members of java.util.Collection are walked by walking their iterators;</span><br><span class="line">Members of java.util.Map are walked by walking iterators over their values;</span><br><span class="line">Members of java.util.Iterator and java.util.Enumeration are walked by iterating them;</span><br><span class="line">Members of java.lang.Number are &quot;walked&quot; by returning integers less than the given number starting with zero;</span><br><span class="line">All other objects are treated as singleton collections containing only themselves.</span><br></pre></td></tr></table></figure>
+
+<p>那么可以发现上面的判断中type为0时 type !&#x3D; ‘’其实是为false<br>，Number类型的0与空字符串’’进行比较时，0被转换成了空字符串。</p>
+<p>其实规范代码这种问题是不存在的，Number类型是无需和空字符串进行判断的。把该条件去掉只需判断是否为null即可。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>OGNL</tag>
+        <tag>MyBatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL COALESCE 函数</title>
+    <url>/2020/02/14/mysql_coalesce/</url>
+    <content><![CDATA[<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><a href="https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#function_coalesce"><code>COALESCE(value,...)</code></a>  </p>
+<p>Returns the first non-<code>NULL</code> value in the list, or <code>NULL</code> if there are no non-<code>NULL</code> values.</p>
+<p>官方文档介绍的很清楚，该函数返回参数列表中第一个非NULL的值，如果没有非NULL的值则返回NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT COALESCE(NULL,1);</span><br><span class="line">        -&gt; 1</span><br><span class="line">mysql&gt; SELECT COALESCE(NULL,NULL,NULL);</span><br><span class="line">        -&gt; NULL</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h4><p>表中存在字段<code>create_time</code>、<code>update_time</code>，现在需要按更新时间倒序排序，由于更新时间可能为NULL，若为NULL时按创建时间排。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ORDER BY COALESCE(update_time, create_time) DESC</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL Replication 主从复制 配置</title>
+    <url>/2020/02/27/mysql_replication/</url>
+    <content><![CDATA[<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><em>Replication</em> 可以使数据从一个MySQL数据库(master)复制到一个或多个MySQL数据库(slave)中，默认情况下该复制过程是异步的。我们可以通过配置来实现复制所有的<em>database</em>或者指定的<em>database</em>。</p>
+<p>MySQL Replication 的优点如下：</p>
+<ul>
+<li>横向扩展：可以将负载分布在多个slave上以提高性能。所有的写操作都必须在master上进行，但是读操作可以分布在一个或多个slave上。这样的模型可以提高写入性能，因为master专注于数据更新，同时多个slave可以显著的提高读取速度。</li>
+<li>数据安全：定期备份是保护数据的重要手段之一，若在master上进行数据备份则需要使master处于readonly状态，这将影响写操作 。而salve可以暂停复制的过程，所以slave上进行数据备份而不会影响到master。</li>
+<li>分析：数据是从master上实时写入的，数据分析可以在slave上进行而不影响master的性能。</li>
+<li>远程数据分发：如果master的物理位置距离较远，我们可以在临近的地方创建slave，方便使用数据使用，而不需要总是访问远端的master。</li>
+</ul>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>作为master 的MySQL实例将数据的变更操作作为”事件”记录到<code>binary log</code>中，slave 的MySQL实例被被指为读取master的<code>binary log</code>，slave将读取到的<code>binary log</code>写入自己的中继日志中，然后slave回把相关的事件进行执行。slave具体执行哪些事件由slave决定。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><h5 id="创建用于复制的账号"><a href="#创建用于复制的账号" class="headerlink" title="创建用于复制的账号"></a>创建用于复制的账号</h5><p>进入master的MySQL实例，执行以下操作：</p>
+<p>执行以下命令创建账号，其中<code>172.20.254.176</code>为slave的MySQL的ip，<code>liuqitech@2020</code>为密码。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE USER &#x27;slave&#x27;@&#x27;172.20.254.176&#x27; IDENTIFIED BY &#x27;liuqitech@2020&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>分配权限，其中<code>replication slave</code> 表示 主从复制权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GRANT REPLICATION SLAVE ON *.* TO &#x27;slave&#x27;@&#x27;172.20.254.176&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>刷新权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h5 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h5><p>开启二进制日志并设置唯一的server-id。修改<code>my.cnf</code>，添加如下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin #表示开启binlog，并且指定二进制日志文件名为mysql-bin</span><br><span class="line">server-id=1 #唯一的服务ID</span><br></pre></td></tr></table></figure>
+
+<p>重启MySQL使之生效</p>
+<h5 id="slave配置"><a href="#slave配置" class="headerlink" title="slave配置"></a>slave配置</h5><p>被指唯一的server-id。修改<code>my.cnf</code>，添加如下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=2</span><br></pre></td></tr></table></figure>
+
+<p>重启MySQL使之生效</p>
+<h5 id="获取master的二进制日志文件坐标"><a href="#获取master的二进制日志文件坐标" class="headerlink" title="获取master的二进制日志文件坐标"></a>获取master的二进制日志文件坐标</h5><p>master上执行以下操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql &gt; SHOW MASTER STATUS;</span><br><span class="line">+------------------+----------+--------------+------------------+</span><br><span class="line">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |</span><br><span class="line">+------------------+----------+--------------+------------------+</span><br><span class="line">| mysql-bin.000001 | 67       |              |                  |</span><br><span class="line">+------------------+----------+--------------+------------------+</span><br></pre></td></tr></table></figure>
+
+<p>记录File、Position的值</p>
+<h5 id="连接slave到master"><a href="#连接slave到master" class="headerlink" title="连接slave到master"></a>连接slave到master</h5><p>slave上执行以下操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; CHANGE MASTER TO</span><br><span class="line">         MASTER_HOST=&#x27;172.20.254.175&#x27;,</span><br><span class="line">         MASTER_USER=&#x27;slave&#x27;,</span><br><span class="line">         MASTER_PASSWORD=&#x27;liuqitech@2020&#x27;,</span><br><span class="line">         MASTER_LOG_FILE=&#x27;mysql-bin.000001&#x27;,</span><br><span class="line">         MASTER_LOG_POS=67;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; start slave;</span><br></pre></td></tr></table></figure>
+
+<h5 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h5><p>slave 中执行 查看状态</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql&gt; SHOW SLAVE STATUS \G</span><br></pre></td></tr></table></figure>
+
+<p>观察是否正常运行中</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Slave_IO_Running: Yes</span><br><span class="line">Slave_SQL_Running: Yes</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Keepalived实现简单的Nginx高可用</title>
+    <url>/2020/02/28/nginx_keepalived/</url>
+    <content><![CDATA[<h4 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h4><p>Nginx Master : 192.168.123.101</p>
+<p>Nginx Backup : 192.168.123.102</p>
+<p>VIP : 192.168.123.103</p>
+<h4 id="安装Keepalived"><a href="#安装Keepalived" class="headerlink" title="安装Keepalived"></a>安装Keepalived</h4><p>以上两台Nginx所在的机器分别安装Keepalived</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum install keepalived</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置Keepalived"><a href="#配置Keepalived" class="headerlink" title="配置Keepalived"></a>配置Keepalived</h4><p>修改 nginx master 所在机器的keepalived 的配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vi /etc/keepalived/keepalived.conf</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">! Configuration File for keepalived</span><br><span class="line"></span><br><span class="line">global_defs &#123;</span><br><span class="line">   notification_email &#123;</span><br><span class="line">       admin@liuqitech.com.com     #设置报警邮件地址，可以设置多个，每行一个。 需开启本机的sendmail服务</span><br><span class="line">   &#125;</span><br><span class="line">   notification_email_from no-reply@liuqitech.com  #设置邮件的发送地址</span><br><span class="line">   smtp_server 127.0.0.1      #设置smtp server地址</span><br><span class="line">   smtp_connect_timeout 30    #设置连接smtp server的超时时间</span><br><span class="line">   router_id LVS_DEVEL_1              #表示运行keepalived服务器的一个标识。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_script chk_nginx &#123;</span><br><span class="line">    script &quot;/usr/local/keepalived/sbin/check_nginx.sh&quot;   #该脚本检测ngnix的运行状态，并在nginx进程不存在时尝 试重新启动ngnix，如果启动失败则停止keepalived，准备让其它机器接管。</span><br><span class="line">    interval 2              #每2s检测一次</span><br><span class="line">    weight -20               #检测失败则优先级-20</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER              #指定keepalived的角色，MASTER表示此主机是主服务器，BACKUP表示此主机是备用服务器</span><br><span class="line">    interface eth0              #指定HA监测网络的接口 可通过ifconfig查看</span><br><span class="line">    virtual_router_id 55    #虚拟路由标识，这个标识是一个数字，同一个vrrp实例使用唯一的标识。即同一vrrp_instance下，MASTER和BACKUP必须是一致的</span><br><span class="line">    priority 100                  #定义优先级，数字越大，优先级越高，在同一个vrrp_instance下，MASTER的优先级必须大于BACKUP的优先级</span><br><span class="line">    advert_int 1            #设定MASTER与BACKUP负载均衡器之间同步检查的时间间隔，单位是秒</span><br><span class="line">    authentication &#123;        #设置验证类型和密码</span><br><span class="line">        auth_type PASS      #设置验证类型，主要有PASS和AH两种</span><br><span class="line">        auth_pass liuqitech  #设置验证密码，在同一个vrrp_instance下，MASTER与BACKUP必须使用相同的密码才能正常通信</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;     #设置虚拟IP地址，可以设置多个虚拟IP地址，每行一个</span><br><span class="line">        192.168.123.103</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">        chk_nginx           #引用VRRP脚本，即在 vrrp_script 部分指定的名字。定期运行它们来改变优先级，并最终引发主备切换。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改 nginx backup 所在机器的keepalived的配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">! Configuration File for keepalived</span><br><span class="line"></span><br><span class="line">global_defs &#123;</span><br><span class="line">   notification_email &#123;</span><br><span class="line">       admin@liuqitech.com     #设置报警邮件地址，可以设置多个，每行一个。 需开启本机的sendmail服务</span><br><span class="line">   &#125;</span><br><span class="line">   notification_email_from no-reply@liuqitech.com  #设置邮件的发送地址</span><br><span class="line">   smtp_server 127.0.0.1      #设置smtp server地址</span><br><span class="line">   smtp_connect_timeout 30    #设置连接smtp server的超时时间</span><br><span class="line">   router_id LVS_DEVEL_2        #表示运行keepalived服务器的一个标识。发邮件时显示在邮件主题的信息</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_script chk_nginx &#123;</span><br><span class="line">    script &quot;/usr /local/keepalived/sbin/check_nginx.sh&quot;   #该脚本检测ngnix的运行状态，并在nginx进程不存在时尝 试重新启动ngnix，如果启动失败则停止keepalived，准备让其它机器接管。</span><br><span class="line">    interval 2              #每2s检测一次</span><br><span class="line">    weight -20                #检测失败则优先级-20</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state BACKUP            #指定keepalived的角色，MASTER表示此主机是主服务器，BACKUP表示此主机是备用服务器</span><br><span class="line">    interface eth0          #指定HA监测网络的接口</span><br><span class="line">    virtual_router_id 55    #虚拟路由标识，这个标识是一个数字，同一个vrrp实例使用唯一的标识。即同一vrrp_instance下，MASTER和BACKUP必须是一致的</span><br><span class="line">    priority 50             #定义优先级，数字越大，优先级越高，在同一个vrrp_instance下，MASTER的优先级必须大于BACKUP的优先级</span><br><span class="line">    advert_int 1            #设定MASTER与BACKUP负载均衡器之间同步检查的时间间隔，单位是秒</span><br><span class="line">    nopreempt               #设置nopreempt防止抢占资源，只生效BACKUP节点</span><br><span class="line">    authentication &#123;        #设置验证类型和密码</span><br><span class="line">        auth_type PASS      #设置验证类型，主要有PASS和AH两种</span><br><span class="line">        auth_pass liuqitech  #设置验证密码，在同一个vrrp_instance下，MASTER与BACKUP必须使用相同的密码才能正常通信</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;     #设置虚拟IP地址，可以设置多个虚拟IP地址，每行一个</span><br><span class="line">        192.168.123.103</span><br><span class="line">    &#125;</span><br><span class="line">    track_script &#123;</span><br><span class="line">        chk_nginx           #引用VRRP脚本，即在 vrrp_script 部分指定的名字。定期运行它们来改变优先级，并最终引发主备切换。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>检测脚本，vi &#x2F;usr&#x2F;local&#x2F;keepalived&#x2F;sbin&#x2F;check_nginx.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">A=`ps -C nginx --no-header |wc -l`</span><br><span class="line">if [ $A -eq 0 ];then</span><br><span class="line">    sleep 2</span><br><span class="line">    /user/local/nginx/sbin/nginx</span><br><span class="line">    if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then</span><br><span class="line">        killall keepalived</span><br><span class="line">    fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>脚本说明：此方法比较暴力，若没有到nginx进程并且重启后仍检测不到，则kill掉keepalived</p>
+<p>脚本加上可执行权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/local/keepalived/sbin/check_nginx.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">                                                                 </span><br><span class="line">                                      +----------+               </span><br><span class="line">                  +----------+        |  Tomcat  |               </span><br><span class="line">                  |  Nginx   |        +----------+               </span><br><span class="line">                  +----------+                                   </span><br><span class="line">+----------+                          +----------+               </span><br><span class="line">|  虚拟IP   |                          |  Tomcat  |               </span><br><span class="line">+----------+                          +----------+               </span><br><span class="line">                  +----------+                                   </span><br><span class="line">                  |  Nginx   |        +----------+               </span><br><span class="line">                  +----------+        |  Tomcat  |               </span><br><span class="line">                                      +----------+               </span><br><span class="line">                                                          </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p><a href="https://www.linuxprobe.com/keepalived-nginx.html">https://www.linuxprobe.com/keepalived-nginx.html</a></p>
+<p><a href="https://www.centos.bz/2017/09/nginx-keepalived-%E9%AB%98%E5%8F%AF%E7%94%A8/">https://www.centos.bz/2017/09/nginx-keepalived-%E9%AB%98%E5%8F%AF%E7%94%A8/</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>斐讯K2 刷机资料</title>
+    <url>/2019/12/12/phicomm_k2/</url>
+    <content><![CDATA[<h3 id="型号"><a href="#型号" class="headerlink" title="型号"></a>型号</h3><p>K2 : PSG1218</p>
+<h3 id="Breed"><a href="#Breed" class="headerlink" title="Breed"></a>Breed</h3><p> <a href="https://breed.hackpascal.net/">https://breed.hackpascal.net/</a> </p>
+<h3 id="老毛子padavan"><a href="#老毛子padavan" class="headerlink" title="老毛子padavan"></a>老毛子padavan</h3><p> <a href="https://opt.cn2qq.com/padavan/">https://opt.cn2qq.com/padavan/</a> </p>
+<span id="more"></span>
+
+<h4 id="无线AP工作模式"><a href="#无线AP工作模式" class="headerlink" title="无线AP工作模式"></a>无线AP工作模式</h4><ul>
+<li>AP (禁用桥接)</li>
+<li>WDS 桥接 (禁用AP)</li>
+<li>WDS 中继 (桥接 + AP)</li>
+<li>AP-Client (禁用AP)</li>
+<li>AP-Client + AP</li>
+</ul>
+<h4 id="无线AP-Client角色"><a href="#无线AP-Client角色" class="headerlink" title="无线AP-Client角色"></a>无线AP-Client角色</h4><ul>
+<li>LAN bridge :  网桥，简单的说就是承担AP的角色，相当于一个无线交换机了，从主路由获取IP。选择这个就需要关掉华硕的DHCP功能。 </li>
+<li>Wireless ISP :  这个不难理解，就是供应商的形式，副路由在这里就是另外一个网段。选择这个得保证副路由和主路由LAN口地址不在一个网段。</li>
+</ul>
+<h3 id="高恪"><a href="#高恪" class="headerlink" title="高恪"></a>高恪</h3><p><a href="http://www.gocloud.cn/">http://www.gocloud.cn/</a> </p>
+]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+      <tags>
+        <tag>斐讯</tag>
+        <tag>路由器</tag>
+        <tag>K2</tag>
+        <tag>padavan</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iPhone 照片同步至 Pixel</title>
+    <url>/2021/08/21/photos_sync_to_pixel/</url>
+    <content><![CDATA[<h2 id="安装-Synology-Photos"><a href="#安装-Synology-Photos" class="headerlink" title="安装 Synology Photos"></a>安装 Synology Photos</h2><p>群晖安装<code> Synology Photos</code> 套件，iPhone 手机端安装 <code>Photos Mobile</code> APP，使用该 APP 对手机照片进行备份。</p>
+<h2 id="安装-Syncthing"><a href="#安装-Syncthing" class="headerlink" title="安装 Syncthing"></a>安装 Syncthing</h2><p>群晖添加社区套件源 <code>https://packages.synocommunity.com/ </code>，并安装 <code>Syncthing</code>  套件。Pixel 手机端安装 <code>Syncthing</code>  APP。</p>
+<h2 id="配置-Syncthing"><a href="#配置-Syncthing" class="headerlink" title="配置 Syncthing"></a>配置 Syncthing</h2><ol>
+<li>照片目录权限配置。群晖端使用 File Station，将照片所在目录（例如 homes&#x2F;liuqi&#x2F;Photos&#x2F;MobileBackup）的读写权限设置给 sc-syncthing 用户。</li>
+<li>添加设备。群晖端 Syncthing 显示设备二维码（操作 - 显示ID），手机端操作“添加设备”并扫描该二维码完成添加，此时在群晖的端 Syncthing 页面同意添加进来的设备。</li>
+<li>群晖端 Syncthing 配置同步文件夹。群晖端 Syncthing 添加文件夹，常规标签页面下，填写文件夹标签（例如 tag_dsm_photos_lq）、文件夹ID（例如 id_dsm_photos_lq）、文件夹路径（例如 &#x2F;var&#x2F;services&#x2F;homes&#x2F;liuqi&#x2F;Photos&#x2F;MobileBackup）等信息。共享标签页面下勾选上一步添加的 Pixel 手机。忽略模式标签页面下添加@eaDir。高级标签页面下文件夹类型修改为仅发送，勾选忽略文件权限。进行保存。</li>
+<li>Pixel 手机端 Syncthing 配置同步文件夹。此时打开 Pixel 手机端 Syncthing APP，同意提示添加的同步文件夹信息，并配置手机端的文件夹目录，目录种类修改为仅接收。 </li>
+<li>查看两端的 Syncthing 显示的同步进度是否正常，完成。</li>
+</ol>
+]]></content>
       <categories>
         <category>Synology</category>
       </categories>
@@ -40,9 +685,169 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Spring DeferredResult 指南（译）]]></title>
-    <url>%2F2021%2F02%2F07%2Fspring-deferred-result%2F</url>
-    <content type="text"><![CDATA[1. 概述在本教程中，我们将研究如何在Spring MVC使用 DeferredResult 类来执行异步请求处理。 Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。 从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worker线程中分离到一个单独的线程中。 尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。 异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。 2. 安装我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用DeferredResult 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。 3. 阻塞的 REST 服务我们以一个标准的阻塞的 REST 服务开始 12345@GetMapping(&quot;/process-blocking&quot;)public ResponseEntity&lt;?&gt; handleReqSync() &#123; // ... return ResponseEntity.ok(&quot;ok&quot;);&#125; 这里的问题是，请求处理线程在处理完成返回结果前是一直被阻塞的，对于需要进行长时间的计算时这不是一个好的解决方案。 4. 使用 DeferredResult 非阻塞的 REST 服务为了避免阻塞，我们将使用基于回调的模型，我们将返回一个 DeferredResult 到 Servlet 容器中，来取代实际的返回结果。 1234567891011121314151617@GetMapping(&quot;/async-deferredresult&quot;)public DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; handleReqDefResult() &#123; log.info(&quot;Received async-deferredresult request&quot;); DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; output = new DeferredResult&lt;&gt;(); ForkJoinPool.commonPool().submit(() -&gt; &#123; log.info(&quot;Processing in separate thread&quot;); try &#123; Thread.sleep(6000); &#125; catch (InterruptedException e) &#123; &#125; output.setResult(ResponseEntity.ok(&quot;ok&quot;)); &#125;); log.info(&quot;servlet thread freed&quot;); return output;&#125; 请求的处理逻辑在一个单独的线程中完成，并且完成之后调用 DeferredResult 类的 setResult 方法来设置实际结果。 下面是日志输出结果，看看是否按照我们的预期顺序输出 123Received async-deferredresult requestservlet thread freedProcessing in separate thread 在内部，将通知容器线程并将 HTTP 响应返回给给客户端。连接将由容器(servlet 3.0或更高版本)一直保持打开的状态，直到返回相应结果或超时。 5. DeferredResult 回调我们可以使用DeferredResult 注册3种类型的回调：完成、超时与异常。 我们使用onCompletion 方法来定义一个异步请求完成时执行的代码块 1deferredResult.onCompletion(() -&gt; log.info(&quot;Processing complete&quot;)); 为了限制请求的处理时间，我们可以在 DeferredResult 实例化时设置一个超时时间，并且可以使用ontTimeout 方法来注册一个自定义的代码块用来在超时后执行。 123456DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; deferredResult = new DeferredResult&lt;&gt;(500L);deferredResult.onTimeout(() -&gt; deferredResult.setErrorResult( ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT) .body(&quot;Request timeout occurred.&quot;))); 我们还可以使用onError 方法来注册一个发生异常时的回调。 12345deferredResult.onError((Throwable t) -&gt; &#123; deferredResult.setErrorResult( ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR) .body(&quot;An error occurred.&quot;));&#125;); 原文地址https://www.baeldung.com/spring-deferred-result]]></content>
+    <title>PushBear试用 - 喝水提醒小助手</title>
+    <url>/2019/06/14/pushbear-demo/</url>
+    <content><![CDATA[<h2 id="PushBear试用-喝水提醒小助手"><a href="#PushBear试用-喝水提醒小助手" class="headerlink" title="PushBear试用 - 喝水提醒小助手"></a>PushBear试用 - 喝水提醒小助手</h2><h3 id="PushBear简介"><a href="#PushBear简介" class="headerlink" title="PushBear简介"></a>PushBear简介</h3><p>基于微信模板的一对多消息送达服务</p>
+<h3 id="接入说明"><a href="#接入说明" class="headerlink" title="接入说明"></a>接入说明</h3><p>详见官网 <a href="http://pushbear.ftqq.com/">http://pushbear.ftqq.com</a></p>
+<span id="more"></span>
+
+<h3 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h3><p>废话不多说，直接贴代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> apscheduler.schedulers.blocking <span class="keyword">import</span> BlockingScheduler</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> times</span><br><span class="line">times = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remind</span>():</span><br><span class="line">    <span class="keyword">global</span> times</span><br><span class="line">    sendkey = <span class="string">&#x27;此处换成自己的&#x27;</span></span><br><span class="line">    text = <span class="string">&#x27;提醒喝水小助手&#x27;</span></span><br><span class="line">    desp = <span class="string">&#x27;这是今天第&#x27;</span> + <span class="built_in">str</span>(times) + <span class="string">&#x27;次提醒你喝水啦&#x27;</span></span><br><span class="line">    payload = &#123;<span class="string">&#x27;sendkey&#x27;</span>: sendkey, <span class="string">&#x27;text&#x27;</span>: text, <span class="string">&#x27;desp&#x27;</span>: desp&#125;</span><br><span class="line">    requests.post(<span class="string">&quot;https://pushbear.ftqq.com/sub&quot;</span>, data=payload)</span><br><span class="line">    times  = times + <span class="number">1</span></span><br><span class="line">    now_hour = datetime.datetime.now().hour</span><br><span class="line">    <span class="keyword">if</span> now_hour &gt;= <span class="number">21</span>:</span><br><span class="line">        times = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    sched = BlockingScheduler()</span><br><span class="line">    sched.add_job(remind, <span class="string">&#x27;cron&#x27;</span>, hour=<span class="string">&#x27;10,11,14,15,16,17,18,21&#x27;</span>, minute=<span class="number">6</span>)</span><br><span class="line">    sched.start()</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>WeChat</category>
+      </categories>
+      <tags>
+        <tag>WeChat</tag>
+        <tag>Push</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</title>
+    <url>/2019/07/02/redis-learn/</url>
+    <content><![CDATA[<h2 id="Redis基础笔记-数据类型-部署方式-项目配置"><a href="#Redis基础笔记-数据类型-部署方式-项目配置" class="headerlink" title="Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置"></a>Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置</h2><h3 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h3><p>Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。</p>
+<p>官方文档对于数据类型说明 <a href="https://redis.io/topics/data-types-intro">https://redis.io/topics/data-types-intro</a></p>
+<h4 id="Redis-Strings"><a href="#Redis-Strings" class="headerlink" title="Redis Strings"></a>Redis Strings</h4><p>Redis String 字符串类型，最简单的数据类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; set mykey somevalue</span><br><span class="line">OK</span><br><span class="line">&gt; get mykey</span><br><span class="line">&quot;somevalue&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Lists"><a href="#Redis-Lists" class="headerlink" title="Redis Lists"></a>Redis Lists</h4><p>Redis Lists 存储的字符串类型的元素，是按插入顺序排序的列表。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; rpush mylist A</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; rpush mylist B</span><br><span class="line">(integer) 2</span><br><span class="line">&gt; lpush mylist first</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;first&quot;</span><br><span class="line">2) &quot;A&quot;</span><br><span class="line">3) &quot;B&quot;</span><br><span class="line">&gt; lpop mylist</span><br><span class="line">&quot;first&quot;</span><br><span class="line">&gt; rpop mylist</span><br><span class="line">&quot;B&quot;</span><br><span class="line">&gt; lrange mylist 0 -1</span><br><span class="line">1) &quot;A&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Hashes"><a href="#Redis-Hashes" class="headerlink" title="Redis Hashes"></a>Redis Hashes</h4><p>Redis Hashes 是字符串类型的键值对。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; hset myhash name liuqi</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; hget myhash name</span><br><span class="line">&quot;liuqi&quot;</span><br><span class="line">&gt; hmset myhash age 27 website liuqitech.com</span><br><span class="line">OK</span><br><span class="line">&gt; hgetall myhash</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;liuqi&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;27&quot;</span><br><span class="line">5) &quot;website&quot;</span><br><span class="line">6) &quot;liuqitech.com&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Sets"><a href="#Redis-Sets" class="headerlink" title="Redis Sets"></a>Redis Sets</h4><p>Redis Sets 是字符串类型的无序集合，不能有重复的元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; sadd myset 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; smembers myset</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">&gt; sismember myset 1</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sismember myset 10</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis-Sorted-sets"><a href="#Redis-Sorted-sets" class="headerlink" title="Redis Sorted sets"></a>Redis Sorted sets</h4><p>Redis Sorted sets 与 Redis Sets 不同的是，每一个元素都会关联一个浮点数类型的分数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; zadd hackers 1940 &quot;Alan Kay&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1957 &quot;Sophie Wilson&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1953 &quot;Richard Stallman&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd hackers 1949 &quot;Anita Borg&quot;</span><br><span class="line">&gt; zrange hackers 0 -1</span><br><span class="line">1) &quot;Alan Kay&quot;</span><br><span class="line">2) &quot;Anita Borg&quot;</span><br><span class="line">3) &quot;Richard Stallman&quot;</span><br><span class="line">4) &quot;Sophie Wilson&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Redis-部署方式"><a href="#Redis-部署方式" class="headerlink" title="Redis 部署方式"></a>Redis 部署方式</h3><p>单机、主从、哨兵、集群</p>
+<h4 id="单机"><a href="#单机" class="headerlink" title="单机"></a>单机</h4><p>单机方式没什么好说的，使用默认的配置文件启动即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="主从复制-（replication）"><a href="#主从复制-（replication）" class="headerlink" title="主从复制 （replication）"></a>主从复制 （replication）</h4><p>配置主从复制方式非常简单，只需要在 slave 的配置文件中添加如下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">slaveof 192.168.1.1 6379</span><br></pre></td></tr></table></figure>
+
+<p>其中 192.168.1.1 6379 为 master 的IP和端口</p>
+<p>官方文档 <a href="https://redis.io/topics/replication">https://redis.io/topics/replication</a></p>
+<h4 id="哨兵（Sentinel）"><a href="#哨兵（Sentinel）" class="headerlink" title="哨兵（Sentinel）"></a>哨兵（Sentinel）</h4><p>哨兵是在主从复制的基础上进行的增强方案。原主从复制的方式中，若master宕机，无法进行主从切，所以会引发一些故障。哨兵可以监控多个，master-slave集群，若发现其中的master宕机时，会把该master下的slave转换为master，同时原master下的slave也会slaveof为新的master。</p>
+<p>哨兵启动的方式有以下两种，sentinel的默认端口为26379。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure>
+
+<p>我们需要配置监听的master，slave无需手动配置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br><span class="line">sentinel down-after-milliseconds mymaster 60000</span><br><span class="line">sentinel failover-timeout mymaster 180000</span><br><span class="line">sentinel parallel-syncs mymaster 1</span><br><span class="line"></span><br><span class="line">sentinel monitor resque 192.168.1.3 6380 4</span><br><span class="line">sentinel down-after-milliseconds resque 10000</span><br><span class="line">sentinel failover-timeout resque 180000</span><br><span class="line">sentinel parallel-syncs resque 5</span><br></pre></td></tr></table></figure>
+
+<p>以上为监听两个master的例子。sentinel monitor 语句参数的含义如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sentinel monitor &lt;master-group-name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中quorum的意义为，当sentinel为集群时，若quorum为2，此时其中监听的一个master发生了宕机，当有2个sentinel认为它为不可用状态的时候才会真正判定该master已经为不可用状态。</p>
+<p>官方文档 <a href="https://redis.io/topics/sentinel">https://redis.io/topics/sentinel</a></p>
+<h4 id="集群-（cluster）"><a href="#集群-（cluster）" class="headerlink" title="集群 （cluster）"></a>集群 （cluster）</h4><p>按照文档做个简单的搭建，复制6份redis到文件夹（如 7000 7001 7002 7003 7004 7005），7000到7005的redis.conf分别按以下模板进行配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">port 7000</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>分别启动这6个reids实例，然后redis-cli创建集群（5以上版本）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
+
+<p>官方文档 <a href="https://redis.io/topics/cluster-tutorial">https://redis.io/topics/cluster-tutorial</a></p>
+<h3 id="Spring-Boot-配置"><a href="#Spring-Boot-配置" class="headerlink" title="Spring Boot 配置"></a>Spring Boot 配置</h3><p>我demo中使用的 Spring Boot 版本为 <code>2.1.6.RELEASE</code></p>
+<p>添加依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>查看依赖可知现在版本的使用的默认的reids客户端为 <code>Lettuce</code></p>
+<p>通过查看<code>LettuceConnectionConfiguration</code> 可发现，它可以为我们初始化一个 <code>RedisTemplate&lt;Object, Object&gt;</code> 类型的 redisTemplate，和一个 <code>RedisTemplate&lt;String, String&gt;</code> 类型的 stringRedisTemplate。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ConditionalOnClass(RedisOperations.class)</span><br><span class="line">@EnableConfigurationProperties(RedisProperties.class)</span><br><span class="line">@Import(&#123; LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class &#125;)</span><br><span class="line">public class RedisAutoConfiguration &#123;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean(name = &quot;redisTemplate&quot;)</span><br><span class="line">	public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate&lt;&gt;();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	@Bean</span><br><span class="line">	@ConditionalOnMissingBean</span><br><span class="line">	public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory)</span><br><span class="line">			throws UnknownHostException &#123;</span><br><span class="line">		StringRedisTemplate template = new StringRedisTemplate();</span><br><span class="line">		template.setConnectionFactory(redisConnectionFactory);</span><br><span class="line">		return template;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面的例子中为了方便测试，直接注入<code>stringRedisTemplate</code> 来使用，当然你也可以自定义自己需要类型的 RedisTemplate。针对不同的部署方式，修改application.yml 配置文件如下：</p>
+<h4 id="单机-1"><a href="#单机-1" class="headerlink" title="单机"></a>单机</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    host: 127.0.0.1</span><br><span class="line">    port: 6379</span><br></pre></td></tr></table></figure>
+
+<h4 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    sentinel:</span><br><span class="line">	  master: mymaster</span><br><span class="line">	  nodes: 127.0.0.1:26379, 127.0.0.1:26380</span><br></pre></td></tr></table></figure>
+
+<h4 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  redis:</span><br><span class="line">    cluster:</span><br><span class="line">	  nodes: 127.0.0.1:7000, 127.0.0.1:7001, 127.0.0.1:7002, 127.0.0.1:7003, 127.0.0.1:7004, 127.0.0.1:7005</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Twitter的SnowFlake算法demo</title>
+    <url>/2018/06/10/snowflake/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://i.loli.net/2018/07/23/5b559f07882b1.jpg" alt="image"></p>
+<blockquote>
+<p>41-bit的时间可以表示（1L&lt;&lt;41）&#x2F;(1000L<em>3600</em>24*365)&#x3D;69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w&#x2F;s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SnowFlakeService &#123;</span><br><span class="line"></span><br><span class="line">    private static final long TIMESTAMP_BIT_NUM = 41L;</span><br><span class="line">    private static final long SEQUENCE_BIT_NUM = 12L;</span><br><span class="line">    private static final long MACHINE_BIT_NUM = 5L;</span><br><span class="line"></span><br><span class="line">    private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM);</span><br><span class="line"></span><br><span class="line">    private long BEGIN_TIMESTAMP = 1262275200000L;</span><br><span class="line"></span><br><span class="line">    private long lastTimeStamp = -1L;</span><br><span class="line">    private long sequence = 0L;</span><br><span class="line"></span><br><span class="line">    public Long getSnowFlake(Long machineId) &#123;</span><br><span class="line">        long currentTimeStamp = System.currentTimeMillis();</span><br><span class="line">        if (currentTimeStamp &lt; lastTimeStamp) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;服务器时间异常！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (currentTimeStamp == lastTimeStamp) &#123;</span><br><span class="line">            sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE;</span><br><span class="line">            if (sequence == 0) &#123;</span><br><span class="line">                currentTimeStamp = getNextTimeMillis();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            lastTimeStamp = currentTimeStamp;</span><br><span class="line">            sequence = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM)</span><br><span class="line">                | machineId &lt;&lt; SEQUENCE_BIT_NUM</span><br><span class="line">                | sequence;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private long getNextTimeMillis() &#123;</span><br><span class="line">        long currentTimeMillis = 0L;</span><br><span class="line">        do &#123;</span><br><span class="line">            currentTimeMillis = System.currentTimeMillis();</span><br><span class="line">        &#125; while (currentTimeMillis &lt;= lastTimeStamp);</span><br><span class="line">        return currentTimeMillis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        long beginTime = System.currentTimeMillis();</span><br><span class="line">        SnowFlakeService snowFlakeService = new SnowFlakeService();</span><br><span class="line">        int count = 0;</span><br><span class="line">        while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123;</span><br><span class="line">            Long snowFlake = snowFlakeService.getSnowFlake(1L);</span><br><span class="line">            System.out.println(snowFlake);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;产生个数&quot; + count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>snowflake</tag>
+        <tag>算法</tag>
+        <tag>高并发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring学习笔记 - Spring AOP 概述</title>
+    <url>/2020/01/03/spring-aop-concept/</url>
+    <content><![CDATA[<h4 id="AOP中涉及的概念"><a href="#AOP中涉及的概念" class="headerlink" title="AOP中涉及的概念"></a>AOP中涉及的概念</h4><ul>
+<li><p>Joinpoint</p>
+<p>在系统运行之前，AOP的功能模块都需要植入到OOP的功能模块中。所以，要进行这些植入过程，我们需要知道再系统的哪些执行点上进行织入操作，这些将要在其之上进行植入操作的系统执行点就称之为Joinpoint。</p>
+</li>
+<li><p>Pointcut</p>
+<p>Pointcut概念代表的是Joinpoint的表述方式。将横切逻辑织入当前系统的过程中，需要参照Pointcut规定的Joinpoint信息，才可以知道应该往系统的哪些Joinpoint上织入横切逻辑。</p>
+</li>
+<li><p>Advice</p>
+<p>Advice是单一横切关注点逻辑的载体，它代表将会织入到Joinpoint的横切逻辑。</p>
+</li>
+<li><p>Aspect</p>
+<p>Aspect是对系统中的横切关注点逻辑进行模块化封装的AOP概念实体。通常情况下，Aspect可以包含多个Pointcut以及相关的Advice定义。</p>
+</li>
+<li><p>织入和织入器</p>
+<p>织入（Weaving）的过程就是将横切逻辑融合到原系统中的过程。只有经过织入过程以后，以Aspect模块话的横切关注点才会集成到OOP的现存系统中。完成织入过程的“人”就称之为织入器（Weaver）。</p>
+</li>
+<li><p>目标对象</p>
+<p>符合Pointcut所指定的条件，将在织入过程中被织入横切逻辑的对象，称之为目标对象（Target Object）。</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h4 id="Java-平台上的AOP实现机制"><a href="#Java-平台上的AOP实现机制" class="headerlink" title="Java 平台上的AOP实现机制"></a>Java 平台上的AOP实现机制</h4><ul>
+<li><p>动态代理</p>
+<p>JDK 1.3之后，引入了动态代理（Dynamic Proxy）机制，可以在运行期间，为响应的接口（Interface）动态生成对应的代理对象。所以，我们可以将横切关注点逻辑封装到动态代理的InvocationHandler中，然后在系统的运行期间，根据横切关注点需要织入的模块位置，将横切逻辑织入到相应的代理类中。</p>
+</li>
+<li><p>动态字节码增强</p>
+<p>我们知道，我们可以可以使用CGLIB等类似的动态字节码增强的工具库，在程序运行期间动态构建字节码class文件。这样我们可以为需要织入横切逻辑的模块类在运行期间通过动态字节码增强技术为这些系统模块类生成相应的子类，将横切逻辑假如到这些子类中。</p>
+</li>
+<li><p>Java代码生成</p>
+<p>这种方式比较古老，不做了解。</p>
+</li>
+<li><p>自定义类加载器</p>
+<p>所有的Java程序的class都要通过相应的类加载器（Classloader）加载到Java虚拟机之后才能运行。</p>
+<p>所以我们可以通过自定义类加载器，在class文件加载到虚拟机的解析过程中，将横切逻辑织入到class文件中来达到目的。</p>
+</li>
+<li><p>AOL扩展</p>
+<p>此处暂时略过，该方式我也不太了解。</p>
+</li>
+</ul>
+<h4 id="Spring-AOP-的实现机制"><a href="#Spring-AOP-的实现机制" class="headerlink" title="Spring AOP 的实现机制"></a>Spring AOP 的实现机制</h4><p>Spring AOP 采用了动态代理机制和动态字节码增强技术来实现。</p>
+<h4 id="Spring-AOP-相关笔记"><a href="#Spring-AOP-相关笔记" class="headerlink" title="Spring AOP 相关笔记"></a>Spring AOP 相关笔记</h4><p><a href="http://liuqitech.com/2020/01/03/spring-aop-concept/">Spring学习笔记 - Spring AOP 概述</a></p>
+<p><a href="http://liuqitech.com/2020/01/06/spring-aop-use/">Spring学习笔记 - Spring AOP 使用</a></p>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -52,94 +857,62 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[数组实现队列]]></title>
-    <url>%2F2020%2F11%2F03%2Farray-implementation-of-queue%2F</url>
-    <content type="text"><![CDATA[概述队列，又称为伫列（queue），计算机科学中的一种抽象资料型别，是先进先出（FIFO, First-In-First-Out）的线性表。在具体应用中通常用链表或者数组来实现。队列只允许在后端（称为rear）进行插入操作，在前端（称为front）进行删除操作。 从上述的概念中我们可得知，队列两个主要的操作为入队(enqueue)与出队(dequeue)，入队为从队尾插入元素，出队为从队首去删除元素。 数组实现队列数组实现的队列即元素容器为数组，为了完成入队与出队列的操作，同时还需要两个指针来标记队首和队尾。 代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596public class ArrayQueueTest &#123; private final int[] items; /** * front 队首指针 * rear 对尾指针 * capital 队列容量 */ private int front, rear, capital; public ArrayQueueTest(Integer capital) &#123; this.items = new int[capital]; this.capital = capital; this.front = rear = 0; &#125; /** * 从队尾插入元素 * * @param item 元素 */ public void add(int item) &#123; // 当前容量已满 if (rear == capital) &#123; if (front == 0) &#123; throw new RuntimeException(&quot;队列已满&quot;); &#125; else &#123; // 所有元素向前移动一位 for (int i = 0; i &lt; items.length - 1; i++) &#123; items[i] = items[i + 1]; &#125; // 队尾指针向前移动一位，同时队首指针向前移动一位 rear--; front--; &#125; &#125; items[rear] = item; rear++; &#125; /** * 从队首取出元素 * * @return 队首取出的元素 */ public int remove() &#123; if (front == capital) &#123; throw new RuntimeException(&quot;队列为空&quot;); &#125; int item = items[front]; front++; return item; &#125; /** * 获取队列所有元素 * * @return 队列所有元素数组 */ public int[] getItems() &#123; int[] outItems = new int[rear - front]; for (int i = 0; i &lt; outItems.length; i++) &#123; outItems[i] = items[front + i]; &#125; return outItems; &#125; public static void main(String[] args) &#123; ArrayQueueTest arrayQueue = new ArrayQueueTest(5); arrayQueue.add(1); arrayQueue.add(2); arrayQueue.add(3); arrayQueue.add(4); arrayQueue.add(5); System.out.println(Arrays.toString(arrayQueue.getItems())); for (int i = 0; i &lt; 5; i++) &#123; int removeItem = arrayQueue.remove(); System.out.println(removeItem); System.out.println(Arrays.toString(arrayQueue.getItems())); &#125; arrayQueue.add(8); System.out.println(Arrays.toString(arrayQueue.getItems())); arrayQueue.add(9); System.out.println(Arrays.toString(arrayQueue.getItems()));// for (int i = 10; i &lt; 20; i++) &#123;// arrayQueue.add(i);// System.out.println(Arrays.toString(arrayQueue.getItems()));// &#125;// for (int i = 0; i &lt; 10; i++) &#123;// System.out.println(arrayQueue.remove());// System.out.println(Arrays.toString(arrayQueue.getItems()));// &#125; &#125;&#125;]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[使用Keepalived实现简单的Nginx高可用]]></title>
-    <url>%2F2020%2F02%2F28%2Fnginx_keepalived%2F</url>
-    <content type="text"><![CDATA[环境说明Nginx Master : 192.168.123.101 Nginx Backup : 192.168.123.102 VIP : 192.168.123.103 安装Keepalived以上两台Nginx所在的机器分别安装Keepalived 1sudo yum install keepalived 配置Keepalived修改 nginx master 所在机器的keepalived 的配置文件 1vi /etc/keepalived/keepalived.conf 1234567891011121314151617181920212223242526272829303132333435! Configuration File for keepalivedglobal_defs &#123; notification_email &#123; admin@liuqitech.com.com #设置报警邮件地址，可以设置多个，每行一个。 需开启本机的sendmail服务 &#125; notification_email_from no-reply@liuqitech.com #设置邮件的发送地址 smtp_server 127.0.0.1 #设置smtp server地址 smtp_connect_timeout 30 #设置连接smtp server的超时时间 router_id LVS_DEVEL_1 #表示运行keepalived服务器的一个标识。&#125;vrrp_script chk_nginx &#123; script &quot;/usr/local/keepalived/sbin/check_nginx.sh&quot; #该脚本检测ngnix的运行状态，并在nginx进程不存在时尝 试重新启动ngnix，如果启动失败则停止keepalived，准备让其它机器接管。 interval 2 #每2s检测一次 weight -20 #检测失败则优先级-20&#125;vrrp_instance VI_1 &#123; state MASTER #指定keepalived的角色，MASTER表示此主机是主服务器，BACKUP表示此主机是备用服务器 interface eth0 #指定HA监测网络的接口 可通过ifconfig查看 virtual_router_id 55 #虚拟路由标识，这个标识是一个数字，同一个vrrp实例使用唯一的标识。即同一vrrp_instance下，MASTER和BACKUP必须是一致的 priority 100 #定义优先级，数字越大，优先级越高，在同一个vrrp_instance下，MASTER的优先级必须大于BACKUP的优先级 advert_int 1 #设定MASTER与BACKUP负载均衡器之间同步检查的时间间隔，单位是秒 authentication &#123; #设置验证类型和密码 auth_type PASS #设置验证类型，主要有PASS和AH两种 auth_pass liuqitech #设置验证密码，在同一个vrrp_instance下，MASTER与BACKUP必须使用相同的密码才能正常通信 &#125; virtual_ipaddress &#123; #设置虚拟IP地址，可以设置多个虚拟IP地址，每行一个 192.168.123.103 &#125; track_script &#123; chk_nginx #引用VRRP脚本，即在 vrrp_script 部分指定的名字。定期运行它们来改变优先级，并最终引发主备切换。 &#125;&#125; 修改 nginx backup 所在机器的keepalived的配置文件 123456789101112131415161718192021222324252627282930313233343536! Configuration File for keepalivedglobal_defs &#123; notification_email &#123; admin@liuqitech.com #设置报警邮件地址，可以设置多个，每行一个。 需开启本机的sendmail服务 &#125; notification_email_from no-reply@liuqitech.com #设置邮件的发送地址 smtp_server 127.0.0.1 #设置smtp server地址 smtp_connect_timeout 30 #设置连接smtp server的超时时间 router_id LVS_DEVEL_2 #表示运行keepalived服务器的一个标识。发邮件时显示在邮件主题的信息&#125;vrrp_script chk_nginx &#123; script &quot;/usr /local/keepalived/sbin/check_nginx.sh&quot; #该脚本检测ngnix的运行状态，并在nginx进程不存在时尝 试重新启动ngnix，如果启动失败则停止keepalived，准备让其它机器接管。 interval 2 #每2s检测一次 weight -20 #检测失败则优先级-20&#125;vrrp_instance VI_1 &#123; state BACKUP #指定keepalived的角色，MASTER表示此主机是主服务器，BACKUP表示此主机是备用服务器 interface eth0 #指定HA监测网络的接口 virtual_router_id 55 #虚拟路由标识，这个标识是一个数字，同一个vrrp实例使用唯一的标识。即同一vrrp_instance下，MASTER和BACKUP必须是一致的 priority 50 #定义优先级，数字越大，优先级越高，在同一个vrrp_instance下，MASTER的优先级必须大于BACKUP的优先级 advert_int 1 #设定MASTER与BACKUP负载均衡器之间同步检查的时间间隔，单位是秒 nopreempt #设置nopreempt防止抢占资源，只生效BACKUP节点 authentication &#123; #设置验证类型和密码 auth_type PASS #设置验证类型，主要有PASS和AH两种 auth_pass liuqitech #设置验证密码，在同一个vrrp_instance下，MASTER与BACKUP必须使用相同的密码才能正常通信 &#125; virtual_ipaddress &#123; #设置虚拟IP地址，可以设置多个虚拟IP地址，每行一个 192.168.123.103 &#125; track_script &#123; chk_nginx #引用VRRP脚本，即在 vrrp_script 部分指定的名字。定期运行它们来改变优先级，并最终引发主备切换。 &#125;&#125; 检测脚本，vi /usr/local/keepalived/sbin/check_nginx.sh 123456789#!/bin/bashA=`ps -C nginx --no-header |wc -l`if [ $A -eq 0 ];then sleep 2 /user/local/nginx/sbin/nginx if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then killall keepalived fifi 脚本说明：此方法比较暴力，若没有到nginx进程并且重启后仍检测不到，则kill掉keepalived 脚本加上可执行权限 1chmod +x /usr/local/keepalived/sbin/check_nginx.sh 123456789101112 +----------+ +----------+ | Tomcat | | Nginx | +----------+ +----------+ +----------+ +----------+ | 虚拟IP | | Tomcat | +----------+ +----------+ +----------+ | Nginx | +----------+ +----------+ | Tomcat | +----------+ 参考文档https://www.linuxprobe.com/keepalived-nginx.html https://www.centos.bz/2017/09/nginx-keepalived-%E9%AB%98%E5%8F%AF%E7%94%A8/]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[MySQL Replication 主从复制 配置]]></title>
-    <url>%2F2020%2F02%2F27%2Fmysql_replication%2F</url>
-    <content type="text"><![CDATA[介绍Replication 可以使数据从一个MySQL数据库(master)复制到一个或多个MySQL数据库(slave)中，默认情况下该复制过程是异步的。我们可以通过配置来实现复制所有的database或者指定的database。 MySQL Replication 的优点如下： 横向扩展：可以将负载分布在多个slave上以提高性能。所有的写操作都必须在master上进行，但是读操作可以分布在一个或多个slave上。这样的模型可以提高写入性能，因为master专注于数据更新，同时多个slave可以显著的提高读取速度。 数据安全：定期备份是保护数据的重要手段之一，若在master上进行数据备份则需要使master处于readonly状态，这将影响写操作 。而salve可以暂停复制的过程，所以slave上进行数据备份而不会影响到master。 分析：数据是从master上实时写入的，数据分析可以在slave上进行而不影响master的性能。 远程数据分发：如果master的物理位置距离较远，我们可以在临近的地方创建slave，方便使用数据使用，而不需要总是访问远端的master。 原理作为master 的MySQL实例将数据的变更操作作为”事件”记录到binary log中，slave 的MySQL实例被被指为读取master的binary log，slave将读取到的binary log写入自己的中继日志中，然后slave回把相关的事件进行执行。slave具体执行哪些事件由slave决定。 配置创建用于复制的账号进入master的MySQL实例，执行以下操作： 执行以下命令创建账号，其中172.20.254.176为slave的MySQL的ip，liuqitech@2020为密码。 1CREATE USER &apos;slave&apos;@&apos;172.20.254.176&apos; IDENTIFIED BY &apos;liuqitech@2020&apos;; 分配权限，其中replication slave 表示 主从复制权限 1GRANT REPLICATION SLAVE ON *.* TO &apos;slave&apos;@&apos;172.20.254.176&apos;; 刷新权限 1flush privileges; master配置开启二进制日志并设置唯一的server-id。修改my.cnf，添加如下配置 123[mysqld]log-bin=mysql-bin #表示开启binlog，并且指定二进制日志文件名为mysql-binserver-id=1 #唯一的服务ID 重启MySQL使之生效 slave配置被指唯一的server-id。修改my.cnf，添加如下配置 12[mysqld]server-id=2 重启MySQL使之生效 获取master的二进制日志文件坐标master上执行以下操作 123456mysql &gt; SHOW MASTER STATUS;+------------------+----------+--------------+------------------+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB |+------------------+----------+--------------+------------------+| mysql-bin.000001 | 67 | | |+------------------+----------+--------------+------------------+ 记录File、Position的值 连接slave到masterslave上执行以下操作 123456mysql&gt; CHANGE MASTER TO MASTER_HOST=&apos;172.20.254.175&apos;, MASTER_USER=&apos;slave&apos;, MASTER_PASSWORD=&apos;liuqitech@2020&apos;, MASTER_LOG_FILE=&apos;mysql-bin.000001&apos;, MASTER_LOG_POS=67; 1mysql&gt; start slave; 查看状态slave 中执行 查看状态 1mysql&gt; SHOW SLAVE STATUS \G 观察是否正常运行中 12Slave_IO_Running: YesSlave_SQL_Running: Yes]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CentOS 7 安装 JDK]]></title>
-    <url>%2F2020%2F02%2F26%2Fcentos7_jdk%2F</url>
-    <content type="text"><![CDATA[前提条件确保使用root用户或具有sudo权限的用户登陆。 OpenJDK通过yum search命令查看java相关包 1yum search java | grep openjdk 版本 jre jdk 11 java-11-openjdk.x86_64 java-11-openjdk-devel.x86_64 1.8 java-1.8.0-openjdk.x86_64 java-1.8.0-openjdk-headless.x86_64 以安装11版本的jdk为例 安装命令如下： 1yum install java-11-openjdk-devel.x86_64 卸载命令如下 1sudo yum remove java-11-openjdk-devel.x86_64 Oracle JDKOracle 的 JDK 需要从Oracle的官网下载来进行安装 版本 jre jdk 11 https://www.oracle.com/java/technologies/javase-downloads.html https://www.oracle.com/java/technologies/javase-jdk11-downloads.html 1.8 https://www.oracle.com/java/technologies/javase-downloads.html https://www.oracle.com/java/technologies/javase-jdk8-downloads.html 以安装11版本的jdk为例。下载jdk-11.0.6_linux-x64_bin.rpm 安装命令如下： 1sudo yum localinstall jdk-11_linux-x64_bin.rpm 卸载命令如下 1234# 查看已安装的jdk包rpm -qa | grep jdk# 卸载(其中jdk-11-11-ga.x86_64为软件包名)rpm -e jdk-11-11-ga.x86_64 设置默认的版本查看当前系统默认java版本 1java -version 123openjdk version &quot;11.0.6&quot; 2020-01-14 LTSOpenJDK Runtime Environment 18.9 (build 11.0.6+10-LTS)OpenJDK 64-Bit Server VM 18.9 (build 11.0.6+10-LTS, mixed mode, sharing) 如果安装了多个版本，可以按以下操作进行切换默认版本。 1sudo alternatives --config java 12345678There are 2 programs which provide &apos;java&apos;. Selection Command----------------------------------------------- 1 java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.6.10-1.el7_7.x86_64/bin/java)*+ 2 /usr/java/jdk-11/bin/javaEnter to keep the current selection[+], or type selection number: 通过输入对应数字并按Enter即可。]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[去广告规则]]></title>
-    <url>%2F2020%2F02%2F14%2Fad_block_filter%2F</url>
-    <content type="text"><![CDATA[适用于 Adblock Plus/AdGuard/uBlock 等 EasyList + EasyList China https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt CJX’s Annoyance List 这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则 https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt 合并规则EasylistChina、EasylistLite、CJX’sAnnoyance 合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则； https://gitee.com/halflife/list/raw/master/ad.txt 乘风 广告过滤规则 https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/rule.txt]]></content>
-      <categories>
-        <category>net</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[MySQL COALESCE 函数]]></title>
-    <url>%2F2020%2F02%2F14%2Fmysql_coalesce%2F</url>
-    <content type="text"><![CDATA[介绍COALESCE(value,...) Returns the first non-NULL value in the list, or NULL if there are no non-NULL values. 官方文档介绍的很清楚，该函数返回参数列表中第一个非NULL的值，如果没有非NULL的值则返回NULL。 1234mysql&gt; SELECT COALESCE(NULL,1); -&gt; 1mysql&gt; SELECT COALESCE(NULL,NULL,NULL); -&gt; NULL 应用实例表中存在字段create_time、update_time，现在需要按更新时间倒序排序，由于更新时间可能为NULL，若为NULL时按创建时间排。 1ORDER BY COALESCE(update_time, create_time) DESC]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[中兴 E8820 V2 资料]]></title>
-    <url>%2F2020%2F02%2F03%2Fzxhn_e8820v2%2F</url>
-    <content type="text"><![CDATA[说明ZXHN E8820 V2是一款支持IEEE802.11ac的智能无线路由器，支持双频最高1200Mbps（5G 900M和2.4G 300M）无线传输，支持1个GE上网口，4个GE用户端接口，支持USB端口，可外接移动硬盘进行家庭私有云备份。 硬件参数用户接口 4GE+1USB+Wi-Fi上行接口 GE设备尺寸 222 mm (L) x 150mm(W) x 36 mm (H)设备重量 0.25(kg)工作环境 0℃～+40℃相对湿度 10%－90%（非凝结）电源适配器: 输入100-240VAC,输出 12VDC, 1.5A 官方固件2.03、2.07 版本的官方web升级文件: https://72k.us/dir/22553047-37127644-e78cd2 提取密码:156276 第三方固件OPENWRT: https://www.right.com.cn/forum/thread-506561-1-1.html]]></content>
-      <categories>
-        <category>net</category>
-      </categories>
-      <tags>
-        <tag>路由器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Java中的强引用、软引用、弱引用、虚引用]]></title>
-    <url>%2F2020%2F01%2F15%2Fjava-reference%2F</url>
-    <content type="text"><![CDATA[Java 对象的引用划分为4种，它们由强到弱依次是强引用、软引用、弱引用、虚引用。这样划分的作用是可以更好的控制对象的声明周期，有利于JVM 进行垃圾回收。 强引用（StrongReference）强引用就是我们最常见的普通对象引用，通常我们通过new来创建的对象所产生的引用就是强引用，强引用的对象不可被JVM垃圾收集器回收。 比如下面这段代码，obj和str都是强引用。 12Object obj = new Object();String str = &quot;liuqitech&quot;; 只要某个对象有强引用与之关联，JVM必定不会回收这个对象，即使在内存不足的情况下，JVM宁愿抛出OOM的错误也不会回收这种对象。比如下面的代码中 12345678910public class Main &#123; public static void main(String[] args) &#123; new Main().fun1(); &#125; public void fun1() &#123; Object object = new Object(); Object[] objArr = new Object[1000]; &#125;&#125; 当运行至Object[] objArr = new Object[1000];时，即使内存不足抛出OOM错误，也不会回收object所引用的对象。不过要注意的是当fun1()方法执行完毕后，object、objArr都已经不存在，所以他们指向的对象会被JVM回收。 如果想中队强引用和某个对象之间的关联，可以显示的将引用赋值为null（如object = null）,这样JVM就会在合适的时机回收原object所指向的对象。 软引用（SoftReference）软引用是一种相对强引用弱化一些的引用，可以让对象豁免一些垃圾收集，只有当 JVM 认为内存不足时，才会去试图回收软引用指向的对象。JVM 会确保在抛出 OutOfMemoryError 之前，清理软引用指向的对象。软引用通常用来实现内存敏感的缓存，如果还有空闲内存，就可以暂时保留缓存，当内存不足时清理掉，这样就保证了使用缓存的同时，不会耗尽内存。 12SoftReference&lt;String&gt; sr = new SoftReference&lt;String&gt;(new String(&quot;hello&quot;));System.out.println(sr.get()); 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被回收，则这个软引用进入到与之关联的引用队列中。 弱引用（WeakReference）弱引用并不能使对象豁免垃圾收集，仅仅是提供一种访问在弱引用状态下对象的途径。这就可以用来构建一种没有特定约束的关系，比如，维护一种非强制性的映射关系，如果试图获取时对象还在，就使用它，否则重现实例化。它同样是很多缓存实现的选择。 12345678910public class Main &#123; public static void main(String[] args) &#123; WeakReference&lt;String&gt; sr = new WeakReference&lt;String&gt;(new String(&quot;hello&quot;)); System.out.println(sr.get()); // hello System.gc(); //通知JVM的gc进行垃圾回收 System.out.println(sr.get()); // null &#125;&#125; 同样弱引用也可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被回收，则将这个若引用进入到与之关联的引用队列中。 虚引用（PhantomReference）虚引用也被翻译为幻象引用，你不能通过它访问对象。幻象引用仅仅是提供了一种确保对象被 finalize 以后，做某些事情的机制。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。 虚引用必须和引用队列联合使用。 1234567public class Main &#123; public static void main(String[] args) &#123; ReferenceQueue&lt;String&gt; queue = new ReferenceQueue&lt;String&gt;(); PhantomReference&lt;String&gt; pr = new PhantomReference&lt;String&gt;(new String(&quot;hello&quot;), queue); System.out.println(pr.get()); // null &#125;&#125; 待补充参考文档https://www.cnblogs.com/dolphin0520/p/3784171.html]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Spring学习笔记 - Spring AOP 使用]]></title>
-    <url>%2F2020%2F01%2F06%2Fspring-aop-use%2F</url>
-    <content type="text"><![CDATA[定义 Aspect定义一个Aspect，只需要我们定义一个最普通的POJO，然后在类上加上@Aspect注解即可。 123@Aspectpublic class MyAspect &#123;&#125; 声明 PointcutPointcut 的声明，依附在@Aspect所标注的Asepct定义类之内，通过使用@Pointcut注解，指定Pointcut表达式之后，将这个指定了相应表达式的注解标注到Aspect定义类的某个方法上即可。 12345@Aspectpublic class MyAspect &#123; @Pointcut(&quot;execution(void *.method1()) || execution(void *.method2())&quot;) public void pointcut1()&#123;&#125;;&#125; Pointcut 声明包含两部分 Pointcut Expression，切点表达式。它用来规定Pointcut匹配规则。 Pointcut Signature，切点签名。它是一个具体化的方法定义，是Pointcut Expression的载体。 12345@Aspectpublic class MyAspect &#123; @Pointcut(&quot;execution(void *.method1())&quot;) //Pointcut Expression public void pointcut1()&#123;&#125;; //Pointcut Signature&#125; 上面我们就简单定义了一个pointcut，它将匹配到所有方法名为method1且返回值为void的方法。 Pointcut标志符（Pointcut Designator）上面例子execution(void *.method1())中的execution即为Pointcut标志符。它表明该Pointcut将以什么样的行为来匹配表达式。 execution - 匹配指定方法。 within - 匹配指定类下所声明的所有方法。如withIn(com.liuqitech.spring.aop.MoctTarget)它将匹配MockTarget类中所有声明的方法。 this - limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type target - limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type args - 匹配参数满足要求的方法。如args(com.liuqitech.spring.aop.domain.User) 它将匹配所有仅有一个入参且类型为com.liuqitech.spring.aop.domain.User的方法（比如：public boolean login(User user){...}、public boolean isLogin(User){...}） @target - limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type @args - 匹配入参被某注解标注的方法。 @within - 匹配使用了某注解的类下所有的方法。比如@withIn(org.springframework.stereotype.Component) 它将匹配所有使用了@Component注解的类下所有声明的方法。 @annotation - 匹配使用了某注解的方法。 声明Advice它实际上就是使用@Aspect标注的Aspect定义类中的不同方法，只不过这些方法需要针对不同的Advice类型使用对应的注解进行标注。 @Before，前置增强 @AfterReturning，后置增强， @AfterThrowing，抛出增强 @After，Final增强 @Around，环绕增强 @DeclareParents，引介增强 除了@DeclareParents比较不同之外，其他用于标注不同类型Advice的注解，全都是方法级别的注解定义，只能用于标注方法定义。同时，各种Advice最终织入到什么位置，是由相应的Pointcut定义决定的。所以我们需要为这些用于标注Advice的注解指定对应的Pointcut定义，可以直接使用的Pointcut表达式，也可以指定上面单独声明的@Pointcut类型的Pointcut Signature。 12345678910111213141516@Aspectpublic class MyAspect &#123; @Pointcut(&quot;execution(void *.method1()) || execution(void *.method2())&quot;) public void pointcut1()&#123;&#125;; @Before(&quot;pointcut1()&quot;) //使用已经定义的Pointcut签名 public void doSomething1() &#123; System.out.println(&quot;do something 1...&quot;); &#125; @After(&quot;execution(void *.method1())&quot;) //直接使用Pointcut表达式 public void doSomething2() &#123; System.out.println(&quot;do something 2...&quot;); &#125;&#125; @AfterThrowing 示例1234567891011@Aspectpublic class AfterThrowingExample &#123; @AfterThrowing( pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;, throwing=&quot;ex&quot;) public void doRecoveryActions(DataAccessException ex) &#123; // ... &#125;&#125; 它有一个独特的属性throwing，通过它我们可以限定Advice定义方法的参数名，并在方法调用的时候，将相应的异常绑定到具体方法参数上。当然如果不需要访问具体异常，那么我们可以声明没有任何参数的方法。 1234@AfterThrowing(pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;) public void doRecoveryActions() &#123; // ... &#125; @AfterReturning 示例1234567891011@Aspectpublic class AfterReturningExample &#123; @AfterReturning( pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;, returning=&quot;retVal&quot;) public void doAccessCheck(Object retVal) &#123; // ... &#125; &#125; 它也有一个独特的属性returning，它能获取方法的返回值。当然如果我们不需要方法返回值时，也可以去掉该属性。 @Around 示例123456789101112@Aspectpublic class AroundExample &#123; @Around(&quot;com.xyz.myapp.SystemArchitecture.businessService()&quot;) public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable &#123; // start stopwatch Object retVal = pjp.proceed(); // stop stopwatch return retVal; &#125;&#125; 该类型的方法定义中，第一个参数必须是ProceedingJoinPoint类型，我们需要通过ProceedingJoinPoint的proceed()方法继续执行调用链。 Spring AOP 相关笔记Spring学习笔记 - Spring AOP 概述 Spring学习笔记 - Spring AOP 使用]]></content>
+    <title>Spring学习笔记 - Spring AOP 使用</title>
+    <url>/2020/01/06/spring-aop-use/</url>
+    <content><![CDATA[<h4 id="定义-Aspect"><a href="#定义-Aspect" class="headerlink" title="定义 Aspect"></a>定义 Aspect</h4><p>定义一个Aspect，只需要我们定义一个最普通的POJO，然后在类上加上<code>@Aspect</code>注解即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="声明-Pointcut"><a href="#声明-Pointcut" class="headerlink" title="声明 Pointcut"></a>声明 Pointcut</h4><p>Pointcut 的声明，依附在<code>@Aspect</code>所标注的Asepct定义类之内，通过使用<code>@Pointcut</code>注解，指定Pointcut表达式之后，将这个指定了相应表达式的注解标注到Aspect定义类的某个方法上即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line">  @Pointcut(&quot;execution(void *.method1()) || execution(void *.method2())&quot;)</span><br><span class="line">  public void pointcut1()&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Pointcut 声明包含两部分</p>
+<ul>
+<li>Pointcut Expression，切点表达式。它用来规定Pointcut匹配规则。</li>
+<li>Pointcut Signature，切点签名。它是一个具体化的方法定义，是Pointcut Expression的载体。</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line">  @Pointcut(&quot;execution(void *.method1())&quot;) //Pointcut Expression</span><br><span class="line">  public void pointcut1()&#123;&#125;; //Pointcut Signature</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面我们就简单定义了一个pointcut，它将匹配到所有方法名为method1且返回值为void的方法。</p>
+<h5 id="Pointcut标志符（Pointcut-Designator）"><a href="#Pointcut标志符（Pointcut-Designator）" class="headerlink" title="Pointcut标志符（Pointcut Designator）"></a>Pointcut标志符（Pointcut Designator）</h5><p>上面例子<code>execution(void *.method1())</code>中的<code>execution</code>即为Pointcut标志符。它表明该Pointcut将以什么样的行为来匹配表达式。</p>
+<ul>
+<li><em>execution</em> - 匹配指定方法。</li>
+<li><em>within</em> - 匹配指定类下所声明的所有方法。如<code>withIn(com.liuqitech.spring.aop.MoctTarget)</code>它将匹配<code>MockTarget</code>类中所有声明的方法。</li>
+<li><em>this</em> - limits matching to join points (the execution of methods when using Spring AOP) where the bean reference (Spring AOP proxy) is an instance of the given type</li>
+<li><em>target</em> - limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type</li>
+<li><em>args</em> - 匹配参数满足要求的方法。如<code>args(com.liuqitech.spring.aop.domain.User)</code> 它将匹配所有仅有一个入参且类型为<code>com.liuqitech.spring.aop.domain.User</code>的方法（比如：<code>public boolean login(User user)&#123;...&#125;</code>、<code>public boolean isLogin(User)&#123;...&#125;</code>）</li>
+<li><em><code>@target</code></em> - limits matching to join points (the execution of methods when using Spring AOP) where the target object (application object being proxied) is an instance of the given type</li>
+<li><em><code>@args</code></em> - 匹配入参被某注解标注的方法。</li>
+<li><em><code>@within</code></em> - 匹配使用了某注解的类下所有的方法。比如<code>@withIn(org.springframework.stereotype.Component)</code> 它将匹配所有使用了<code>@Component</code>注解的类下所有声明的方法。</li>
+<li><em>@annotation</em> - 匹配使用了某注解的方法。</li>
+</ul>
+<h4 id="声明Advice"><a href="#声明Advice" class="headerlink" title="声明Advice"></a>声明Advice</h4><p>它实际上就是使用<code>@Aspect</code>标注的Aspect定义类中的不同方法，只不过这些方法需要针对不同的Advice类型使用对应的注解进行标注。</p>
+<ul>
+<li>@Before，前置增强</li>
+<li>@AfterReturning，后置增强，</li>
+<li>@AfterThrowing，抛出增强</li>
+<li>@After，Final增强</li>
+<li>@Around，环绕增强</li>
+<li>@DeclareParents，引介增强</li>
+</ul>
+<p>除了<code>@DeclareParents</code>比较不同之外，其他用于标注不同类型Advice的注解，全都是方法级别的注解定义，只能用于标注方法定义。同时，各种Advice最终织入到什么位置，是由相应的Pointcut定义决定的。所以我们需要为这些用于标注Advice的注解指定对应的Pointcut定义，可以直接使用的Pointcut表达式，也可以指定上面单独声明的@Pointcut类型的Pointcut Signature。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class MyAspect &#123;</span><br><span class="line"></span><br><span class="line">  @Pointcut(&quot;execution(void *.method1()) || execution(void *.method2())&quot;)</span><br><span class="line">  public void pointcut1()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">  @Before(&quot;pointcut1()&quot;) //使用已经定义的Pointcut签名</span><br><span class="line">  public void doSomething1() &#123;</span><br><span class="line">    System.out.println(&quot;do something 1...&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @After(&quot;execution(void *.method1())&quot;) //直接使用Pointcut表达式</span><br><span class="line">  public void doSomething2() &#123;</span><br><span class="line">    System.out.println(&quot;do something 2...&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="AfterThrowing-示例"><a href="#AfterThrowing-示例" class="headerlink" title="@AfterThrowing 示例"></a>@AfterThrowing 示例</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class AfterThrowingExample &#123;</span><br><span class="line"></span><br><span class="line">  @AfterThrowing(</span><br><span class="line">    pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;,</span><br><span class="line">    throwing=&quot;ex&quot;)</span><br><span class="line">  public void doRecoveryActions(DataAccessException ex) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它有一个独特的属性<code>throwing</code>，通过它我们可以限定Advice定义方法的参数名，并在方法调用的时候，将相应的异常绑定到具体方法参数上。当然如果不需要访问具体异常，那么我们可以声明没有任何参数的方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@AfterThrowing(pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;)</span><br><span class="line">  public void doRecoveryActions() &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="AfterReturning-示例"><a href="#AfterReturning-示例" class="headerlink" title="@AfterReturning 示例"></a>@AfterReturning 示例</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class AfterReturningExample &#123;</span><br><span class="line"></span><br><span class="line">  @AfterReturning(</span><br><span class="line">    pointcut=&quot;com.xyz.myapp.SystemArchitecture.dataAccessOperation()&quot;,</span><br><span class="line">    returning=&quot;retVal&quot;)</span><br><span class="line">  public void doAccessCheck(Object retVal) &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它也有一个独特的属性<code>returning</code>，它能获取方法的返回值。当然如果我们不需要方法返回值时，也可以去掉该属性。</p>
+<h5 id="Around-示例"><a href="#Around-示例" class="headerlink" title="@Around 示例"></a>@Around 示例</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">public class AroundExample &#123;</span><br><span class="line"></span><br><span class="line">  @Around(&quot;com.xyz.myapp.SystemArchitecture.businessService()&quot;)</span><br><span class="line">  public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable &#123;</span><br><span class="line">    // start stopwatch</span><br><span class="line">    Object retVal = pjp.proceed();</span><br><span class="line">    // stop stopwatch</span><br><span class="line">    return retVal;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该类型的方法定义中，第一个参数必须是<code>ProceedingJoinPoint</code>类型，我们需要通过ProceedingJoinPoint的proceed()方法继续执行调用链。</p>
+<h4 id="Spring-AOP-相关笔记"><a href="#Spring-AOP-相关笔记" class="headerlink" title="Spring AOP 相关笔记"></a>Spring AOP 相关笔记</h4><p><a href="http://liuqitech.com/2020/01/03/spring-aop-concept/">Spring学习笔记 - Spring AOP 概述</a></p>
+<p><a href="http://liuqitech.com/2020/01/06/spring-aop-use/">Spring学习笔记 - Spring AOP 使用</a></p>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -149,9 +922,40 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Spring学习笔记 - Spring AOP 概述]]></title>
-    <url>%2F2020%2F01%2F03%2Fspring-aop-concept%2F</url>
-    <content type="text"><![CDATA[AOP中涉及的概念 Joinpoint 在系统运行之前，AOP的功能模块都需要植入到OOP的功能模块中。所以，要进行这些植入过程，我们需要知道再系统的哪些执行点上进行织入操作，这些将要在其之上进行植入操作的系统执行点就称之为Joinpoint。 Pointcut Pointcut概念代表的是Joinpoint的表述方式。将横切逻辑织入当前系统的过程中，需要参照Pointcut规定的Joinpoint信息，才可以知道应该往系统的哪些Joinpoint上织入横切逻辑。 Advice Advice是单一横切关注点逻辑的载体，它代表将会织入到Joinpoint的横切逻辑。 Aspect Aspect是对系统中的横切关注点逻辑进行模块化封装的AOP概念实体。通常情况下，Aspect可以包含多个Pointcut以及相关的Advice定义。 织入和织入器 织入（Weaving）的过程就是将横切逻辑融合到原系统中的过程。只有经过织入过程以后，以Aspect模块话的横切关注点才会集成到OOP的现存系统中。完成织入过程的“人”就称之为织入器（Weaver）。 目标对象 符合Pointcut所指定的条件，将在织入过程中被织入横切逻辑的对象，称之为目标对象（Target Object）。 Java 平台上的AOP实现机制 动态代理 JDK 1.3之后，引入了动态代理（Dynamic Proxy）机制，可以在运行期间，为响应的接口（Interface）动态生成对应的代理对象。所以，我们可以将横切关注点逻辑封装到动态代理的InvocationHandler中，然后在系统的运行期间，根据横切关注点需要织入的模块位置，将横切逻辑织入到相应的代理类中。 动态字节码增强 我们知道，我们可以可以使用CGLIB等类似的动态字节码增强的工具库，在程序运行期间动态构建字节码class文件。这样我们可以为需要织入横切逻辑的模块类在运行期间通过动态字节码增强技术为这些系统模块类生成相应的子类，将横切逻辑假如到这些子类中。 Java代码生成 这种方式比较古老，不做了解。 自定义类加载器 所有的Java程序的class都要通过相应的类加载器（Classloader）加载到Java虚拟机之后才能运行。 所以我们可以通过自定义类加载器，在class文件加载到虚拟机的解析过程中，将横切逻辑织入到class文件中来达到目的。 AOL扩展 此处暂时略过，该方式我也不太了解。 Spring AOP 的实现机制Spring AOP 采用了动态代理机制和动态字节码增强技术来实现。 Spring AOP 相关笔记Spring学习笔记 - Spring AOP 概述 Spring学习笔记 - Spring AOP 使用]]></content>
+    <title>Spring DeferredResult 指南（译）</title>
+    <url>/2021/02/07/spring-deferred-result/</url>
+    <content><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用 <em>DeferredResult</em> 类来执行异步请求处理。</p>
+<p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
+<p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
+<p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
+<p>异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。</p>
+<span id="more"></span>
+
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用<em>DeferredResult</em> 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。</p>
+<h2 id="3-阻塞的-REST-服务"><a href="#3-阻塞的-REST-服务" class="headerlink" title="3. 阻塞的 REST 服务"></a>3. 阻塞的 REST 服务</h2><p>我们以一个标准的阻塞的 REST 服务开始</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/process-blocking&quot;)</span><br><span class="line">public ResponseEntity&lt;?&gt; handleReqSync() &#123;</span><br><span class="line">    // ...</span><br><span class="line">    return ResponseEntity.ok(&quot;ok&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的问题是，请求处理线程在处理完成返回结果前是一直被阻塞的，对于需要进行长时间的计算时这不是一个好的解决方案。</p>
+<h2 id="4-使用-DeferredResult-非阻塞的-REST-服务"><a href="#4-使用-DeferredResult-非阻塞的-REST-服务" class="headerlink" title="4. 使用 DeferredResult 非阻塞的 REST 服务"></a>4. 使用 <em>DeferredResult</em> 非阻塞的 REST 服务</h2><p>为了避免阻塞，我们将使用基于回调的模型，我们将返回一个 <em>DeferredResult</em> 到 Servlet 容器中，来取代实际的返回结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/async-deferredresult&quot;)</span><br><span class="line">public DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; handleReqDefResult() &#123;</span><br><span class="line">    log.info(&quot;Received async-deferredresult request&quot;);</span><br><span class="line">    DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; output = new DeferredResult&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    ForkJoinPool.commonPool().submit(() -&gt; &#123;</span><br><span class="line">        log.info(&quot;Processing in separate thread&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(6000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        output.setResult(ResponseEntity.ok(&quot;ok&quot;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    log.info(&quot;servlet thread freed&quot;);</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请求的处理逻辑在一个单独的线程中完成，并且完成之后调用  <em>DeferredResult</em> 类的 <em>setResult</em> 方法来设置实际结果。</p>
+<p>下面是日志输出结果，看看是否按照我们的预期顺序输出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Received async-deferredresult request</span><br><span class="line">servlet thread freed</span><br><span class="line">Processing in separate thread</span><br></pre></td></tr></table></figure>
+
+<p>在内部，将通知容器线程并将 HTTP 响应返回给给客户端。连接将由容器(servlet 3.0或更高版本)一直保持打开的状态，直到返回相应结果或超时。</p>
+<h2 id="5-DeferredResult-回调"><a href="#5-DeferredResult-回调" class="headerlink" title="5. DeferredResult 回调"></a>5. <em>DeferredResult</em> 回调</h2><p>我们可以使用<em>DeferredResult</em> 注册3种类型的回调：完成、超时与异常。</p>
+<p>我们使用<code>onCompletion</code> 方法来定义一个异步请求完成时执行的代码块</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onCompletion(() -&gt; log.info(&quot;Processing complete&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>为了限制请求的处理时间，我们可以在 <em>DeferredResult</em> 实例化时设置一个超时时间，并且可以使用<code>ontTimeout</code> 方法来注册一个自定义的代码块用来在超时后执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; deferredResult = new DeferredResult&lt;&gt;(500L);</span><br><span class="line"></span><br><span class="line">deferredResult.onTimeout(() -&gt;</span><br><span class="line">        deferredResult.setErrorResult(</span><br><span class="line">                ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT)</span><br><span class="line">                        .body(&quot;Request timeout occurred.&quot;)));</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以使用<code>onError</code> 方法来注册一个发生异常时的回调。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onError((Throwable t) -&gt; &#123;</span><br><span class="line">    deferredResult.setErrorResult(</span><br><span class="line">      ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">        .body(&quot;An error occurred.&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h2><p><a href="https://www.baeldung.com/spring-deferred-result">https://www.baeldung.com/spring-deferred-result</a></p>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -161,9 +965,33 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Spring学习笔记 - Spring FactoryBean]]></title>
-    <url>%2F2020%2F01%2F02%2Fspring-factorybean%2F</url>
-    <content type="text"><![CDATA[简述org.springframework.beans.factory.FactoryBean&lt;T&gt;是Spring容器提供的一种可以扩展容器对象实例化逻辑的接口。FactoryBean，其主语是Ben，定于为Factory，也就是说，它本身与其他注册到容器中的对象一样，只是一个Bean而已，只不过这种类型的Bean本身就是生产对象的工厂。 接口定义它的接口定义如下 123456789public interface FactoryBean&lt;T&gt; &#123; @Nullable T getObject() throws Exception; @Nullable Class&lt;?&gt; getObjectType(); default boolean isSingleton() &#123; return true; &#125;&#125; getObject()方法会返回该FactoryBean“生产”的对象实例，我们需要实现该方法以给出自己的对象实例化逻辑；getObjectType()方法仅返回getObject()方法所返回的对象的类型，如果预先无法确定，则返回null；isSingleton()方法返回结果用于表明，工厂方法（getObject()）所“生产”的对象是否要以singleton形式存在于容器中。如果以singleton形式存在，则返回true，否则返回false； 使用场景FactoryBean的一般使用场景是，当我们需要实例化一个比较复杂的Bean时，我们可以通过实现FactoryBean来定制Bean的实例化过程。 在IOC容器中，通过getBean(BeanName)方法获取Bean时，如果该Bean实现了FactoryBean接口，则获取到该Bean的实例为getObjet()方法返回的结果，并不是FactoryBean的实现类对象。 使用示例我们实现一个FactoryBean示例，我们将实现一个ToolFactory，它将产生Tool类型的实例对象。 123456public class Tool &#123; private int id; // standard constructors, getters and setters&#125; 12345678910111213141516171819202122public class ToolFactory implements FactoryBean&lt;Tool&gt; &#123; private int factoryId; private int toolId; @Override public Tool getObject() throws Exception &#123; return new Tool(toolId); &#125; @Override public Class&lt;?&gt; getObjectType() &#123; return Tool.class; &#125; @Override public boolean isSingleton() &#123; return false; &#125; // standard setters and getters&#125; 使ToolFactory生效（将FactoryBean的实现注册到IOC容器中），有以下两种方式： XML 1234567&lt;beans ...&gt; &lt;bean id=&quot;tool&quot; class=&quot;com.baeldung.factorybean.ToolFactory&quot;&gt; &lt;property name=&quot;factoryId&quot; value=&quot;9090&quot;/&gt; &lt;property name=&quot;toolId&quot; value=&quot;1&quot;/&gt; &lt;/bean&gt;&lt;/beans&gt; Java编码 与XML不同的是，我们需要显示的调用getObject()方法来生成实例对象。 12345678910111213141516@Configurationpublic class FactoryBeanAppConfig &#123; @Bean(name = &quot;tool&quot;) public ToolFactory toolFactory() &#123; ToolFactory factory = new ToolFactory(); factory.setFactoryId(7070); factory.setToolId(2); return factory; &#125; @Bean public Tool tool() throws Exception &#123; return toolFactory().getObject(); &#125;&#125; 使用时，直接引入Tool实例对象即可 123456789public class FactoryBeanTest &#123; @Autowired private Tool tool; @Test public void test() &#123; assertThat(tool.getId(), equalTo(1)); &#125;&#125;]]></content>
+    <title>Spring学习笔记 - Spring FactoryBean</title>
+    <url>/2020/01/02/spring-factorybean/</url>
+    <content><![CDATA[<h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p><code>org.springframework.beans.factory.FactoryBean&lt;T&gt;</code>是<code>Spring</code>容器提供的一种可以扩展容器对象实例化逻辑的接口。<code>FactoryBean</code>，其主语是Ben，定于为Factory，也就是说，它本身与其他注册到容器中的对象一样，只是一个Bean而已，只不过这种类型的Bean本身就是生产对象的工厂。</p>
+<h4 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h4><p>它的接口定义如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface FactoryBean&lt;T&gt; &#123;</span><br><span class="line">  @Nullable</span><br><span class="line">  T getObject() throws Exception;</span><br><span class="line">  @Nullable</span><br><span class="line">  Class&lt;?&gt; getObjectType();</span><br><span class="line">  default boolean isSingleton() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>getObject()</code>方法会返回该<code>FactoryBean</code>“生产”的对象实例，我们需要实现该方法以给出自己的对象实例化逻辑；<code>getObjectType()</code>方法仅返回<code>getObject()</code>方法所返回的对象的类型，如果预先无法确定，则返回null；<code>isSingleton()</code>方法返回结果用于表明，工厂方法（<code>getObject()</code>）所“生产”的对象是否要以singleton形式存在于容器中。如果以singleton形式存在，则返回true，否则返回false； </p>
+<span id="more"></span>
+
+<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><p><code>FactoryBean</code>的一般使用场景是，当我们需要实例化一个比较复杂的Bean时，我们可以通过实现<code>FactoryBean</code>来定制Bean的实例化过程。</p>
+<p>在IOC容器中，通过<code>getBean(BeanName)</code>方法获取Bean时，如果该Bean实现了<code>FactoryBean</code>接口，则获取到该Bean的实例为<code>getObjet()</code>方法返回的结果，并不是<code>FactoryBean</code>的实现类对象。</p>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p>我们实现一个<code>FactoryBean</code>示例，我们将实现一个<code>ToolFactory</code>，它将产生Tool类型的实例对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Tool &#123;</span><br><span class="line"> </span><br><span class="line">    private int id;</span><br><span class="line"> </span><br><span class="line">    // standard constructors, getters and setters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ToolFactory implements FactoryBean&lt;Tool&gt; &#123;</span><br><span class="line"> </span><br><span class="line">    private int factoryId;</span><br><span class="line">    private int toolId;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public Tool getObject() throws Exception &#123;</span><br><span class="line">        return new Tool(toolId);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public Class&lt;?&gt; getObjectType() &#123;</span><br><span class="line">        return Tool.class;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public boolean isSingleton() &#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    // standard setters and getters</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使<code>ToolFactory</code>生效（将<code>FactoryBean</code>的实现注册到IOC容器中），有以下两种方式：</p>
+<ul>
+<li><p>XML</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;beans ...&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;bean id=&quot;tool&quot; class=&quot;com.baeldung.factorybean.ToolFactory&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;factoryId&quot; value=&quot;9090&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;toolId&quot; value=&quot;1&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Java编码</p>
+<p>与XML不同的是，我们需要显示的调用<code>getObject()</code>方法来生成实例对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class FactoryBeanAppConfig &#123;</span><br><span class="line">  </span><br><span class="line">    @Bean(name = &quot;tool&quot;)</span><br><span class="line">    public ToolFactory toolFactory() &#123;</span><br><span class="line">        ToolFactory factory = new ToolFactory();</span><br><span class="line">        factory.setFactoryId(7070);</span><br><span class="line">        factory.setToolId(2);</span><br><span class="line">        return factory;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    @Bean</span><br><span class="line">    public Tool tool() throws Exception &#123;</span><br><span class="line">        return toolFactory().getObject();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>使用时，直接引入Tool实例对象即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class FactoryBeanTest &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private Tool tool;</span><br><span class="line"> </span><br><span class="line">    @Test</span><br><span class="line">    public void test() &#123;</span><br><span class="line">        assertThat(tool.getId(), equalTo(1));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -173,35 +1001,27 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git flow 简单入门 | SourceTree操作Git工作流]]></title>
-    <url>%2F2019%2F12%2F26%2Fgit-flow-learn%2F</url>
-    <content type="text"><![CDATA[简介Git 作为源码管理系统，不可避免涉及到多人协作。团队中商定一个工作流程至关重要的。本文已常用的Git flow 做说明，该模型如下图所示： 说明该模型总存在两个长期（核心）分支： master develop master ，我们认为该分支存放对外发布的版本，任何时候该分支都是稳定的发布版。我们不可以直接在该分支push 代码。 develop ，我们认为该分支的代码存放的是达到稳定并且准备发布时的，我们的新功能开发都是基于此分支。 其次，项目存在的三种短期分支： feature hotfix release feature ，即功能分支，我们进行新功能的开发将在此分支上进行。该分支的代码基于develop 并且最终回合并回develop 分支。 hoxtfix , 即补丁分支，我们进行线上问题修复将在此分支进行，该代码分支基于master 并且最终将合并会develop、master 分支。 release, 即预发分支。 操作流程实例当我们进行新功能开发时，需要基于develop分支拉取feature分支进行开发，如增加了一个功能 我们将基于develop分支创建 feature/news 分支。 当功能开发完毕时，我们将提交merge request，将该功能合并到develop 分支。 当所有feature 功能开发完毕，且都已合并回develop，开发自己测试完毕后。准备创建预发布版本，就可以基于develop创建release分支。此时测试人员可以基于该版本release进行测试，发现了问题，我们在release分支上进行问题的修复。 当具备上线条件时，需要将release分支合并到master和develop分支，同时需要打tag，然后进行上线操作，线上发布的为master分支。 当需要修复线上bug时，我们需要基于master创建hotfix分支，当修复且验证完毕后，将hotfix分支合并回master分支，同时为了保证该hotfix包含在下一个发行版中，同时需要合并回develop分支，同时需要打tag。最后删除hotfix分支。 SourceTree 操作SourceTree 的图形化界面git工具，可以简化我们上述的复杂操作。 初始化项目 点击右上角Git工作流按钮，初始化git flow。 开发新功能 点击创建新的功能，此时我们发现已经为我们创建了feature/news分支，我们将在此分支进行功能开发。 开发完成 点击完成功能。 此时我们发现已经将feature/news分支合并到了develop分支。 预发布 开始release 点击建立新的发布版本，此时我们发现已经为我们创建了release/v1.0.0 分支。 发布 完成release 点击完成发布版本，此时我们发现已经将release/1.0.0分支合并到了develop和master 线上问题修复 开始hotfix 点击创建新的修复补丁，此时我们发现基于master为我们创建了hotfix/v1.0.0-20191226 完成问题修复 完成hotfix 点击完成修复补丁，此时我们发现将hotfix合并回了develop和master分支。 参考文档https://nvie.com/posts/a-successful-git-branching-model/]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>gitflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[斐讯K2 刷机资料]]></title>
-    <url>%2F2019%2F12%2F12%2Fphicomm_k2%2F</url>
-    <content type="text"><![CDATA[型号K2 : PSG1218 Breed https://breed.hackpascal.net/ 老毛子padavan https://opt.cn2qq.com/padavan/ 无线AP工作模式 AP (禁用桥接) WDS 桥接 (禁用AP) WDS 中继 (桥接 + AP) AP-Client (禁用AP) AP-Client + AP 无线AP-Client角色 LAN bridge : 网桥，简单的说就是承担AP的角色，相当于一个无线交换机了，从主路由获取IP。选择这个就需要关掉华硕的DHCP功能。 Wireless ISP : 这个不难理解，就是供应商的形式，副路由在这里就是另外一个网段。选择这个得保证副路由和主路由LAN口地址不在一个网段。 高恪http://www.gocloud.cn/]]></content>
-      <categories>
-        <category>net</category>
-      </categories>
-      <tags>
-        <tag>斐讯</tag>
-        <tag>路由器</tag>
-        <tag>K2</tag>
-        <tag>padavan</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[玩物下载 群晖ARM版 安装方法]]></title>
-    <url>%2F2019%2F12%2F11%2Fsynology_owapp_armv8%2F</url>
-    <content type="text"><![CDATA[玩物下载 群晖ARM版 安装方法玩物下载简介玩物下载是一款超轻快且功能强大的下载工具，其下载加速由迅雷提供技术支持。已支持http、BT、电驴、磁力链、迅雷等目前所有主流的下载格式。欢迎您使用玩物下载，希望通过我们的下载技术，能帮助您节约下载时间、减少等待。产品特点：随时随地，想下就下。 前言本人前些日子入手了猫盘，刷了黑群晖，目前一直稳定使用。可惜猫盘群晖属于ARM平台，比x86平台的群晖少了很多可玩性。看到x86平台上有玩物下载，遂想找下官方有没有提供群晖ARM版本。 先到玩物下载官网看了看，只在帮助中心发现了x86平台spk安装包的下载地址，并没有发现ARM版。 随后通过Google的帮助，找到了群晖官方spk安装包的下载地址https://archive.synology.com/download/Package/spk/，其中owapp即为玩物下载的文件夹，于是发现官方其实是提供了armv8的spk安装包。 下载下来发现并不能安装成功，通过7-zip打开安装包看了看，对比了下其他官方套件的安装包，发现INFO文件中的arch的值的问题。群晖官方提供的armv8版套件的安装包中arch的值为armv8，而玩物下载中的值为rtd1296，通过修改后成功安装，于是有了下面的安装方法。 此文仅仅是记录，无任何技术含量，本首发在了矿渣论坛，后发现被各种博客转载且未注明出处，还不如也在自己博客上发下。 安装方法下载安装包https://archive.synology.com/download/Package/spk/owapp/ 当前最新版为2.2.12，进入该目录，下载 owapp-armv8-2.2.12.spk 提取其中的INFO文件使用7-zip打开spk安装包，提取其中的INFO文件 修改arch值将arch的值修改为armv8 将修改后的INFO文件替换回安装包中群晖套件中心手动安装 结束语此时玩物下载就安装完成了。如果你懒得自己动手修改的话，我提供下我修改好的安装包供下载。 2019/12/24：针对卸载问题更新了2.2.13版本的安装包。https://72k.us/dir/22553047-36210073-05502f 提取码：156276]]></content>
+    <title>玩物下载 群晖ARM版 安装方法</title>
+    <url>/2019/12/11/synology_owapp_armv8/</url>
+    <content><![CDATA[<h2 id="玩物下载-群晖ARM版-安装方法"><a href="#玩物下载-群晖ARM版-安装方法" class="headerlink" title="玩物下载 群晖ARM版 安装方法"></a>玩物下载 群晖ARM版 安装方法</h2><h3 id="玩物下载简介"><a href="#玩物下载简介" class="headerlink" title="玩物下载简介"></a>玩物下载简介</h3><p>玩物下载是一款超轻快且功能强大的下载工具，其下载加速由迅雷提供技术支持。已支持http、BT、电驴、磁力链、迅雷等目前所有主流的下载格式。欢迎您使用玩物下载，希望通过我们的下载技术，能帮助您节约下载时间、减少等待。产品特点：随时随地，想下就下。</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本人前些日子入手了猫盘，刷了黑群晖，目前一直稳定使用。可惜猫盘群晖属于ARM平台，比x86平台的群晖少了很多可玩性。看到x86平台上有玩物下载，遂想找下官方有没有提供群晖ARM版本。</p>
+<p>先到<a href="http://www.ionewu.com/pro_wwxz.html">玩物下载官网</a>看了看，只在帮助中心发现了x86平台spk安装包的下载地址，并没有发现ARM版。</p>
+<p>随后通过Google的帮助，找到了群晖官方spk安装包的下载地址<a href="https://archive.synology.com/download/Package/spk/">https://archive.synology.com/download/Package/spk/</a>，其中owapp即为玩物下载的文件夹，于是发现官方其实是提供了armv8的spk安装包。</p>
+<p>下载下来发现并不能安装成功，通过7-zip打开安装包看了看，对比了下其他官方套件的安装包，发现INFO文件中的arch的值的问题。群晖官方提供的armv8版套件的安装包中arch的值为<code>armv8</code>，而玩物下载中的值为<code>rtd1296</code>，通过修改后成功安装，于是有了下面的安装方法。</p>
+<p>此文仅仅是记录，无任何技术含量，本首发在了矿渣论坛，后发现被各种博客转载且未注明出处，还不如也在自己博客上发下。</p>
+<span id="more"></span>
+
+<h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><p><a href="https://archive.synology.com/download/Package/spk/owapp/">https://archive.synology.com/download/Package/spk/owapp/</a></p>
+<p>当前最新版为2.2.12，进入该目录，下载<a href="https://archive.synology.com/download/Package/spk/owapp/2.2.12/owapp-armv8-2.2.12.spk"> owapp-armv8-2.2.12.spk</a></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/owapp_armv8_1.png" alt="image"></p>
+<h4 id="提取其中的INFO文件"><a href="#提取其中的INFO文件" class="headerlink" title="提取其中的INFO文件"></a>提取其中的INFO文件</h4><p>使用7-zip打开spk安装包，提取其中的INFO文件</p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/owapp_armv8_2.png" alt="image"></p>
+<h4 id="修改arch值"><a href="#修改arch值" class="headerlink" title="修改arch值"></a>修改arch值</h4><p>将arch的值修改为<code>armv8</code></p>
+<p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/owapp_armv8_3.png" alt="image"></p>
+<h4 id="将修改后的INFO文件替换回安装包中"><a href="#将修改后的INFO文件替换回安装包中" class="headerlink" title="将修改后的INFO文件替换回安装包中"></a>将修改后的INFO文件替换回安装包中</h4><h4 id="群晖套件中心手动安装"><a href="#群晖套件中心手动安装" class="headerlink" title="群晖套件中心手动安装"></a>群晖套件中心手动安装</h4><p><img src="https://raw.githubusercontent.com/liuqitoday/image/main/owapp_armv8_4.png" alt="image"></p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>此时玩物下载就安装完成了。如果你懒得自己动手修改的话，我提供下我修改好的安装包供下载。</p>
+<p>2019&#x2F;12&#x2F;24：针对<a href="http://www.ionewu.com/pro_wwxz_notice_20191222.html">卸载问题</a>更新了2.2.13版本的安装包。<a href="https://72k.us/dir/22553047-36210073-05502f">https://72k.us/dir/22553047-36210073-05502f</a> 提取码：156276</p>
+]]></content>
       <categories>
         <category>Synology</category>
       </categories>
@@ -213,9 +1033,33 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[多租户的实现]]></title>
-    <url>%2F2019%2F10%2F09%2Ftenant%2F</url>
-    <content type="text"><![CDATA[多租户概述多租户（Multi Tenancy/Tenant）是一种软件架构，其定义是：在一台服务器上运行单个应用实例，它为多个租户提供服务。 数据隔离方案 独立数据库 即一个租户一个数据库。 共享数据库，独立Schema 即多个或所有租户共享Database，但是每个租户一个Schema（也可叫做一个user）。 共享数据库，共享Schema，共享数据表 即租户共享同一个Database、同一个Schema，但在表中增加租户标识的数据字段。 实现方式在MySQL没用schema和database的区分，所以上述1、2两种方案大体一致。当前选择最低成本的共享数据库，共享Schema，共享数据表方案。后续讨论全部针对于方案3展开。 简单来说，意味着每条数据都需要区分出属于哪个租户。为了减少后期开发成本，需要为用户表以及用户相关的表全都增加租户标识的字段（如tenantId）。 此时涉及与租户相关的SQL都需要拼接tenantId = ?，若手动拼接，改造过程过于繁琐。此时我们想到的方案是根据当前用户所属的租户动态的拼接SQL，恰巧MyBatis-Plus为我们提供了这样功能的插件，仅需要简单的配置即可。 MyBatis-Plus 的多租户 SQL 解析器配置参考官方文档及demo https://mybatis.plus/guide/tenant.html 此处贴一下核心配置 123456789101112131415161718192021222324252627282930313233343536373839404142@MapperScan(&quot;com.liuqitech.demo.dao&quot;)@Configurationpublic class MyBatisConfig &#123; /** * 多租户的标识字段 */ private static final String TENANT_ID_COLUMN = &quot;TENANT_ID&quot;; /** * 忽略多租户的表名 */ private static final List&lt;String&gt; IGNORE_TENANT_TABLES = Lists .newArrayList(&quot;table1&quot;, &quot;table2&quot;, &quot;table3&quot;, &quot;table4&quot;); @Bean public PaginationInterceptor paginationInterceptor() &#123; PaginationInterceptor paginationInterceptor = new PaginationInterceptor(); TenantSqlParser tenantSqlParser = new TenantSqlParser(); tenantSqlParser.setTenantHandler(new TenantHandler() &#123; @Override public Expression getTenantId(boolean where) &#123; // TODO 此处的tenantId需要自己获取当前用户所属的租户 String tenantId = &quot;liuqitech&quot;; return new StringValue(tenantId); &#125; @Override public String getTenantIdColumn() &#123; return TENANT_ID_COLUMN; &#125; @Override public boolean doTableFilter(String tableName) &#123; return IGNORE_TENANT_TABLES.stream().allMatch(e -&gt; e.equalsIgnoreCase(tableName)); &#125; &#125;); paginationInterceptor.setSqlParserList(Lists.newArrayList(tenantSqlParser)); return paginationInterceptor; &#125;&#125;]]></content>
+    <title>多租户的实现</title>
+    <url>/2019/10/09/tenant/</url>
+    <content><![CDATA[<h4 id="多租户概述"><a href="#多租户概述" class="headerlink" title="多租户概述"></a>多租户概述</h4><p>多租户（Multi Tenancy&#x2F;Tenant）是一种软件架构，其定义是：在一台服务器上运行单个应用实例，它为多个租户提供服务。</p>
+<h4 id="数据隔离方案"><a href="#数据隔离方案" class="headerlink" title="数据隔离方案"></a>数据隔离方案</h4><ol>
+<li><p>独立数据库</p>
+<p>即一个租户一个数据库。</p>
+</li>
+<li><p>共享数据库，独立Schema</p>
+<p>即多个或所有租户共享Database，但是每个租户一个Schema（也可叫做一个user）。</p>
+</li>
+<li><p>共享数据库，共享Schema，共享数据表</p>
+<p>即租户共享同一个Database、同一个Schema，但在表中增加租户标识的数据字段。</p>
+</li>
+</ol>
+<span id="more"></span>
+
+
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>在<code>MySQL</code>没用schema和database的区分，所以上述1、2两种方案大体一致。当前选择最低成本的<code>共享数据库，共享Schema，共享数据表</code>方案。后续讨论全部针对于方案3展开。</p>
+<p>简单来说，意味着每条数据都需要区分出属于哪个租户。为了减少后期开发成本，需要为用户表以及用户相关的表全都增加租户标识的字段（如<code>tenantId</code>）。</p>
+<p>此时涉及与租户相关的<code>SQL</code>都需要拼接<code>tenantId = ?</code>，若手动拼接，改造过程过于繁琐。此时我们想到的方案是根据当前用户所属的租户动态的拼接<code>SQL</code>，恰巧<code>MyBatis-Plus</code>为我们提供了这样功能的插件，仅需要简单的配置即可。</p>
+<h4 id="MyBatis-Plus-的多租户-SQL-解析器配置"><a href="#MyBatis-Plus-的多租户-SQL-解析器配置" class="headerlink" title="MyBatis-Plus 的多租户 SQL 解析器配置"></a>MyBatis-Plus 的多租户 SQL 解析器配置</h4><p>参考官方文档及demo <a href="https://mybatis.plus/guide/tenant.html">https://mybatis.plus/guide/tenant.html</a></p>
+<p>此处贴一下核心配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@MapperScan(&quot;com.liuqitech.demo.dao&quot;)</span><br><span class="line">@Configuration</span><br><span class="line">public class MyBatisConfig &#123;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 多租户的标识字段</span><br><span class="line">   */</span><br><span class="line">  private static final String TENANT_ID_COLUMN = &quot;TENANT_ID&quot;;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 忽略多租户的表名</span><br><span class="line">   */</span><br><span class="line">  private static final List&lt;String&gt; IGNORE_TENANT_TABLES = Lists</span><br><span class="line">      .newArrayList(&quot;table1&quot;, &quot;table2&quot;, &quot;table3&quot;, &quot;table4&quot;);</span><br><span class="line"></span><br><span class="line">  @Bean</span><br><span class="line">  public PaginationInterceptor paginationInterceptor() &#123;</span><br><span class="line">    PaginationInterceptor paginationInterceptor = new PaginationInterceptor();</span><br><span class="line">    TenantSqlParser tenantSqlParser = new TenantSqlParser();</span><br><span class="line">    tenantSqlParser.setTenantHandler(new TenantHandler() &#123;</span><br><span class="line">      @Override</span><br><span class="line">      public Expression getTenantId(boolean where) &#123;</span><br><span class="line">      	// TODO 此处的tenantId需要自己获取当前用户所属的租户</span><br><span class="line">        String tenantId = &quot;liuqitech&quot;;</span><br><span class="line">        return new StringValue(tenantId);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public String getTenantIdColumn() &#123;</span><br><span class="line">        return TENANT_ID_COLUMN;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public boolean doTableFilter(String tableName) &#123;</span><br><span class="line">        return IGNORE_TENANT_TABLES.stream().allMatch(e -&gt; e.equalsIgnoreCase(tableName));</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    paginationInterceptor.setSqlParserList(Lists.newArrayList(tenantSqlParser));</span><br><span class="line">    return paginationInterceptor;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
@@ -224,122 +1068,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JVM笔记 - 运行时内存区域]]></title>
-    <url>%2F2019%2F07%2F04%2Fjvm-spec%2F</url>
-    <content type="text"><![CDATA[程序计数器它可以看做是当前线程执行的字节码的指示器。 Java虚拟机栈它描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口信息等。每一个方法从调用到执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。 本地方法栈Java堆它是被所有线程共享的一块区域，在虚拟机启动时创建。此内存区域的唯一目的是存放对象实例。 对象的内存布局分为3块区域 对象头、实例数据、对齐填充 方法区它也是被所有线程共享的一块区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。 运行时常量池是方法区的一部分。]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Redis基础笔记 - 数据类型&部署方式&项目配置]]></title>
-    <url>%2F2019%2F07%2F02%2Fredis-learn%2F</url>
-    <content type="text"><![CDATA[Redis基础笔记 - 数据类型&amp;部署方式&amp;项目配置Redis 数据类型Redis 常用的数据类型：strings（字符串）、Lists（列表）、Hashes（哈希）、Sets（集合）、Sorted sets（有序集合） 等。 官方文档对于数据类型说明 https://redis.io/topics/data-types-intro Redis StringsRedis String 字符串类型，最简单的数据类型。 1234&gt; set mykey somevalueOK&gt; get mykey&quot;somevalue&quot; Redis ListsRedis Lists 存储的字符串类型的元素，是按插入顺序排序的列表。 12345678910111213141516&gt; rpush mylist A(integer) 1&gt; rpush mylist B(integer) 2&gt; lpush mylist first(integer) 3&gt; lrange mylist 0 -11) &quot;first&quot;2) &quot;A&quot;3) &quot;B&quot;&gt; lpop mylist&quot;first&quot;&gt; rpop mylist&quot;B&quot;&gt; lrange mylist 0 -11) &quot;A&quot; Redis HashesRedis Hashes 是字符串类型的键值对。 12345678910111213&gt; hset myhash name liuqi(integer) 0&gt; hget myhash name&quot;liuqi&quot;&gt; hmset myhash age 27 website liuqitech.comOK&gt; hgetall myhash1) &quot;name&quot;2) &quot;liuqi&quot;3) &quot;age&quot;4) &quot;27&quot;5) &quot;website&quot;6) &quot;liuqitech.com&quot; Redis SetsRedis Sets 是字符串类型的无序集合，不能有重复的元素。 12345678910&gt; sadd myset 1 2 3(integer) 3&gt; smembers myset1) &quot;1&quot;2) &quot;2&quot;3) &quot;3&quot;&gt; sismember myset 1(integer) 1&gt; sismember myset 10(integer) 0 Redis Sorted setsRedis Sorted sets 与 Redis Sets 不同的是，每一个元素都会关联一个浮点数类型的分数。 123456789101112&gt; zadd hackers 1940 &quot;Alan Kay&quot;(integer) 1&gt; zadd hackers 1957 &quot;Sophie Wilson&quot;(integer) 1&gt; zadd hackers 1953 &quot;Richard Stallman&quot;(integer) 1&gt; zadd hackers 1949 &quot;Anita Borg&quot;&gt; zrange hackers 0 -11) &quot;Alan Kay&quot;2) &quot;Anita Borg&quot;3) &quot;Richard Stallman&quot;4) &quot;Sophie Wilson&quot; Redis 部署方式单机、主从、哨兵、集群 单机单机方式没什么好说的，使用默认的配置文件启动即可。 1./redis-server redis.conf 主从复制 （replication）配置主从复制方式非常简单，只需要在 slave 的配置文件中添加如下配置： 1slaveof 192.168.1.1 6379 其中 192.168.1.1 6379 为 master 的IP和端口 官方文档 https://redis.io/topics/replication 哨兵（Sentinel）哨兵是在主从复制的基础上进行的增强方案。原主从复制的方式中，若master宕机，无法进行主从切，所以会引发一些故障。哨兵可以监控多个，master-slave集群，若发现其中的master宕机时，会把该master下的slave转换为master，同时原master下的slave也会slaveof为新的master。 哨兵启动的方式有以下两种，sentinel的默认端口为26379。 1redis-sentinel /path/to/sentinel.conf 1redis-server /path/to/sentinel.conf --sentinel 我们需要配置监听的master，slave无需手动配置。 123456789sentinel monitor mymaster 127.0.0.1 6379 2sentinel down-after-milliseconds mymaster 60000sentinel failover-timeout mymaster 180000sentinel parallel-syncs mymaster 1sentinel monitor resque 192.168.1.3 6380 4sentinel down-after-milliseconds resque 10000sentinel failover-timeout resque 180000sentinel parallel-syncs resque 5 以上为监听两个master的例子。sentinel monitor 语句参数的含义如下： 1sentinel monitor &lt;master-group-name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt; 其中quorum的意义为，当sentinel为集群时，若quorum为2，此时其中监听的一个master发生了宕机，当有2个sentinel认为它为不可用状态的时候才会真正判定该master已经为不可用状态。 官方文档 https://redis.io/topics/sentinel 集群 （cluster）按照文档做个简单的搭建，复制6份redis到文件夹（如 7000 7001 7002 7003 7004 7005），7000到7005的redis.conf分别按以下模板进行配置 12345port 7000cluster-enabled yescluster-config-file nodes.confcluster-node-timeout 5000appendonly yes 分别启动这6个reids实例，然后redis-cli创建集群（5以上版本） 1./redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 --cluster-replicas 1 官方文档 https://redis.io/topics/cluster-tutorial Spring Boot 配置我demo中使用的 Spring Boot 版本为 2.1.6.RELEASE 添加依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;&lt;/dependency&gt; 查看依赖可知现在版本的使用的默认的reids客户端为 Lettuce 通过查看LettuceConnectionConfiguration 可发现，它可以为我们初始化一个 RedisTemplate&lt;Object, Object&gt; 类型的 redisTemplate，和一个 RedisTemplate&lt;String, String&gt; 类型的 stringRedisTemplate。 12345678910111213141516171819202122232425@Configuration@ConditionalOnClass(RedisOperations.class)@EnableConfigurationProperties(RedisProperties.class)@Import(&#123; LettuceConnectionConfiguration.class, JedisConnectionConfiguration.class &#125;)public class RedisAutoConfiguration &#123; @Bean @ConditionalOnMissingBean(name = &quot;redisTemplate&quot;) public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException &#123; RedisTemplate&lt;Object, Object&gt; template = new RedisTemplate&lt;&gt;(); template.setConnectionFactory(redisConnectionFactory); return template; &#125; @Bean @ConditionalOnMissingBean public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException &#123; StringRedisTemplate template = new StringRedisTemplate(); template.setConnectionFactory(redisConnectionFactory); return template; &#125;&#125; 后面的例子中为了方便测试，直接注入stringRedisTemplate 来使用，当然你也可以自定义自己需要类型的 RedisTemplate。针对不同的部署方式，修改application.yml 配置文件如下： 单机1234spring: redis: host: 127.0.0.1 port: 6379 哨兵12345spring: redis: sentinel: master: mymaster nodes: 127.0.0.1:26379, 127.0.0.1:26380 集群1234spring: redis: cluster: nodes: 127.0.0.1:7000, 127.0.0.1:7001, 127.0.0.1:7002, 127.0.0.1:7003, 127.0.0.1:7004, 127.0.0.1:7005]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[frp 内网穿透]]></title>
-    <url>%2F2019%2F06%2F16%2Ffrp%2F</url>
-    <content type="text"><![CDATA[frp 内网穿透前言对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。 此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。 frp简介frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。 项目地址：https://github.com/fatedier/frp 准备工作我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。 网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。 安装安装非常简单，仅需简单的几个步骤就可以上手。 服务端 - frps1234# 下载 在github release页面下载适合自己系统的版本wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz# 解压tar -zxvf frp_0.27.0_linux_amd64.tar.gz 此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。 12345678[common]bind_port = 7000# 客户端与服务端token一致才可连接成功token = 676767 # dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控dashboard_port = 7500 dashboard_user = liuqitechdashboard_pwd = liuqitech 启动 1./frps -c frps.ini 客户端 - frpc同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置 123456[common]# 服务端IP 端口server_addr = x.x.x.xserver_port = 7000# token 服务端与客户端需一致token = 676767 启动 1./frpc.exe -c frpc.ini 使用实例以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。 我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。 更多不同的配置请参考官方文档https://github.com/fatedier/frp/blob/master/README_zh.md 客户端配置文件 frpc.ini 进行修改，添加以下配置 1234567[rdp]type = tcplocal_ip = 127.0.0.1# 3389为默认的Windows远程桌面连接的端口local_port = 3389# 进行远程连接时的端口remote_port = 7001 重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。 当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。]]></content>
+    <title>中兴 E8820 V2 资料</title>
+    <url>/2020/02/03/zxhn_e8820v2/</url>
+    <content><![CDATA[<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>ZXHN E8820 V2是一款支持IEEE802.11ac的智能无线路由器，支持双频最高1200Mbps（5G 900M和2.4G 300M）无线传输，支持1个GE上网口，4个GE用户端接口，支持USB端口，可外接移动硬盘进行家庭私有云备份。</p>
+<h4 id="硬件参数"><a href="#硬件参数" class="headerlink" title="硬件参数"></a>硬件参数</h4><p>用户接口 4GE+1USB+Wi-Fi<br>上行接口 GE<br>设备尺寸 222 mm (L) x 150mm(W) x 36 mm (H)<br>设备重量 0.25(kg)<br>工作环境 0℃～+40℃<br>相对湿度 10%－90%（非凝结）<br>电源适配器: 输入100-240VAC,输出 12VDC, 1.5A</p>
+<span id="more"></span>
+
+<h4 id="官方固件"><a href="#官方固件" class="headerlink" title="官方固件"></a>官方固件</h4><p>2.03、2.07 版本的官方web升级文件: <a href="https://72k.us/dir/22553047-37127644-e78cd2">https://72k.us/dir/22553047-37127644-e78cd2</a> 提取密码:156276</p>
+<h4 id="第三方固件"><a href="#第三方固件" class="headerlink" title="第三方固件"></a>第三方固件</h4><p>OPENWRT: <a href="https://www.right.com.cn/forum/thread-506561-1-1.html">https://www.right.com.cn/forum/thread-506561-1-1.html</a></p>
+]]></content>
       <categories>
         <category>net</category>
       </categories>
       <tags>
-        <tag>frp</tag>
-        <tag>内网穿透</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[PushBear试用 - 喝水提醒小助手]]></title>
-    <url>%2F2019%2F06%2F14%2Fpushbear-demo%2F</url>
-    <content type="text"><![CDATA[PushBear试用 - 喝水提醒小助手PushBear简介基于微信模板的一对多消息送达服务 接入说明详见官网 http://pushbear.ftqq.com DEMO废话不多说，直接贴代码 1234567891011121314151617181920212223import requestsimport datetimefrom apscheduler.schedulers.blocking import BlockingSchedulerglobal timestimes = 1def remind(): global times sendkey = '此处换成自己的' text = '提醒喝水小助手' desp = '这是今天第' + str(times) + '次提醒你喝水啦' payload = &#123;'sendkey': sendkey, 'text': text, 'desp': desp&#125; requests.post("https://pushbear.ftqq.com/sub", data=payload) times = times + 1 now_hour = datetime.datetime.now().hour if now_hour &gt;= 21: times = 1if __name__ == "__main__": sched = BlockingScheduler() sched.add_job(remind, 'cron', hour='10,11,14,15,16,17,18,21', minute=6) sched.start()]]></content>
-      <categories>
-        <category>WeChat</category>
-      </categories>
-      <tags>
-        <tag>WeChat</tag>
-        <tag>Push</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[jmeter-plugins-dubbo简单试用]]></title>
-    <url>%2F2019%2F02%2F18%2Fjmeter-plugins-dubbo%2F</url>
-    <content type="text"><![CDATA[jmeter-plugins-dubbo简单试用项目地址https://github.com/dubbo/jmeter-plugins-dubbo 下载下载dist目录下的jar包推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。 安装将插件的jar包放入 ${JMETER_HOME}\lib\ext 使用 add -&gt; Sampler -&gt; dubbo sample 选择注册中心类型（以zookeeper注册中心为例） Protocol -&gt; zookeeper 填写注册中心地址 Address 填写Interface与Method 填写接口相关参数 官方文档https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97 https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>JMeter</tag>
-        <tag>Dubbo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Twitter的SnowFlake算法demo]]></title>
-    <url>%2F2018%2F06%2F10%2Fsnowflake%2F</url>
-    <content type="text"><![CDATA[概述 41-bit的时间可以表示（1L&lt;&lt;41）/(1000L360024*365)=69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w/s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。 算法实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152public class SnowFlakeService &#123; private static final long TIMESTAMP_BIT_NUM = 41L; private static final long SEQUENCE_BIT_NUM = 12L; private static final long MACHINE_BIT_NUM = 5L; private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM); private long BEGIN_TIMESTAMP = 1262275200000L; private long lastTimeStamp = -1L; private long sequence = 0L; public Long getSnowFlake(Long machineId) &#123; long currentTimeStamp = System.currentTimeMillis(); if (currentTimeStamp &lt; lastTimeStamp) &#123; throw new RuntimeException(&quot;服务器时间异常！&quot;); &#125; if (currentTimeStamp == lastTimeStamp) &#123; sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE; if (sequence == 0) &#123; currentTimeStamp = getNextTimeMillis(); &#125; &#125; else &#123; lastTimeStamp = currentTimeStamp; sequence = 0; &#125; return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM) | machineId &lt;&lt; SEQUENCE_BIT_NUM | sequence; &#125; private long getNextTimeMillis() &#123; long currentTimeMillis = 0L; do &#123; currentTimeMillis = System.currentTimeMillis(); &#125; while (currentTimeMillis &lt;= lastTimeStamp); return currentTimeMillis; &#125; public static void main(String[] args) &#123; long beginTime = System.currentTimeMillis(); SnowFlakeService snowFlakeService = new SnowFlakeService(); int count = 0; while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123; Long snowFlake = snowFlakeService.getSnowFlake(1L); System.out.println(snowFlake); count++; &#125; System.out.println(&quot;产生个数&quot; + count); &#125;&#125;]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>snowflake</tag>
-        <tag>算法</tag>
-        <tag>高并发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[清除微信网页缓存]]></title>
-    <url>%2F2018%2F04%2F15%2Fclear_wechat_web_cache%2F</url>
-    <content type="text"><![CDATA[清除微信网页缓存Android 微信内打开 http://debugx5.qq.com/ IOS 退出账号，重新登录（并不会删除聊天记录的）。]]></content>
-      <categories>
-        <category>WeChat</category>
-      </categories>
-      <tags>
-        <tag>WeChat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[设置HTTP(HTTPS)代理]]></title>
-    <url>%2F2018%2F03%2F15%2Fhttp-poxy%2F</url>
-    <content type="text"><![CDATA[背景经常会遇到服务器端限制访问速度，常见的是限制IP，这时候我们就需要设置代理IP来解除这种限制。 设置代理IP（多种实现方式）设置系统属性方式发送HTTP请求前通过设置JVM中的系统属性来实现 12345// HTTP/HTTPS ProxySystem.setProperty(&quot;http.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;http.proxyPort&quot;, yourProxyProt);System.setProperty(&quot;https.proxyHost&quot;, yourProxyIp);System.setProperty(&quot;https.proxyPort&quot;, yourProxyProt); 使用HttpClient时设置代理直接引用HttpClient官方的示例代码进行说明 12345678910111213141516171819202122232425262728293031323334353637383940414243import org.apache.http.HttpHost;import org.apache.http.client.config.RequestConfig;import org.apache.http.client.methods.CloseableHttpResponse;import org.apache.http.client.methods.HttpGet;import org.apache.http.impl.client.CloseableHttpClient;import org.apache.http.impl.client.HttpClients;import org.apache.http.util.EntityUtils;/** * How to send a request via proxy. * * @since 4.0 */public class ClientExecuteProxy &#123; public static void main(String[] args)throws Exception &#123; CloseableHttpClient httpclient = HttpClients.createDefault(); try &#123; HttpHost target = new HttpHost(&quot;httpbin.org&quot;, 443, &quot;https&quot;); HttpHost proxy = new HttpHost(&quot;127.0.0.1&quot;, 8080, &quot;http&quot;); RequestConfig config = RequestConfig.custom() .setProxy(proxy) .build(); HttpGet request = new HttpGet(&quot;/&quot;); request.setConfig(config); System.out.println(&quot;Executing request &quot; + request.getRequestLine() + &quot; to &quot; + target + &quot; via &quot; + proxy); CloseableHttpResponse response = httpclient.execute(target, request); try &#123; System.out.println(&quot;----------------------------------------&quot;); System.out.println(response.getStatusLine()); System.out.println(EntityUtils.toString(response.getEntity())); &#125; finally &#123; response.close(); &#125; &#125; finally &#123; httpclient.close(); &#125; &#125;&#125;]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[MyBatis中OGNL表达式的强制对象类型]]></title>
-    <url>%2F2016%2F10%2F16%2Fmybatis-ognl%2F</url>
-    <content type="text"><![CDATA[在使用MyBatis过程中可能会遇到如下问题 mapper.xml中，当type为数字类型并且值为0时，下面的if test判断为false 123&lt;if test=&quot;type != null and type != &apos;&apos;&quot;&gt; and type = #&#123;type&#125; &lt;/if&gt; 经过查阅相关资料发现MyBatis中if test的解析是使用的OGNL表达式。 下面贴以下OGNL表达式中关于对象类型强制转换的说明 1234567891011121314151617181920212223242526272829303132Coercing Objects to TypesHere we describe how OGNL interprets objects as various types. See below for how OGNL coerces objects to booleans, numbers, integers, and collections.Interpreting Objects as BooleansAny object can be used where a boolean is required. OGNL interprets objects as booleans like this:If the object is a Boolean, its value is extracted and returned;If the object is a Number, its double-precision floating-point value is compared with zero; non-zero is treated as true, zero as false;If the object is a Character, its boolean value is true if and only if its char value is non-zero;Otherwise, its boolean value is true if and only if it is non-null.Interpreting Objects as NumbersNumerical operators try to treat their arguments as numbers. The basic primitive-type wrapper classes (Integer, Double, and so on, including Character and Boolean, which are treated as integers), and the &quot;big&quot; numeric classes from the java.math package (BigInteger and BigDecimal), are recognized as special numeric types. Given an object of some other class, OGNL tries to parse the object&apos;s string value as a number.Numerical operators that take two arguments use the following algorithm to decide what type the result should be. The type of the actual result may be wider, if the result does not fit in the given type.If both arguments are of the same type, the result will be of the same type if possible;If either argument is not of a recognized numeric class, it will be treated as if it was a Double for the rest of this algorithm;If both arguments are approximations to real numbers (Float, Double, or BigDecimal), the result will be the wider type;If both arguments are integers (Boolean, Byte, Character, Short, Integer, Long, or BigInteger), the result will be the wider type;If one argument is a real type and the other an integer type, the result will be the real type if the integer is narrower than &quot;int&quot;; BigDecimal if the integer is BigInteger; or the wider of the real type and Double otherwise.Interpreting Objects as IntegersOperators that work only on integers, like the bit-shifting operators, treat their arguments as numbers, except that BigDecimals and BigIntegers are operated on as BigIntegers and all other kinds of numbers are operated on as Longs. For the BigInteger case, the result of these operators remains a BigInteger; for the Long case, the result is expressed as the same type of the arguments, if it fits, or as a Long otherwise.Interpreting Objects as CollectionsThe projection and selection operators (e1.&#123;e2&#125; and e1.&#123;?e2&#125;), and the in operator, all treat one of their arguments as a collection and walk it. This is done differently depending on the class of the argument:Java arrays are walked from front to back;Members of java.util.Collection are walked by walking their iterators;Members of java.util.Map are walked by walking iterators over their values;Members of java.util.Iterator and java.util.Enumeration are walked by iterating them;Members of java.lang.Number are &quot;walked&quot; by returning integers less than the given number starting with zero;All other objects are treated as singleton collections containing only themselves. 那么可以发现上面的判断中type为0时 type != ‘’其实是为false，Number类型的0与空字符串’’进行比较时，0被转换成了空字符串。 其实规范代码这种问题是不存在的，Number类型是无需和空字符串进行判断的。把该条件去掉只需判断是否为null即可。]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>OGNL</tag>
-        <tag>MyBatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Windows + Ubuntu双系统删除Ubuntu]]></title>
-    <url>%2F2016%2F03%2F15%2Fdelete-ubuntu%2F</url>
-    <content type="text"><![CDATA[确定启动方式(UEFI、Legacy)按 WIN+R 快捷键打开“运行”，输入 msinfo32 确定打开“系统信息”，在系统摘要中即可看到BIOS模式。 UEFI 方式的操作借助EasyUEFI来实现，下载安装运行软件，点击“管理EFI”启动项，删除Ubuntu项即可。 删除分区管理计算机-磁盘管理找到Ubuntu对应的分区，删除卷即可。]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>双系统</tag>
+        <tag>路由器</tag>
       </tags>
   </entry>
 </search>
