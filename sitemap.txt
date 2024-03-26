@@ -36,8 +36,8 @@ https://100067.xyz/tags/WeChat/
 https://100067.xyz/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/
 https://100067.xyz/tags/frp/
 https://100067.xyz/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/
-https://100067.xyz/tags/Git/
 https://100067.xyz/tags/gitflow/
+https://100067.xyz/tags/Git/
 https://100067.xyz/tags/Android/
 https://100067.xyz/tags/Magisk/
 https://100067.xyz/tags/%E4%BB%A3%E7%90%86/
