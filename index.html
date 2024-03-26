@@ -1,7 +1,313 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>liuqitech</title><meta name="author" content="liuqi"><meta name="copyright" content="liuqi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="liuqitech">
+<meta property="og:url" content="https://100067.xyz/index.html">
+<meta property="og:site_name" content="liuqitech">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="liuqi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://100067.xyz/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'liuqitech',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-03-26 19:22:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    +postUI
-    include includes/pagination.pug
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="liuqitech" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="liuqitech"><span class="site-name">liuqitech</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">liuqitech</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/20/git-filter-repo/" title="git filter-repo 简介">git filter-repo 简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-19T16:00:00.000Z" title="发表于 2023-03-20 00:00:00">2023-03-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content">简介git filter-repo 是一个快速而灵活的工具，用于修改 Git 仓库的历史记录。
+它可以用于许多任务，例如：
+
+重写提交历史记录
+清理旧的大型文件
+将仓库拆分成几个小仓库
+将多个仓库合并成一个
+移除密码和其他敏感数据
+
+Git-Filter-Repo的一些特性是：
+
+处理速度快
+灵活，可配置性高
+保留提交的作者和时间戳信息
+可以对文件进行重命名和重构
+可以对提交信息进行修改和删除
+可以对提交信息进行搜索和替换
+可以使用Python脚本进行自定义修改
+
+安装MacOS 使用 homebrew 包管理工具进行安装，命令如下，其他方式参考官方文档
+1brew install git-filter-repo
+
+使用示例移除文件假设我们有一个包含敏感文件的 Git 仓库，需要将这些文件从提交记录中移除。
+1git filter-repo --path sensitive.txt --invert-paths
+
+这个命令会将所有包含 sensitive.txt 文件的提交从历史记录中移除。
+
+
+修改提交信息修改指定 commit 的 message 信息
+1git-filter-re ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/08/22/google_pixel_android_10_install_magisk/" title="Google Pixel (Android 10) 安装 Magisk 过程记录">Google Pixel (Android 10) 安装 Magisk 过程记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-21T16:20:00.000Z" title="发表于 2021-08-22 00:20:00">2021-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android/">Android</a></span></div><div class="content">Mac 安装 android-platform-tools1brew install --cask android-platform-tools
+
+解锁 bootloader手机进入开发者模式 打开 USB调试模式，并勾选 ”OEM解锁“
+1adb reboot bootloader
+
+1fastboot flashing unlock
+
+提取原版 boot.img下载原版刷机包并提取 boot.img 文件
+制作 Magisk patch下载 Magisk 安装文件，把 Magisk安装文件以及上一步中提取的 boot.img 传入手机中 
+1adb push Magisk-v23.0.apk /sdcard/
+
+1adb push boot.img /sdcard/
+
+手机端安装并打开 Magisk 应用，Magisk - 安装 - 选择并修补一个文件，选择 boot.img 文件，点开始按钮开始制作补丁，制作完毕后查看日志中生成的 magisk_patched.img 文件路径，将文件拷贝到电脑中
+1adb pull /sdcard/Download/magisk_patched ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/08/21/photos_sync_to_pixel/" title="iPhone 照片同步至 Pixel">iPhone 照片同步至 Pixel</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-08-21T07:00:00.000Z" title="发表于 2021-08-21 15:00:00">2021-08-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Synology/">Synology</a></span></div><div class="content">安装 Synology Photos群晖安装 Synology Photos 套件，iPhone 手机端安装 Photos Mobile APP，使用该 APP 对手机照片进行备份。
+安装 Syncthing群晖添加社区套件源 https://packages.synocommunity.com/ ，并安装 Syncthing  套件。Pixel 手机端安装 Syncthing  APP。
+配置 Syncthing
+照片目录权限配置。群晖端使用 File Station，将照片所在目录（例如 homes&#x2F;liuqi&#x2F;Photos&#x2F;MobileBackup）的读写权限设置给 sc-syncthing 用户。
+添加设备。群晖端 Syncthing 显示设备二维码（操作 - 显示ID），手机端操作“添加设备”并扫描该二维码完成添加，此时在群晖的端 Syncthing 页面同意添加进来的设备。
+群晖端 Syncthing 配置同步文件夹。群晖端 Syncthing 添加文件夹，常规标签页面下，填写文件夹标签（例如 tag_dsm_photos_lq）、文件夹ID（ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2021/02/07/spring-deferred-result/" title="Spring DeferredResult 指南（译）">Spring DeferredResult 指南（译）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-02-07T07:00:00.000Z" title="发表于 2021-02-07 15:00:00">2021-02-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">1. 概述在本教程中，我们将研究如何在Spring MVC使用 DeferredResult 类来执行异步请求处理。
+Selvet 3.0中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。
+从Spring 3.2起，就可以使用DeferredResult，它帮助我们将长时间的计算过程从http-worker线程中分离到一个单独的线程中。
+尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。
+异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。
+
+
+2. 安装我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用DeferredResult 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。
+3. 阻塞的 REST 服务我们以一个标准的阻塞的 REST 服务开始
+12345@GetMapping(&quot;/process-blocking&quot;)public ResponseEntity&lt;?&gt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/11/03/array-implementation-of-queue/" title="数组实现队列">数组实现队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-03T10:00:00.000Z" title="发表于 2020-11-03 18:00:00">2020-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">概述队列，又称为伫列（queue），计算机科学中的一种抽象资料型别，是先进先出（FIFO, First-In-First-Out）的线性表。在具体应用中通常用链表或者数组来实现。队列只允许在后端（称为rear）进行插入操作，在前端（称为front）进行删除操作。
+从上述的概念中我们可得知，队列两个主要的操作为入队(enqueue)与出队(dequeue)，入队为从队尾插入元素，出队为从队首去删除元素。
+数组实现队列数组实现的队列即元素容器为数组，为了完成入队与出队列的操作，同时还需要两个指针来标记队首和队尾。
+  
+
+代码实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596public class ArrayQueueTest &#123;    private final ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/02/28/nginx_keepalived/" title="使用Keepalived实现简单的Nginx高可用">使用Keepalived实现简单的Nginx高可用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-28T10:00:00.000Z" title="发表于 2020-02-28 18:00:00">2020-02-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">环境说明Nginx Master : 192.168.123.101
+Nginx Backup : 192.168.123.102
+VIP : 192.168.123.103
+安装Keepalived以上两台Nginx所在的机器分别安装Keepalived
+1sudo yum install keepalived
+
+配置Keepalived修改 nginx master 所在机器的keepalived 的配置文件
+1vi /etc/keepalived/keepalived.conf
+
+
+1234567891011121314151617181920212223242526272829303132333435! Configuration File for keepalivedglobal_defs &#123;   notification_email &#123;       admin@liuqitech.com.com     #设置报警邮件地址，可以设置多个，每行一个。 需开启本机的sendmail服务   &#125;   notification_email_from n ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/02/27/mysql_replication/" title="MySQL Replication 主从复制 配置">MySQL Replication 主从复制 配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-27T08:00:00.000Z" title="发表于 2020-02-27 16:00:00">2020-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">介绍Replication 可以使数据从一个MySQL数据库(master)复制到一个或多个MySQL数据库(slave)中，默认情况下该复制过程是异步的。我们可以通过配置来实现复制所有的database或者指定的database。
+MySQL Replication 的优点如下：
+
+横向扩展：可以将负载分布在多个slave上以提高性能。所有的写操作都必须在master上进行，但是读操作可以分布在一个或多个slave上。这样的模型可以提高写入性能，因为master专注于数据更新，同时多个slave可以显著的提高读取速度。
+数据安全：定期备份是保护数据的重要手段之一，若在master上进行数据备份则需要使master处于readonly状态，这将影响写操作 。而salve可以暂停复制的过程，所以slave上进行数据备份而不会影响到master。
+分析：数据是从master上实时写入的，数据分析可以在slave上进行而不影响master的性能。
+远程数据分发：如果master的物理位置距离较远，我们可以在临近的地方创建slave，方便使用数据使用，而不需要总是访问远端的master。
+
+原 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/02/26/centos7_jdk/" title="CentOS 7 安装 JDK">CentOS 7 安装 JDK</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-26T02:00:00.000Z" title="发表于 2020-02-26 10:00:00">2020-02-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="content">前提条件确保使用root用户或具有sudo权限的用户登陆。
+OpenJDK通过yum search命令查看java相关包
+1yum search java | grep openjdk
+
+
+
+
+版本
+jre
+jdk
+
+
+
+11
+java-11-openjdk.x86_64
+java-11-openjdk-devel.x86_64
+
+
+1.8
+java-1.8.0-openjdk.x86_64
+java-1.8.0-openjdk-headless.x86_64
+
+
+以安装11版本的jdk为例
+安装命令如下：
+1yum install java-11-openjdk-devel.x86_64
+
+卸载命令如下
+1sudo yum remove java-11-openjdk-devel.x86_64
+
+
+
+Oracle JDKOracle 的 JDK 需要从Oracle的官网下载来进行安装
+
+
+
+版本
+jre
+jdk
+
+
+
+11
+https://www.oracle.com/java/technologies/javase-downloads.html
+https://www.oracle ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/02/14/ad_block_filter/" title="去广告规则">去广告规则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-14T14:00:50.000Z" title="发表于 2020-02-14 22:00:50">2020-02-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/net/">net</a></span></div><div class="content">适用于 Adblock Plus&#x2F;AdGuard&#x2F;uBlock 等
+EasyList + EasyList China
+
+https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
+
+
+CJX’s Annoyance List
+这是”EasyList China+EasyList” &amp; “EasyPrivacy”的补充.过滤烦人的自我推广,并补充EasyPrivacy隐私规则
+
+ https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
+
+
+合并规则EasylistChina、EasylistLite、CJX’sAnnoyance
+合并EasylistChina、EasylistLite、CJX’sAnnoyance，以及补充的一些规则；
+
+https://gitee.com/halflife/list/raw/master/ad.txt
+
+
+乘风 广告过滤规则
+
+https:&#x2F ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2020/02/14/mysql_coalesce/" title="MySQL COALESCE 函数">MySQL COALESCE 函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-02-14T03:26:00.000Z" title="发表于 2020-02-14 11:26:00">2020-02-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MySQL/">MySQL</a></span></div><div class="content">介绍COALESCE(value,...)  
+Returns the first non-NULL value in the list, or NULL if there are no non-NULL values.
+官方文档介绍的很清楚，该函数返回参数列表中第一个非NULL的值，如果没有非NULL的值则返回NULL。
+1234mysql&gt; SELECT COALESCE(NULL,1);        -&gt; 1mysql&gt; SELECT COALESCE(NULL,NULL,NULL);        -&gt; NULL
+
+
+
+应用实例表中存在字段create_time、update_time，现在需要按更新时间倒序排序，由于更新时间可能为NULL，若为NULL时按创建时间排。
+1ORDER BY COALESCE(update_time, create_time) DESC</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">liuqi</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/20/git-filter-repo/" title="git filter-repo 简介">git filter-repo 简介</a><time datetime="2023-03-19T16:00:00.000Z" title="发表于 2023-03-20 00:00:00">2023-03-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/22/google_pixel_android_10_install_magisk/" title="Google Pixel (Android 10) 安装 Magisk 过程记录">Google Pixel (Android 10) 安装 Magisk 过程记录</a><time datetime="2021-08-21T16:20:00.000Z" title="发表于 2021-08-22 00:20:00">2021-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/21/photos_sync_to_pixel/" title="iPhone 照片同步至 Pixel">iPhone 照片同步至 Pixel</a><time datetime="2021-08-21T07:00:00.000Z" title="发表于 2021-08-21 15:00:00">2021-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/02/07/spring-deferred-result/" title="Spring DeferredResult 指南（译）">Spring DeferredResult 指南（译）</a><time datetime="2021-02-07T07:00:00.000Z" title="发表于 2021-02-07 15:00:00">2021-02-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/11/03/array-implementation-of-queue/" title="数组实现队列">数组实现队列</a><time datetime="2020-11-03T10:00:00.000Z" title="发表于 2020-11-03 18:00:00">2020-11-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android/"><span class="card-category-list-name">Android</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Synology/"><span class="card-category-list-name">Synology</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/WeChat/"><span class="card-category-list-name">WeChat</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Windows/"><span class="card-category-list-name">Windows</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/iPhone/" style="font-size: 1.1em; color: #999">iPhone</a> <a href="/tags/Android/" style="font-size: 1.23em; color: #999ea6">Android</a> <a href="/tags/WeChat/" style="font-size: 1.23em; color: #999ea6">WeChat</a> <a href="/tags/Nginx/" style="font-size: 1.1em; color: #999">Nginx</a> <a href="/tags/frp/" style="font-size: 1.1em; color: #999">frp</a> <a href="/tags/OGNL/" style="font-size: 1.1em; color: #999">OGNL</a> <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 1.23em; color: #999ea6">路由器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/Spring/" style="font-size: 1.37em; color: #99a4b2">Spring</a> <a href="/tags/owapp/" style="font-size: 1.1em; color: #999">owapp</a> <a href="/tags/snowflake/" style="font-size: 1.1em; color: #999">snowflake</a> <a href="/tags/%E7%8E%A9%E7%89%A9%E4%B8%8B%E8%BD%BD/" style="font-size: 1.1em; color: #999">玩物下载</a> <a href="/tags/Java/" style="font-size: 1.5em; color: #99a9bf">Java</a> <a href="/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/" style="font-size: 1.1em; color: #999">高并发</a> <a href="/tags/gitflow/" style="font-size: 1.1em; color: #999">gitflow</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 1.1em; color: #999">代理</a> <a href="/tags/MySQL/" style="font-size: 1.23em; color: #999ea6">MySQL</a> <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">双系统</a> <a href="/tags/Push/" style="font-size: 1.1em; color: #999">Push</a> <a href="/tags/Magisk/" style="font-size: 1.1em; color: #999">Magisk</a> <a href="/tags/Pixel/" style="font-size: 1.1em; color: #999">Pixel</a> <a href="/tags/%E6%96%90%E8%AE%AF/" style="font-size: 1.1em; color: #999">斐讯</a> <a href="/tags/Git/" style="font-size: 1.23em; color: #999ea6">Git</a> <a href="/tags/K2/" style="font-size: 1.1em; color: #999">K2</a> <a href="/tags/Dubbo/" style="font-size: 1.1em; color: #999">Dubbo</a> <a href="/tags/Synology/" style="font-size: 1.23em; color: #999ea6">Synology</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/padavan/" style="font-size: 1.1em; color: #999">padavan</a> <a href="/tags/JVM/" style="font-size: 1.1em; color: #999">JVM</a> <a href="/tags/Redis/" style="font-size: 1.1em; color: #999">Redis</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/DSM/" style="font-size: 1.1em; color: #999">DSM</a> <a href="/tags/JMeter/" style="font-size: 1.1em; color: #999">JMeter</a> <a href="/tags/%E7%BE%A4%E6%99%96/" style="font-size: 1.23em; color: #999ea6">群晖</a> <a href="/tags/MyBatis/" style="font-size: 1.23em; color: #999ea6">MyBatis</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">八月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/02/"><span class="card-archive-list-date">二月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/02/"><span class="card-archive-list-date">二月 2020</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/01/"><span class="card-archive-list-date">一月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">29</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-03-26T11:22:35.666Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By liuqi</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
