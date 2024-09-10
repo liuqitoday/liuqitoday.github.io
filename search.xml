@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数组实现队列</title>
-    <url>/2020/11/03/array-implementation-of-queue/</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>队列</strong>，又称为<strong>伫列</strong>（queue），<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8">计算机科学</a>中的一种<a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5">抽象资料型别</a>，是<a href="https://zh.wikipedia.org/wiki/%E5%85%88%E9%80%B2%E5%85%88%E5%87%BA%E6%BC%94%E7%AE%97%E6%B3%95">先进先出</a>（FIFO, First-In-First-Out）的<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a>。在具体应用中通常用<a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8">链表</a>或者<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%BB%84">数组</a>来实现。队列只允许在后端（称为<em>rear</em>）进行插入操作，在前端（称为<em>front</em>）进行删除操作。</p>
-<p>从上述的概念中我们可得知，<strong>队列</strong>两个主要的操作为<strong>入队</strong>(enqueue)与<strong>出队</strong>(dequeue)，入队为从队尾插入元素，出队为从队首去删除元素。</p>
-<h3 id="数组实现队列"><a href="#数组实现队列" class="headerlink" title="数组实现队列"></a>数组实现队列</h3><p>数组实现的队列即元素容器为数组，为了完成入队与出队列的操作，同时还需要两个指针来标记队首和队尾。</p>
-  <span id="more"></span>
-
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ArrayQueueTest &#123;</span><br><span class="line"></span><br><span class="line">    private final int[] items;</span><br><span class="line">    /**</span><br><span class="line">     * front 队首指针</span><br><span class="line">     * rear 对尾指针</span><br><span class="line">     * capital 队列容量</span><br><span class="line">     */</span><br><span class="line">    private int front, rear, capital;</span><br><span class="line"></span><br><span class="line">    public ArrayQueueTest(Integer capital) &#123;</span><br><span class="line">        this.items = new int[capital];</span><br><span class="line">        this.capital = capital;</span><br><span class="line">        this.front = rear = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队尾插入元素</span><br><span class="line">     *</span><br><span class="line">     * @param item 元素</span><br><span class="line">     */</span><br><span class="line">    public void add(int item) &#123;</span><br><span class="line">        // 当前容量已满</span><br><span class="line">        if (rear == capital) &#123;</span><br><span class="line">            if (front == 0) &#123;</span><br><span class="line">                throw new RuntimeException(&quot;队列已满&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 所有元素向前移动一位</span><br><span class="line">                for (int i = 0; i &lt; items.length - 1; i++) &#123;</span><br><span class="line">                    items[i] = items[i + 1];</span><br><span class="line">                &#125;</span><br><span class="line">                // 队尾指针向前移动一位，同时队首指针向前移动一位</span><br><span class="line">                rear--;</span><br><span class="line">                front--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        items[rear] = item;</span><br><span class="line">        rear++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队首取出元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队首取出的元素</span><br><span class="line">     */</span><br><span class="line">    public int remove() &#123;</span><br><span class="line">        if (front == capital) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;队列为空&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        int item = items[front];</span><br><span class="line">        front++;</span><br><span class="line">        return item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取队列所有元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队列所有元素数组</span><br><span class="line">     */</span><br><span class="line">    public int[] getItems() &#123;</span><br><span class="line">        int[] outItems = new int[rear - front];</span><br><span class="line">        for (int i = 0; i &lt; outItems.length; i++) &#123;</span><br><span class="line">            outItems[i] = items[front + i];</span><br><span class="line">        &#125;</span><br><span class="line">        return outItems;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ArrayQueueTest arrayQueue = new ArrayQueueTest(5);</span><br><span class="line">        arrayQueue.add(1);</span><br><span class="line">        arrayQueue.add(2);</span><br><span class="line">        arrayQueue.add(3);</span><br><span class="line">        arrayQueue.add(4);</span><br><span class="line">        arrayQueue.add(5);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">            int removeItem = arrayQueue.remove();</span><br><span class="line">            System.out.println(removeItem);</span><br><span class="line">            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        &#125;</span><br><span class="line">        arrayQueue.add(8);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        arrayQueue.add(9);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">//        for (int i = 10; i &lt; 20; i++) &#123;</span><br><span class="line">//            arrayQueue.add(i);</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">//        for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">//            System.out.println(arrayQueue.remove());</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>去广告规则</title>
     <url>/2020/02/14/ad_block_filter/</url>
     <content><![CDATA[<h4 id="适用于-Adblock-Plus-AdGuard-uBlock-等"><a href="#适用于-Adblock-Plus-AdGuard-uBlock-等" class="headerlink" title="适用于 Adblock Plus&#x2F;AdGuard&#x2F;uBlock 等"></a>适用于 Adblock Plus&#x2F;AdGuard&#x2F;uBlock 等</h4><ul>
@@ -47,6 +31,22 @@
       <categories>
         <category>net</category>
       </categories>
+  </entry>
+  <entry>
+    <title>数组实现队列</title>
+    <url>/2020/11/03/array-implementation-of-queue/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>队列</strong>，又称为<strong>伫列</strong>（queue），<a href="https://zh.wikipedia.org/wiki/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8">计算机科学</a>中的一种<a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E8%B3%87%E6%96%99%E5%9E%8B%E5%88%A5">抽象资料型别</a>，是<a href="https://zh.wikipedia.org/wiki/%E5%85%88%E9%80%B2%E5%85%88%E5%87%BA%E6%BC%94%E7%AE%97%E6%B3%95">先进先出</a>（FIFO, First-In-First-Out）的<a href="https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a>。在具体应用中通常用<a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E8%A1%A8">链表</a>或者<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%BB%84">数组</a>来实现。队列只允许在后端（称为<em>rear</em>）进行插入操作，在前端（称为<em>front</em>）进行删除操作。</p>
+<p>从上述的概念中我们可得知，<strong>队列</strong>两个主要的操作为<strong>入队</strong>(enqueue)与<strong>出队</strong>(dequeue)，入队为从队尾插入元素，出队为从队首去删除元素。</p>
+<h3 id="数组实现队列"><a href="#数组实现队列" class="headerlink" title="数组实现队列"></a>数组实现队列</h3><p>数组实现的队列即元素容器为数组，为了完成入队与出队列的操作，同时还需要两个指针来标记队首和队尾。</p>
+  <span id="more"></span>
+
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ArrayQueueTest &#123;</span><br><span class="line"></span><br><span class="line">    private final int[] items;</span><br><span class="line">    /**</span><br><span class="line">     * front 队首指针</span><br><span class="line">     * rear 对尾指针</span><br><span class="line">     * capital 队列容量</span><br><span class="line">     */</span><br><span class="line">    private int front, rear, capital;</span><br><span class="line"></span><br><span class="line">    public ArrayQueueTest(Integer capital) &#123;</span><br><span class="line">        this.items = new int[capital];</span><br><span class="line">        this.capital = capital;</span><br><span class="line">        this.front = rear = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队尾插入元素</span><br><span class="line">     *</span><br><span class="line">     * @param item 元素</span><br><span class="line">     */</span><br><span class="line">    public void add(int item) &#123;</span><br><span class="line">        // 当前容量已满</span><br><span class="line">        if (rear == capital) &#123;</span><br><span class="line">            if (front == 0) &#123;</span><br><span class="line">                throw new RuntimeException(&quot;队列已满&quot;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 所有元素向前移动一位</span><br><span class="line">                for (int i = 0; i &lt; items.length - 1; i++) &#123;</span><br><span class="line">                    items[i] = items[i + 1];</span><br><span class="line">                &#125;</span><br><span class="line">                // 队尾指针向前移动一位，同时队首指针向前移动一位</span><br><span class="line">                rear--;</span><br><span class="line">                front--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        items[rear] = item;</span><br><span class="line">        rear++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 从队首取出元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队首取出的元素</span><br><span class="line">     */</span><br><span class="line">    public int remove() &#123;</span><br><span class="line">        if (front == capital) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;队列为空&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        int item = items[front];</span><br><span class="line">        front++;</span><br><span class="line">        return item;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取队列所有元素</span><br><span class="line">     *</span><br><span class="line">     * @return 队列所有元素数组</span><br><span class="line">     */</span><br><span class="line">    public int[] getItems() &#123;</span><br><span class="line">        int[] outItems = new int[rear - front];</span><br><span class="line">        for (int i = 0; i &lt; outItems.length; i++) &#123;</span><br><span class="line">            outItems[i] = items[front + i];</span><br><span class="line">        &#125;</span><br><span class="line">        return outItems;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ArrayQueueTest arrayQueue = new ArrayQueueTest(5);</span><br><span class="line">        arrayQueue.add(1);</span><br><span class="line">        arrayQueue.add(2);</span><br><span class="line">        arrayQueue.add(3);</span><br><span class="line">        arrayQueue.add(4);</span><br><span class="line">        arrayQueue.add(5);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">            int removeItem = arrayQueue.remove();</span><br><span class="line">            System.out.println(removeItem);</span><br><span class="line">            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        &#125;</span><br><span class="line">        arrayQueue.add(8);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">        arrayQueue.add(9);</span><br><span class="line">        System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line"></span><br><span class="line">//        for (int i = 10; i &lt; 20; i++) &#123;</span><br><span class="line">//            arrayQueue.add(i);</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">//        for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">//            System.out.println(arrayQueue.remove());</span><br><span class="line">//            System.out.println(Arrays.toString(arrayQueue.getItems()));</span><br><span class="line">//        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>CentOS 7 安装 JDK</title>
@@ -163,6 +163,53 @@
       </tags>
   </entry>
   <entry>
+    <title>frp 内网穿透</title>
+    <url>/2019/06/16/frp/</url>
+    <content><![CDATA[<h2 id="frp-内网穿透"><a href="#frp-内网穿透" class="headerlink" title="frp 内网穿透"></a>frp 内网穿透</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。</p>
+<p>此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。</p>
+<h3 id="frp简介"><a href="#frp简介" class="headerlink" title="frp简介"></a>frp简介</h3><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p>
+<p>项目地址：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。</p>
+<p>网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。</p>
+<span id="more"></span>
+
+
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，仅需简单的几个步骤就可以上手。</p>
+<h4 id="服务端-frps"><a href="#服务端-frps" class="headerlink" title="服务端 - frps"></a>服务端 - frps</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载 在github release页面下载适合自己系统的版本</span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</span><br><span class="line"># 解压</span><br><span class="line">tar -zxvf frp_0.27.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line"># 客户端与服务端token一致才可连接成功</span><br><span class="line">token = 676767 </span><br><span class="line"># dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控</span><br><span class="line">dashboard_port = 7500 </span><br><span class="line">dashboard_user = liuqitech</span><br><span class="line">dashboard_pwd = liuqitech</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-frpc"><a href="#客户端-frpc" class="headerlink" title="客户端 - frpc"></a>客户端 - frpc</h4><p>同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"># 服务端IP 端口</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line"># token 服务端与客户端需一致</span><br><span class="line">token = 676767</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frpc.exe -c frpc.ini</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p>以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。</p>
+<p>我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。</p>
+<p>更多不同的配置请参考官方文档<a href="https://github.com/fatedier/frp/blob/master/README_zh.md">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
+<p>客户端配置文件 frpc.ini 进行修改，添加以下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[rdp]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"># 3389为默认的Windows远程桌面连接的端口</span><br><span class="line">local_port = 3389</span><br><span class="line"># 进行远程连接时的端口</span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
+
+<p>重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。</p>
+<p>当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。</p>
+]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+      <tags>
+        <tag>frp</tag>
+        <tag>内网穿透</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git filter-repo 简介</title>
     <url>/2023/03/20/git-filter-repo/</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>git filter-repo 是一个快速而灵活的工具，用于修改 Git 仓库的历史记录。</p>
@@ -224,53 +271,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>frp 内网穿透</title>
-    <url>/2019/06/16/frp/</url>
-    <content><![CDATA[<h2 id="frp-内网穿透"><a href="#frp-内网穿透" class="headerlink" title="frp 内网穿透"></a>frp 内网穿透</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>对于没有公网IP的用户来说，从公网中访问自己的私有设备是一件不太容易的事。</p>
-<p>此时可能我们需要内网穿透，内网穿透的方案有很多，这次我们使用frp来实现。</p>
-<h3 id="frp简介"><a href="#frp简介" class="headerlink" title="frp简介"></a>frp简介</h3><p>frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp 协议，为 http 和 https 应用协议提供了额外的能力，且尝试性支持了点对点穿透。</p>
-<p>项目地址：<a href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>我们需要有一台具有公网IP的机器，正好我手头有一台腾讯云服务器。</p>
-<p>网上也有些个人提供的免费的frp服务端服务，可以用来临时使用。</p>
-<span id="more"></span>
-
-
-
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，仅需简单的几个步骤就可以上手。</p>
-<h4 id="服务端-frps"><a href="#服务端-frps" class="headerlink" title="服务端 - frps"></a>服务端 - frps</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下载 在github release页面下载适合自己系统的版本</span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.27.0/frp_0.27.0_linux_amd64.tar.gz</span><br><span class="line"># 解压</span><br><span class="line">tar -zxvf frp_0.27.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>此时就只剩下配置了，进入frp目录，打开修改 frps.ini 文件，根据自己的需求进行配置。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line"># 客户端与服务端token一致才可连接成功</span><br><span class="line">token = 676767 </span><br><span class="line"># dashboard的端口、用户名、密码，启动后可以访问server_ip:port查看对一些信息的监控</span><br><span class="line">dashboard_port = 7500 </span><br><span class="line">dashboard_user = liuqitech</span><br><span class="line">dashboard_pwd = liuqitech</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
-
-<h4 id="客户端-frpc"><a href="#客户端-frpc" class="headerlink" title="客户端 - frpc"></a>客户端 - frpc</h4><p>同样下载frp的包进行解压，打开修改frpc.ini文件，根据自己的需求进行配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"># 服务端IP 端口</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line"># token 服务端与客户端需一致</span><br><span class="line">token = 676767</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./frpc.exe -c frpc.ini</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例"></a>使用实例</h3><p>以上仅仅是基本配置，还需要根据自己的需求进行不同的配置。</p>
-<p>我本次的目的是实现Windows的远程桌面连接，所以下面的配置文件是按我的需求进行配置的。</p>
-<p>更多不同的配置请参考官方文档<a href="https://github.com/fatedier/frp/blob/master/README_zh.md">https://github.com/fatedier/frp/blob/master/README_zh.md</a></p>
-<p>客户端配置文件 frpc.ini 进行修改，添加以下配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[rdp]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"># 3389为默认的Windows远程桌面连接的端口</span><br><span class="line">local_port = 3389</span><br><span class="line"># 进行远程连接时的端口</span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
-
-<p>重启客户端使配置文件生效。此时该客户端已经实现了内网穿透。</p>
-<p>当我在另一台Windows电脑进行远程桌面连接时，连接IP写frp服务端IP，端口写上面配置文件中配置的7001时即可连接成功。此时我便可以愉快的在家连接公司的电脑进行办公了。</p>
-]]></content>
-      <categories>
-        <category>net</category>
-      </categories>
-      <tags>
-        <tag>frp</tag>
-        <tag>内网穿透</tag>
       </tags>
   </entry>
   <entry>
@@ -402,6 +402,40 @@
       </tags>
   </entry>
   <entry>
+    <title>jmeter-plugins-dubbo简单试用</title>
+    <url>/2019/02/18/jmeter-plugins-dubbo/</url>
+    <content><![CDATA[<h2 id="jmeter-plugins-dubbo简单试用"><a href="#jmeter-plugins-dubbo简单试用" class="headerlink" title="jmeter-plugins-dubbo简单试用"></a>jmeter-plugins-dubbo简单试用</h2><h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo">https://github.com/dubbo/jmeter-plugins-dubbo</a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载dist目录下的jar包<br>推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>将插件的jar包放入 ${JMETER_HOME}\lib\ext</p>
+<span id="more"></span>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li><p>add -&gt; Sampler -&gt; dubbo sample</p>
+</li>
+<li><p>选择注册中心类型（以zookeeper注册中心为例）</p>
+<p>Protocol -&gt; zookeeper</p>
+</li>
+<li><p>填写注册中心地址</p>
+<p>Address</p>
+</li>
+<li><p>填写Interface与Method</p>
+</li>
+<li><p>填写接口相关参数</p>
+</li>
+</ul>
+<p><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg"><br><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_2.jpg"></p>
+<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97</a></p>
+<p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>JMeter</tag>
+        <tag>Dubbo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java中的强引用、软引用、弱引用、虚引用</title>
     <url>/2020/01/15/java-reference/</url>
     <content><![CDATA[<p>Java 对象的引用划分为4种，它们由强到弱依次是<strong>强引用</strong>、<strong>软引用</strong>、<strong>弱引用</strong>、<strong>虚引用</strong>。这样划分的作用是可以更好的控制对象的声明周期，有利于JVM 进行垃圾回收。</p>
@@ -435,40 +469,6 @@
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jmeter-plugins-dubbo简单试用</title>
-    <url>/2019/02/18/jmeter-plugins-dubbo/</url>
-    <content><![CDATA[<h2 id="jmeter-plugins-dubbo简单试用"><a href="#jmeter-plugins-dubbo简单试用" class="headerlink" title="jmeter-plugins-dubbo简单试用"></a>jmeter-plugins-dubbo简单试用</h2><h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo">https://github.com/dubbo/jmeter-plugins-dubbo</a></p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载dist目录下的jar包<br>推荐使用 jmeter-plugins-dubbo-${version}-jar-with-dependencies.jar，包含必要的依赖。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>将插件的jar包放入 ${JMETER_HOME}\lib\ext</p>
-<span id="more"></span>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
-<li><p>add -&gt; Sampler -&gt; dubbo sample</p>
-</li>
-<li><p>选择注册中心类型（以zookeeper注册中心为例）</p>
-<p>Protocol -&gt; zookeeper</p>
-</li>
-<li><p>填写注册中心地址</p>
-<p>Address</p>
-</li>
-<li><p>填写Interface与Method</p>
-</li>
-<li><p>填写接口相关参数</p>
-</li>
-</ul>
-<p><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_1.jpg"><br><img src="http://image.liuqitech.com/blog/jmeter-plugins-dubbo_2.jpg"></p>
-<h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97</a></p>
-<p><a href="https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ">https://github.com/dubbo/jmeter-plugins-dubbo/wiki/FAQ</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>JMeter</tag>
-        <tag>Dubbo</tag>
       </tags>
   </entry>
   <entry>
@@ -783,25 +783,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Twitter的SnowFlake算法demo</title>
-    <url>/2018/06/10/snowflake/</url>
-    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://i.loli.net/2018/07/23/5b559f07882b1.jpg" alt="image"></p>
-<blockquote>
-<p>41-bit的时间可以表示（1L&lt;&lt;41）&#x2F;(1000L<em>3600</em>24*365)&#x3D;69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w&#x2F;s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。</p>
-</blockquote>
-<span id="more"></span>
-
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SnowFlakeService &#123;</span><br><span class="line"></span><br><span class="line">    private static final long TIMESTAMP_BIT_NUM = 41L;</span><br><span class="line">    private static final long SEQUENCE_BIT_NUM = 12L;</span><br><span class="line">    private static final long MACHINE_BIT_NUM = 5L;</span><br><span class="line"></span><br><span class="line">    private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM);</span><br><span class="line"></span><br><span class="line">    private long BEGIN_TIMESTAMP = 1262275200000L;</span><br><span class="line"></span><br><span class="line">    private long lastTimeStamp = -1L;</span><br><span class="line">    private long sequence = 0L;</span><br><span class="line"></span><br><span class="line">    public Long getSnowFlake(Long machineId) &#123;</span><br><span class="line">        long currentTimeStamp = System.currentTimeMillis();</span><br><span class="line">        if (currentTimeStamp &lt; lastTimeStamp) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;服务器时间异常！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (currentTimeStamp == lastTimeStamp) &#123;</span><br><span class="line">            sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE;</span><br><span class="line">            if (sequence == 0) &#123;</span><br><span class="line">                currentTimeStamp = getNextTimeMillis();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            lastTimeStamp = currentTimeStamp;</span><br><span class="line">            sequence = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM)</span><br><span class="line">                | machineId &lt;&lt; SEQUENCE_BIT_NUM</span><br><span class="line">                | sequence;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private long getNextTimeMillis() &#123;</span><br><span class="line">        long currentTimeMillis = 0L;</span><br><span class="line">        do &#123;</span><br><span class="line">            currentTimeMillis = System.currentTimeMillis();</span><br><span class="line">        &#125; while (currentTimeMillis &lt;= lastTimeStamp);</span><br><span class="line">        return currentTimeMillis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        long beginTime = System.currentTimeMillis();</span><br><span class="line">        SnowFlakeService snowFlakeService = new SnowFlakeService();</span><br><span class="line">        int count = 0;</span><br><span class="line">        while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123;</span><br><span class="line">            Long snowFlake = snowFlakeService.getSnowFlake(1L);</span><br><span class="line">            System.out.println(snowFlake);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;产生个数&quot; + count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>snowflake</tag>
-        <tag>算法</tag>
-        <tag>高并发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring学习笔记 - Spring AOP 概述</title>
     <url>/2020/01/03/spring-aop-concept/</url>
     <content><![CDATA[<h4 id="AOP中涉及的概念"><a href="#AOP中涉及的概念" class="headerlink" title="AOP中涉及的概念"></a>AOP中涉及的概念</h4><ul>
@@ -854,6 +835,25 @@
       <tags>
         <tag>Java</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Twitter的SnowFlake算法demo</title>
+    <url>/2018/06/10/snowflake/</url>
+    <content><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://i.loli.net/2018/07/23/5b559f07882b1.jpg" alt="image"></p>
+<blockquote>
+<p>41-bit的时间可以表示（1L&lt;&lt;41）&#x2F;(1000L<em>3600</em>24*365)&#x3D;69年的时间，10-bit机器可以分别表示1024台机器。如果我们对IDC划分有需求，还可以将10-bit分5-bit给IDC，分5-bit给工作机器。这样就可以表示32个IDC，每个IDC下可以有32台机器，可以根据自身需求定义。12个自增序列号可以表示2^12个ID，理论上snowflake方案的QPS约为409.6w&#x2F;s，这种分配方式可以保证在任何一个IDC的任何一台机器在任意毫秒内生成的ID都是不同的。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SnowFlakeService &#123;</span><br><span class="line"></span><br><span class="line">    private static final long TIMESTAMP_BIT_NUM = 41L;</span><br><span class="line">    private static final long SEQUENCE_BIT_NUM = 12L;</span><br><span class="line">    private static final long MACHINE_BIT_NUM = 5L;</span><br><span class="line"></span><br><span class="line">    private static final long SEQUENCE_MAX_VALUE = -1L ^ (-1L &lt;&lt; SEQUENCE_BIT_NUM);</span><br><span class="line"></span><br><span class="line">    private long BEGIN_TIMESTAMP = 1262275200000L;</span><br><span class="line"></span><br><span class="line">    private long lastTimeStamp = -1L;</span><br><span class="line">    private long sequence = 0L;</span><br><span class="line"></span><br><span class="line">    public Long getSnowFlake(Long machineId) &#123;</span><br><span class="line">        long currentTimeStamp = System.currentTimeMillis();</span><br><span class="line">        if (currentTimeStamp &lt; lastTimeStamp) &#123;</span><br><span class="line">            throw new RuntimeException(&quot;服务器时间异常！&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (currentTimeStamp == lastTimeStamp) &#123;</span><br><span class="line">            sequence = (sequence + 1) &amp; SEQUENCE_MAX_VALUE;</span><br><span class="line">            if (sequence == 0) &#123;</span><br><span class="line">                currentTimeStamp = getNextTimeMillis();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            lastTimeStamp = currentTimeStamp;</span><br><span class="line">            sequence = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        return (currentTimeStamp - BEGIN_TIMESTAMP) &lt;&lt; (MACHINE_BIT_NUM + SEQUENCE_BIT_NUM)</span><br><span class="line">                | machineId &lt;&lt; SEQUENCE_BIT_NUM</span><br><span class="line">                | sequence;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private long getNextTimeMillis() &#123;</span><br><span class="line">        long currentTimeMillis = 0L;</span><br><span class="line">        do &#123;</span><br><span class="line">            currentTimeMillis = System.currentTimeMillis();</span><br><span class="line">        &#125; while (currentTimeMillis &lt;= lastTimeStamp);</span><br><span class="line">        return currentTimeMillis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        long beginTime = System.currentTimeMillis();</span><br><span class="line">        SnowFlakeService snowFlakeService = new SnowFlakeService();</span><br><span class="line">        int count = 0;</span><br><span class="line">        while ((System.currentTimeMillis() - beginTime) &lt;= 1000) &#123;</span><br><span class="line">            Long snowFlake = snowFlakeService.getSnowFlake(1L);</span><br><span class="line">            System.out.println(snowFlake);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;产生个数&quot; + count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>snowflake</tag>
+        <tag>算法</tag>
+        <tag>高并发</tag>
       </tags>
   </entry>
   <entry>
@@ -912,6 +912,49 @@
 <p>该类型的方法定义中，第一个参数必须是<code>ProceedingJoinPoint</code>类型，我们需要通过ProceedingJoinPoint的proceed()方法继续执行调用链。</p>
 <h4 id="Spring-AOP-相关笔记"><a href="#Spring-AOP-相关笔记" class="headerlink" title="Spring AOP 相关笔记"></a>Spring AOP 相关笔记</h4><p><a href="http://liuqitech.com/2020/01/03/spring-aop-concept/">Spring学习笔记 - Spring AOP 概述</a></p>
 <p><a href="http://liuqitech.com/2020/01/06/spring-aop-use/">Spring学习笔记 - Spring AOP 使用</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring DeferredResult 指南（译）</title>
+    <url>/2021/02/07/spring-deferred-result/</url>
+    <content><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用 <em>DeferredResult</em> 类来执行异步请求处理。</p>
+<p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
+<p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
+<p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
+<p>异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。</p>
+<span id="more"></span>
+
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用<em>DeferredResult</em> 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。</p>
+<h2 id="3-阻塞的-REST-服务"><a href="#3-阻塞的-REST-服务" class="headerlink" title="3. 阻塞的 REST 服务"></a>3. 阻塞的 REST 服务</h2><p>我们以一个标准的阻塞的 REST 服务开始</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/process-blocking&quot;)</span><br><span class="line">public ResponseEntity&lt;?&gt; handleReqSync() &#123;</span><br><span class="line">    // ...</span><br><span class="line">    return ResponseEntity.ok(&quot;ok&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的问题是，请求处理线程在处理完成返回结果前是一直被阻塞的，对于需要进行长时间的计算时这不是一个好的解决方案。</p>
+<h2 id="4-使用-DeferredResult-非阻塞的-REST-服务"><a href="#4-使用-DeferredResult-非阻塞的-REST-服务" class="headerlink" title="4. 使用 DeferredResult 非阻塞的 REST 服务"></a>4. 使用 <em>DeferredResult</em> 非阻塞的 REST 服务</h2><p>为了避免阻塞，我们将使用基于回调的模型，我们将返回一个 <em>DeferredResult</em> 到 Servlet 容器中，来取代实际的返回结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/async-deferredresult&quot;)</span><br><span class="line">public DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; handleReqDefResult() &#123;</span><br><span class="line">    log.info(&quot;Received async-deferredresult request&quot;);</span><br><span class="line">    DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; output = new DeferredResult&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    ForkJoinPool.commonPool().submit(() -&gt; &#123;</span><br><span class="line">        log.info(&quot;Processing in separate thread&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(6000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        output.setResult(ResponseEntity.ok(&quot;ok&quot;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    log.info(&quot;servlet thread freed&quot;);</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请求的处理逻辑在一个单独的线程中完成，并且完成之后调用  <em>DeferredResult</em> 类的 <em>setResult</em> 方法来设置实际结果。</p>
+<p>下面是日志输出结果，看看是否按照我们的预期顺序输出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Received async-deferredresult request</span><br><span class="line">servlet thread freed</span><br><span class="line">Processing in separate thread</span><br></pre></td></tr></table></figure>
+
+<p>在内部，将通知容器线程并将 HTTP 响应返回给给客户端。连接将由容器(servlet 3.0或更高版本)一直保持打开的状态，直到返回相应结果或超时。</p>
+<h2 id="5-DeferredResult-回调"><a href="#5-DeferredResult-回调" class="headerlink" title="5. DeferredResult 回调"></a>5. <em>DeferredResult</em> 回调</h2><p>我们可以使用<em>DeferredResult</em> 注册3种类型的回调：完成、超时与异常。</p>
+<p>我们使用<code>onCompletion</code> 方法来定义一个异步请求完成时执行的代码块</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onCompletion(() -&gt; log.info(&quot;Processing complete&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>为了限制请求的处理时间，我们可以在 <em>DeferredResult</em> 实例化时设置一个超时时间，并且可以使用<code>ontTimeout</code> 方法来注册一个自定义的代码块用来在超时后执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; deferredResult = new DeferredResult&lt;&gt;(500L);</span><br><span class="line"></span><br><span class="line">deferredResult.onTimeout(() -&gt;</span><br><span class="line">        deferredResult.setErrorResult(</span><br><span class="line">                ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT)</span><br><span class="line">                        .body(&quot;Request timeout occurred.&quot;)));</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以使用<code>onError</code> 方法来注册一个发生异常时的回调。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onError((Throwable t) -&gt; &#123;</span><br><span class="line">    deferredResult.setErrorResult(</span><br><span class="line">      ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">        .body(&quot;An error occurred.&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h2><p><a href="https://www.baeldung.com/spring-deferred-result">https://www.baeldung.com/spring-deferred-result</a></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -1039,49 +1082,6 @@
       </categories>
       <tags>
         <tag>路由器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring DeferredResult 指南（译）</title>
-    <url>/2021/02/07/spring-deferred-result/</url>
-    <content><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>在本教程中，我们将研究如何在<code>Spring MVC</code>使用 <em>DeferredResult</em> 类来执行异步请求处理。</p>
-<p><code>Selvet 3.0</code>中已经引入了异步的支持，简单来说，它允许在请求接收器线程外的另一个线程中去处理该HTTP请求。</p>
-<p>从<code>Spring 3.2</code>起，就可以使用<em>DeferredResult</em>，它帮助我们将长时间的计算过程从<code>http-worker</code>线程中分离到一个单独的线程中。</p>
-<p>尽管其他线程将占用一些资源用于计算，但工作线程在此期间不会阻塞，仍然可以继续处理传入的客户端请求。</p>
-<p>异步请求处理模型非常有用，因为它有助于在高负载时很好地扩展应用程序，特别是对于IO密集型操作。</p>
-<span id="more"></span>
-
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p>我们将使用一个 Spring Boot 应用作为例子。然后，我们将展示同步通信和使用<em>DeferredResult</em> 的异步通信，并使用例子比较异步是如何更好地适应高负载和IO密集型。</p>
-<h2 id="3-阻塞的-REST-服务"><a href="#3-阻塞的-REST-服务" class="headerlink" title="3. 阻塞的 REST 服务"></a>3. 阻塞的 REST 服务</h2><p>我们以一个标准的阻塞的 REST 服务开始</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/process-blocking&quot;)</span><br><span class="line">public ResponseEntity&lt;?&gt; handleReqSync() &#123;</span><br><span class="line">    // ...</span><br><span class="line">    return ResponseEntity.ok(&quot;ok&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里的问题是，请求处理线程在处理完成返回结果前是一直被阻塞的，对于需要进行长时间的计算时这不是一个好的解决方案。</p>
-<h2 id="4-使用-DeferredResult-非阻塞的-REST-服务"><a href="#4-使用-DeferredResult-非阻塞的-REST-服务" class="headerlink" title="4. 使用 DeferredResult 非阻塞的 REST 服务"></a>4. 使用 <em>DeferredResult</em> 非阻塞的 REST 服务</h2><p>为了避免阻塞，我们将使用基于回调的模型，我们将返回一个 <em>DeferredResult</em> 到 Servlet 容器中，来取代实际的返回结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/async-deferredresult&quot;)</span><br><span class="line">public DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; handleReqDefResult() &#123;</span><br><span class="line">    log.info(&quot;Received async-deferredresult request&quot;);</span><br><span class="line">    DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; output = new DeferredResult&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    ForkJoinPool.commonPool().submit(() -&gt; &#123;</span><br><span class="line">        log.info(&quot;Processing in separate thread&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(6000);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        output.setResult(ResponseEntity.ok(&quot;ok&quot;));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    log.info(&quot;servlet thread freed&quot;);</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>请求的处理逻辑在一个单独的线程中完成，并且完成之后调用  <em>DeferredResult</em> 类的 <em>setResult</em> 方法来设置实际结果。</p>
-<p>下面是日志输出结果，看看是否按照我们的预期顺序输出</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Received async-deferredresult request</span><br><span class="line">servlet thread freed</span><br><span class="line">Processing in separate thread</span><br></pre></td></tr></table></figure>
-
-<p>在内部，将通知容器线程并将 HTTP 响应返回给给客户端。连接将由容器(servlet 3.0或更高版本)一直保持打开的状态，直到返回相应结果或超时。</p>
-<h2 id="5-DeferredResult-回调"><a href="#5-DeferredResult-回调" class="headerlink" title="5. DeferredResult 回调"></a>5. <em>DeferredResult</em> 回调</h2><p>我们可以使用<em>DeferredResult</em> 注册3种类型的回调：完成、超时与异常。</p>
-<p>我们使用<code>onCompletion</code> 方法来定义一个异步请求完成时执行的代码块</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onCompletion(() -&gt; log.info(&quot;Processing complete&quot;));</span><br></pre></td></tr></table></figure>
-
-<p>为了限制请求的处理时间，我们可以在 <em>DeferredResult</em> 实例化时设置一个超时时间，并且可以使用<code>ontTimeout</code> 方法来注册一个自定义的代码块用来在超时后执行。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DeferredResult&lt;ResponseEntity&lt;?&gt;&gt; deferredResult = new DeferredResult&lt;&gt;(500L);</span><br><span class="line"></span><br><span class="line">deferredResult.onTimeout(() -&gt;</span><br><span class="line">        deferredResult.setErrorResult(</span><br><span class="line">                ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT)</span><br><span class="line">                        .body(&quot;Request timeout occurred.&quot;)));</span><br></pre></td></tr></table></figure>
-
-<p>我们还可以使用<code>onError</code> 方法来注册一个发生异常时的回调。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deferredResult.onError((Throwable t) -&gt; &#123;</span><br><span class="line">    deferredResult.setErrorResult(</span><br><span class="line">      ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)</span><br><span class="line">        .body(&quot;An error occurred.&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="原文地址"><a href="#原文地址" class="headerlink" title="原文地址"></a>原文地址</h2><p><a href="https://www.baeldung.com/spring-deferred-result">https://www.baeldung.com/spring-deferred-result</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Spring</tag>
       </tags>
   </entry>
 </search>
