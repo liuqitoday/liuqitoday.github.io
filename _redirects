@@ -1,0 +1,16 @@
+/atom.xml https://blog.100067.xyz/rss.xml 301
+/search.xml https://blog.100067.xyz/search/ 301
+/archives https://blog.100067.xyz/archives/ 301
+/archives/ https://blog.100067.xyz/archives/ 301
+/archives/* https://blog.100067.xyz/archives/ 301
+/tags https://blog.100067.xyz/tags/ 301
+/tags/ https://blog.100067.xyz/tags/ 301
+/tags/* https://blog.100067.xyz/tags/ 301
+/categories https://blog.100067.xyz/tags/ 301
+/categories/ https://blog.100067.xyz/tags/ 301
+/categories/* https://blog.100067.xyz/tags/ 301
+/page/* https://blog.100067.xyz/ 301
+/resources https://100067.xyz/ 301
+/resources/ https://100067.xyz/ 301
+/:year/:month/:day/:slug/ https://blog.100067.xyz/posts/:slug/ 301
+/:year/:month/:day/:slug https://blog.100067.xyz/posts/:slug/ 301
