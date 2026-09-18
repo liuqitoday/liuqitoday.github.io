@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>页面已迁移</title>
+  <script>
+    (function () {
+      var path = location.pathname.replace(/\/+$/, "");
+      var m = path.match(/\/(\d{4})\/(\d{2})\/(\d{2})\/([^\/]+)/);
+      var dest = "https://blog.100067.xyz/";
+      if (m) dest = "https://blog.100067.xyz/posts/" + m[4] + "/";
+      else if (/\/archives/.test(path)) dest = "https://blog.100067.xyz/archives/";
+      else if (/\/tags|\/categories/.test(path)) dest = "https://blog.100067.xyz/tags/";
+      else if (/atom\.xml$/.test(path) || /rss/.test(path)) dest = "https://blog.100067.xyz/rss.xml";
+      else if (/\/search/.test(path)) dest = "https://blog.100067.xyz/search/";
+      location.replace(dest);
+    })();
+  </script>
+</head>
+<body>
+  <p>页面已迁移到 <a href="https://blog.100067.xyz/">blog.100067.xyz</a></p>
+</body>
+</html>

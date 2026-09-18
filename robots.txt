@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.100067.xyz/sitemap-index.xml
